@@ -1,0 +1,32 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+
+}
+body
+{
+    background-color: #fff;
+}
+.welcome-nav
+{
+   background-color: #fff;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    margin-top: 12px;
+    border-radius: 0px 0px 40px 40px ;
+}
+.welcome-nav a
+{
+    color: #723BE4;
+    font-weight: 600;
+    font-size: 14px;
+}
+.welcome-nav .Logo-brand
+{
+    width: 70px;
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+}
+
