@@ -5,12 +5,13 @@
 body
 {
     background-color: #fff;
+    height: 2000px;
 }
 .welcome-nav
 {
    background-color: #fff;
     width: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
     z-index: 100;
     margin-top: 12px;
@@ -19,6 +20,8 @@ body
 .welcome-nav a
 {
     color: #723BE4;
+    text-decoration: none;
+    font-style: italic;
     font-weight: 600;
     font-size: 14px;
 }

@@ -21,7 +21,18 @@
 <body>
 @include('layouts.navigation')
 <div id="app">
-    <wave-background></wave-background>
+    <!-- Header-->
+        <header style="position: relative; top: -50px; height: 94vh" >
+            <wave-background></wave-background>
+        </header>
+    <!-- About Wise-->
+        <section id="about" class="About mt-5">
+            <about-wise></about-wise>
+
+        </section>
+
+
+
 </div>
 <script src="{{asset('/js/app.js')}}"></script>
 </body>
