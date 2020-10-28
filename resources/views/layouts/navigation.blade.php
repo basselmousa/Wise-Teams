@@ -10,8 +10,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-                <li><a href="#about">About</a></li>
-
+                <li class="ml-4"><a href="#about">About</a></li>
+                <li class="ml-4"><a href="#services">Services</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

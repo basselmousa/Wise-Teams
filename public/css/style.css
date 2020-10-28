@@ -5,7 +5,7 @@
 body
 {
     background-color: #fff;
-    height: 2000px;
+    height: 3000px;
 }
 .welcome-nav
 {
@@ -23,7 +23,13 @@ body
     text-decoration: none;
     font-style: italic;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
+    transition: 500ms;
+}
+.welcome-nav a:hover
+{
+    transition: 500ms;
+    text-shadow: 2px -1px 11px #723BE4;
 }
 .welcome-nav .Logo-brand
 {

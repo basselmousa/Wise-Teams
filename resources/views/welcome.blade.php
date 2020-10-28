@@ -28,8 +28,12 @@
     <!-- About Wise-->
         <section id="about" class="About mt-5">
             <about-wise></about-wise>
-
         </section>
+    <!-- Services-->
+        <section id="services" class="Services">
+            <services></services>
+        </section>
+
 
 
 

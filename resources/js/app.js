@@ -6,6 +6,7 @@
 import WaveBackground from './components/layout/Wave-Background'
 import AnimatedLine from "./components/layout/AnimatedLine";
 import AboutWise from './components/layout/About-Wise';
+import Services from "./components/layout/Services";
 require('./bootstrap');
 
 window.Vue = require('vue');
@@ -34,7 +35,8 @@ const app = new Vue({
     components: {
         WaveBackground,
         AnimatedLine,
-        AboutWise
+        AboutWise,
+        Services
 
     }
 });
