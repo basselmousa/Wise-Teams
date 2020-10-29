@@ -33,9 +33,43 @@
         <section id="services" class="Services">
             <services></services>
         </section>
+    <!-- Motivation-->
+    <section id="motivation">
+        <Motivation></Motivation>
+    </section>
+    <!-- Footer-->
+    <section style="  transform: rotateX(180deg); margin-top: 200px">
+        <footer-com>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1>Contact Us</h1>
+                        <form method="psot" action="">
+                            @csrf
+                            <div class="form-group w-75">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-group w-75">
+                                <label for="exampleFormControlTextarea1">Message</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <div class="mt-4">
+                                <button class="btn">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-5 text-center my-auto Brand" style="position: relative;">
+                            <h1>Wise</h1>
+                            <h1>Teams</h1>
+                    </div>
 
+                </div>
 
+            </div>
 
+        </footer-com>
+    </section>
 
 </div>
 <script src="{{asset('/js/app.js')}}"></script>

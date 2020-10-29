@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <h1 class="text-center"><i class="fas fa-users"></i></h1>
-                    <h2 class="text-center mb-4">Realme Comunication</h2>
+                    <h2 class="text-center mb-4">Realtime Comunication</h2>
                     <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aperiam dolore dolorum, enim
                         ut velit!</p>
                 </div>
