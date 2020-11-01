@@ -20,19 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c099f9e-8be4-484f-9466-46a5cf8928e6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/hands.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/mot.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/layout/Footer-com.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/layout/Motivation.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/logos/Main-Logo-removebg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/SideNavigation.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/wave.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/layout/Services.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/layout/Services.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/layout/Wave-Background.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/layout/Wave-Background.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navigation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -180,7 +176,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images/logos" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -191,11 +187,12 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\MY LAPTOP\Desktop\WiseTeams\public\images" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\MY LAPTOP\Desktop\WiseTeams\public\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\MY LAPTOP\Desktop\WiseTeams\public\images\logos" />
+      <recent name="C:\Users\MY LAPTOP\Desktop\WiseTeams\public\images" />
     </key>
   </component>
   <component name="RunManager">
@@ -213,7 +210,9 @@
       <option name="presentableId" value="Default" />
       <updated>1603710830499</updated>
       <workItem from="1603710831551" duration="7409000" />
-      <workItem from="1603798408760" duration="37005000" />
+      <workItem from="1603798408760" duration="38944000" />
+      <workItem from="1604230882427" duration="75000" />
+      <workItem from="1604231157998" duration="12588000" />
     </task>
     <servers />
   </component>
@@ -230,6 +229,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -259,6 +259,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1603710913122" />
+    <state x="425" y="197" key="run.anything.popup" timestamp="1604235494478">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1604235494478" />
     <state x="431" y="185" width="672" height="678" key="search.everywhere.popup" timestamp="1603801620175">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

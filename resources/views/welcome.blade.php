@@ -59,9 +59,8 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-md-5 text-center my-auto Brand" style="position: relative;">
-                            <h1>Wise</h1>
-                            <h1>Teams</h1>
+                    <div class="col-md-5 text-center my-auto " style="position: relative;">
+                        <div class="Brand mx-auto" style="height: 200px;width: 200px"></div>
                     </div>
 
                 </div>

@@ -38,3 +38,107 @@ body
     background-position: center;
 }
 
+/*Home Page */
+
+.Side-Menu
+{
+    background-color: #723BE4 ;
+    width: 150px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    -webkit-box-shadow: 6px 1px 32px 4px #9B72EC;
+    box-shadow: -10px 86px 31px 12px #9B72EC;
+}
+.Brand
+{
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background-image: url("/images/logos/Main-Logo-removebg.jpg");
+    background-size: cover;
+}
+.Main-body
+{
+    position: fixed;
+    top: 0;
+    left: 150px;
+    width:calc(100% - 150px);
+
+}
+.Side-Ul
+{
+    list-style: none;
+    padding: 0px;
+    margin-top: 70px;
+
+
+}
+.Side-Ul li
+{
+    margin-bottom: 20px;
+    padding: 10px 0px;
+    transition: 500ms;
+}
+.Side-Ul li:hover
+{
+    background-color: #9B72EC;
+    transition: 500ms;
+}
+.Side-Ul li a
+{
+    color: white;
+    padding: 0px;
+    margin: 0px;
+}
+.Side-Ul li a i
+{
+   font-size: 30px;
+}
+.Side-Ul li a p
+{
+    padding: 0px;
+    margin: 0px;
+}
+.Side-Ul li a:hover
+{
+    text-decoration: none;
+}
+.Main-body .Upper-Nav
+{
+ color: white;
+    background: rgb(55,98,225);
+    background: linear-gradient(90deg, rgba(55,98,225,1) 0%, rgba(119,57,221,1) 100%);
+}
+
+.Main-body .row
+{
+    color: #723BE4 ;
+    padding-top: 20px;
+    -webkit-box-shadow: 0px -3px 32px -9px #723BE4;
+    box-shadow: 0px -3px 32px -12px #723BE4;
+}
+.Main-body .row h1
+{
+    margin-left: 30px;
+}
+.Side-Menu p a
+{
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+}
+.home-page h1
+{
+    font-size: 80px;
+    color: #723BE4 ;
+    font-style: italic;
+    margin-top: 150px;
+}
+.active
+{
+    background-color: #9B72EC;
+}
+

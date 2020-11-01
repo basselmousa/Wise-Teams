@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -25,10 +25,16 @@
 </head>
 <body>
     <div id="app">
-        @include('layouts.navigation')
-        <main class="py-4">
-            @yield('content');
-        </main>
+        @include('layouts.SideNavigation')
+        <div class="Main-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <h1>@yield('page-title')</h1>
+                </div>
+                @yield('content')
+            </div>
+        </div>
+
     </div>
 </body>
 </html>
