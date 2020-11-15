@@ -1,9 +1,8 @@
 @extends('layouts.app')
-@section('title')
-    Register
-@stop
+@section('title','Register')
+
+@include('layouts.navigation')
 @section('content')
-    @include('layouts.navigation')
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">

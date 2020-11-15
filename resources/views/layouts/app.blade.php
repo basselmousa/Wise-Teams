@@ -7,6 +7,8 @@
     <link rel="icon" href="{{asset('/images/logos/Main-Logo.png')}}">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Tap Icon-->
+    <link rel="icon" href="{{asset('/images/logos/Main-Logo.png')}}">
 
     <title>@yield('title')</title>
 
@@ -25,11 +27,10 @@
 </head>
 <body>
     <div id="app">
-        @include('layouts.SideNavigation')
         <div class="Main-body">
             <div class="container-fluid">
-                <div class="row">
-                    <h1>@yield('page-title')</h1>
+                <div class="row shadow-row">
+                    <h1>@yield('nav-title')</h1>
                 </div>
                 @yield('content')
             </div>

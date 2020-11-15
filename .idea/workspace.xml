@@ -20,16 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c099f9e-8be4-484f-9466-46a5cf8928e6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/logos/Main-Logo-removebg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/SideNavigation.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/male.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/profile.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/SideNavigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/SideNavigation.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,15 +184,18 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\MY LAPTOP\Desktop\WiseTeams\public\css" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\MY LAPTOP\Desktop\WiseTeams\public\images\logos" />
       <recent name="C:\Users\MY LAPTOP\Desktop\WiseTeams\public\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\MY LAPTOP\Desktop\WiseTeams\public\images" />
+      <recent name="C:\Users\MY LAPTOP\Desktop\WiseTeams\resources\views\pages" />
+      <recent name="C:\Users\MY LAPTOP\Desktop\WiseTeams\public\css" />
     </key>
   </component>
   <component name="RunManager">
@@ -212,7 +215,16 @@
       <workItem from="1603710831551" duration="7409000" />
       <workItem from="1603798408760" duration="38944000" />
       <workItem from="1604230882427" duration="75000" />
-      <workItem from="1604231157998" duration="12588000" />
+      <workItem from="1604231157998" duration="15205000" />
+      <workItem from="1604323807228" duration="142000" />
+      <workItem from="1604330812605" duration="1716000" />
+      <workItem from="1604575487558" duration="3724000" />
+      <workItem from="1604681809138" duration="1431000" />
+      <workItem from="1604854560772" duration="662000" />
+      <workItem from="1605109959356" duration="651000" />
+      <workItem from="1605301868440" duration="659000" />
+      <workItem from="1605364241022" duration="141000" />
+      <workItem from="1605443971424" duration="8703000" />
     </task>
     <servers />
   </component>
@@ -243,6 +255,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1603717823420" />
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1605364381161">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1605364381161" />
     <state width="1493" height="223" key="GridCell.Tab.0.bottom" timestamp="1603710913122">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -259,10 +275,14 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1603710913122" />
-    <state x="425" y="197" key="run.anything.popup" timestamp="1604235494478">
+    <state x="277" y="77" key="SettingsEditor" timestamp="1604323949416">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1604235494478" />
+    <state x="277" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1604323949416" />
+    <state x="425" y="197" key="run.anything.popup" timestamp="1605448185998">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1605448185998" />
     <state x="431" y="185" width="672" height="678" key="search.everywhere.popup" timestamp="1603801620175">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

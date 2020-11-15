@@ -50,7 +50,7 @@ body
     left: 0;
     color: white;
     -webkit-box-shadow: 6px 1px 32px 4px #9B72EC;
-    box-shadow: -10px 86px 31px 12px #9B72EC;
+    box-shadow: -10px 86px 20px 12px #9B72EC;
 }
 .Brand
 {
@@ -108,12 +108,12 @@ body
 }
 .Main-body .Upper-Nav
 {
- color: white;
+    color: white;
     background: rgb(55,98,225);
     background: linear-gradient(90deg, rgba(55,98,225,1) 0%, rgba(119,57,221,1) 100%);
 }
 
-.Main-body .row
+.Main-body .shadow-row
 {
     color: #723BE4 ;
     padding-top: 20px;
@@ -128,17 +128,52 @@ body
 {
     color: white;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 14px;
 }
 .home-page h1
 {
     font-size: 80px;
     color: #723BE4 ;
     font-style: italic;
-    margin-top: 150px;
+    margin-top: 200px;
 }
 .active
 {
     background-color: #9B72EC;
+}
+
+/*Profile*/
+.profile
+{
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto
+}
+.profile-data ul
+{
+    list-style: none;
+    font-size: 19px;
+
+}
+.Avatar
+{
+    width: 180px;
+    height: 180px;
+    background-image: url("/images/male.png");
+    background-size: cover;
+    background-position: center;
+}
+.inf li
+{
+    font-weight: 700;
+}
+.Edit-Btn
+{
+    color: white;
+    background-color: #723BE4;
+}
+.Edit-Btn:hover
+{
+    color: white;
 }
 

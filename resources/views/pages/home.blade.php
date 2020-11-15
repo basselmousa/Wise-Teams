@@ -1,11 +1,7 @@
 @extends('layouts.app')
-@section('title')
-    Home
-@endsection
-
-@section('page-title')
-    Home
-@stop
+@section('title','home')
+@section('nav-title','home')
+@include('layouts.SideNavigation')
 @section('content')
        <div class="text-center home-page w-50 mx-auto" >
            <h1>Welcome Back </h1>
