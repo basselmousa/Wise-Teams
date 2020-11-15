@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="w-75 mx-auto d-flex justify-content-end">
-            <button class="btn Edit-Btn">Edit Profile</button>
+            <button class="btn Edit-Btn"><a href="/profile/Edit">Edit Profile</a></button>
         </div>
     </section>
 @stop

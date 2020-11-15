@@ -23,7 +23,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::prefix('profile')->group(function () {
     Route::get('/',function () {
-       return view('pages/profile');
+       return view('pages/Profile/profile');
+    });
+    Route::get('/Edit',function () {
+        return view('pages/Profile/Edit-Profile');
     });
 });
 
