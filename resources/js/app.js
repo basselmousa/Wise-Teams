@@ -44,3 +44,4 @@ const app = new Vue({
 
     }
 });
+window.particlesJS = require('particles.js');

@@ -36,6 +36,10 @@
             </div>
         </div>
 
+
     </div>
+    <script src="{{asset('/js/app.js')}}"></script>
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="{{asset('/js/particles.js')}}"></script>
 </body>
 </html>

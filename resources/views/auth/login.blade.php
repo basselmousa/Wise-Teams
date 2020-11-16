@@ -4,9 +4,9 @@
 @stop
 @include('layouts.navigation')
 @section('content')
-          <div class="container mt-5">
-              <div class="row justify-content-center">
-                  <div class="col-md-8">
+          <div class="container  Login">
+              <div class="row ">
+                  <div class="col-md-5">
                       <div class="card">
                           <div class="card-header">{{ __('Login') }}</div>
 
@@ -78,7 +78,15 @@
                           </div>
                       </div>
                   </div>
+                  <div class="col-md-7">
+                        <div class="Login-Img">
+
+                        </div>
+                  </div>
               </div>
+          </div>
+          <div id="particles-js">
+
           </div>
 @stop
 
