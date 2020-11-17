@@ -3,6 +3,15 @@
  Login
 @stop
 @include('layouts.navigation')
+@section('style')
+    .welcome-nav{
+        -webkit-box-shadow: 0px -3px 32px -9px #723BE4 !important ;
+        box-shadow: 0px -3px 32px -12px #723BE4 !important;
+        margin-top: 0px !important;
+
+    }
+
+@stop
 @section('content')
           <div class="container  Login">
               <div class="row ">
@@ -24,6 +33,19 @@
                                                  value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                           @error('email')
+                                          <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                          @enderror
+                                      </div>
+                                  </div>
+                                  <div class="form-group row">
+                                      <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+
+                                      <div class="col-md-6">
+                                          <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                          @error('name')
                                           <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -85,9 +107,9 @@
                   </div>
               </div>
           </div>
-          <div id="particles-js">
+{{--          <div id="particles-js">--}}
 
-          </div>
+{{--          </div>--}}
 @stop
 
 
