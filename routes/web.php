@@ -21,12 +21,20 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+//Profile
 Route::prefix('profile')->group(function () {
     Route::get('/',function () {
        return view('pages/Profile/profile');
     });
     Route::get('/Edit',function () {
         return view('pages/Profile/Edit-Profile');
+    });
+});
+//Teams
+Route::prefix('teams')->group( function () {
+    Route::get('/',function () {
+       return view('Pages/Teams/teams');
     });
 });
 

@@ -35,7 +35,7 @@
         <div class="Main-body">
             <div class="container-fluid">
                 <div class="row shadow-row">
-                    <h1>@yield('nav-title')</h1>
+                    <h1 class="Page-Title">@yield('nav-title')</h1>
                 </div>
                 @yield('content')
             </div>

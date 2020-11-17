@@ -4,6 +4,11 @@
 @stop
 @include('layouts.navigation')
 @section('style')
+
+    .Main-body
+    {
+    left:0px;
+    }
     .welcome-nav{
         -webkit-box-shadow: 0px -3px 32px -9px #723BE4 !important ;
         box-shadow: 0px -3px 32px -12px #723BE4 !important;
