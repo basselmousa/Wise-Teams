@@ -1,13 +1,12 @@
 @extends('layouts.app')
-@section('title')
- Login
-@stop
+@section('title','Login')
 @include('layouts.navigation')
 @section('style')
 
     .Main-body
     {
     left:0px;
+    width:100%;
     }
     .welcome-nav{
         -webkit-box-shadow: 0px -3px 32px -9px #723BE4 !important ;
@@ -19,8 +18,8 @@
 @stop
 @section('content')
           <div class="container  Login">
-              <div class="row ">
-                  <div class="col-md-5">
+              <div class="row Login-row ">
+                  <div class="col-lg-5">
                       <div class="card">
                           <div class="card-header">{{ __('Login') }}</div>
 
@@ -105,7 +104,7 @@
                           </div>
                       </div>
                   </div>
-                  <div class="col-md-7">
+                  <div class="col-lg-7">
                         <div class="Login-Img">
 
                         </div>

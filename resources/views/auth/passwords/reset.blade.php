@@ -1,7 +1,23 @@
 @extends('layouts.app')
+@section('title','Verify')
+@include('layouts.navigation')
+@section('style')
 
+    .Main-body
+    {
+    left:0px;
+    }
+            .welcome-nav{
+            -webkit-box-shadow: 0px -3px 32px -9px #723BE4 !important ;
+            box-shadow: 0px -3px 32px -12px #723BE4 !important;
+            margin-top: 0px !important;
+
+    }
+
+@stop
 @section('content')
-<div class="container">
+<div class="container ">
+    ol
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

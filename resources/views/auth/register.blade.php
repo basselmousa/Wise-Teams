@@ -4,6 +4,7 @@
     .Main-body
     {
     left:0px;
+    width:100%;
     }
     .welcome-nav{
     -webkit-box-shadow: 0px -3px 32px -9px #723BE4 !important ;
@@ -15,8 +16,8 @@
 @include('layouts.navigation')
 @section('content')
     <div class="container mt-5 Login">
-        <div class="row">
-            <div class="col-md-5">
+        <div class="row Login-row">
+            <div class=" col-lg-5">
                 <div class="card">
                     <div class="card-header">{{ __('Register') }}</div>
 
@@ -147,7 +148,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-7 mt-5">
+            <div class="col-lg-7 mt-5 ">
                 <div class="Register-Img">
 
                 </div>
