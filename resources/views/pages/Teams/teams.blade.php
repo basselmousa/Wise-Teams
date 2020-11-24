@@ -4,32 +4,128 @@
 @include('layouts.SideNavigation')
 @section('content')
     <div class="row mt-5">
-        <div class="col-6 col-md-3 mb-4 ">
-            <div class="Team-box text-center d-flex align-content-center">
-                   <h2>تحليل وتصميم النظم شعبة 2</h2>
-            </div>
-        </div>
         <div class=" col-6 col-md-3 mb-4 ">
-            <div class="Team-box text-center d-flex align-content-center">
-                <h2>شبكات الحاسوب اللاسلكية شعبة 3</h2>
+            <div class="Team-box ">
+                <div class="w-100">
+                    <div class="row justify-content-end h-100 justify-content-between w-100">
+                        <div class="col-12 text-right p-0">
+                            <div class="dropdown">
+                                <button class="dropdown-toggle Option" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="z-index: 10000">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center">
+                            <h2><a href="/teams/team">القرآن الكريم وتلاوته شعبة 12</a></h2>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
         <div class=" col-6 col-md-3 mb-4 ">
-            <div class="Team-box text-center d-flex align-content-center">
-                <h2>برمجة الأجهزة المتنقلة واللاسلكية شعبة 1</h2>
+            <div class="Team-box ">
+                <div class="w-100">
+                    <div class="row justify-content-end h-100 justify-content-between w-100">
+                        <div class="col-12 text-right p-0">
+                            <div class="dropdown">
+                                <button class="dropdown-toggle Option" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="z-index: 10000">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center">
+                            <h2><a href="">القرآن الكريم وتلاوته شعبة 12</a></h2>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
         <div class=" col-6 col-md-3 mb-4 ">
-            <div class="Team-box text-center d-flex align-content-center">
-                <h2>القرآن الكريم وتلاوته شعبة 12</h2>
+            <div class="Team-box ">
+                <div class="w-100">
+                    <div class="row justify-content-end h-100 justify-content-between w-100">
+                        <div class="col-12 text-right p-0">
+                            <div class="dropdown">
+                                <button class="dropdown-toggle Option" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="z-index: 10000">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center">
+                            <h2><a href="">القرآن الكريم وتلاوته شعبة 12</a></h2>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
         <div class=" col-6 col-md-3 mb-4 ">
-            <div class="Team-box text-center d-flex align-content-center">
-                <h2>الإحسان شعبة 14</h2>
+            <div class="Team-box ">
+                <div class="w-100">
+                    <div class="row justify-content-end h-100 justify-content-between w-100">
+                        <div class="col-12 text-right p-0">
+                            <div class="dropdown">
+                                <button class="dropdown-toggle Option" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="z-index: 10000">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center">
+                            <h2><a href="">القرآن الكريم وتلاوته شعبة 12</a></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class=" col-6 col-md-3 mb-4 ">
+            <div class="Team-box ">
+                <div class="w-100">
+                    <div class="row justify-content-end h-100 justify-content-between w-100">
+                        <div class="col-12 text-right p-0">
+                            <div class="dropdown">
+                                <button class="dropdown-toggle Option" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="z-index: 10000">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center">
+                            <h2><a href="">القرآن الكريم وتلاوته شعبة 12</a></h2>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>

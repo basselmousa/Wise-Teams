@@ -9,6 +9,7 @@ import AboutWise from './components/layout/About-Wise';
 import Services from "./components/layout/Services";
 import Motivation from "./components/layout/Motivation";
 import FooterCom from "./components/layout/Footer-com";
+import TeamPage from "./components/pages/TeamPage";
 require('./bootstrap');
 
 window.Vue = require('vue');
@@ -40,7 +41,8 @@ const app = new Vue({
         AboutWise,
         Services,
         Motivation,
-        FooterCom
+        FooterCom,
+        TeamPage,
 
     }
 });
