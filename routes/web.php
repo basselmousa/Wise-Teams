@@ -43,6 +43,12 @@ Route::prefix('teams')->group( function () {
     Route::get('/team',function () {
        return view('pages/Teams/team');
     });
+    Route::get('/new',function () {
+       return view('pages/Teams/new');
+    });
+    Route::get('/edit',function () {
+        return view('pages/Teams/edit');
+    });
 });
 
 

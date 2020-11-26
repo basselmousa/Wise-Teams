@@ -2,6 +2,9 @@
 @section('title','Teams');
 @section('nav-title','Teams')
 @include('layouts.SideNavigation')
+@section('list-item')
+    <li><a href="/teams/new"> <i class="fas fa-plus"></i> Create new Teams</a></li>
+@stop
 @section('content')
     <div class="row mt-5">
         <div class=" col-6 col-md-3 mb-4 ">

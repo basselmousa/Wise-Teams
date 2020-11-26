@@ -31,8 +31,15 @@
     <div id="app">
         <div class="Main-body">
             <div class="container-fluid">
-                <div class="row shadow-row">
-                    <h1 class="Page-Title">@yield('nav-title')</h1>
+                <div class="row shadow-row justify-content-between">
+                    <div class="col-6">
+                        <h1 class="Page-Title">@yield('nav-title')</h1>
+                    </div>
+                    <div class="col-6 text-right">
+                        <ul class="d-flex justify-content-end mr-5 shadow-row-ul">
+                            @yield('list-item')
+                        </ul>
+                    </div>
                 </div>
                 @yield('content')
             </div>
