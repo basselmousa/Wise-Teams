@@ -55,6 +55,16 @@ Route::prefix('teams')->group( function () {
     Route::get('/info',function () {
         return view('pages/Teams/info');
     });
+    Route::get('/assignments',function () {
+        return view('Pages/Assignments/assignments');
+    });
+
+});
+Route::prefix('assignments')->group( function () {
+    Route::get('/',function (){
+       return view('Pages/Assignments/assignments');
+    });
+
 });
 
 

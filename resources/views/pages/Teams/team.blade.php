@@ -10,6 +10,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="/teams/info">Info</a>
             <a class="dropdown-item" href="/teams/add">Add New Member</a>
+            <a class="dropdown-item" href="/teams/assignments">Assignments</a>
             <a class="dropdown-item" href="/teams/edit">Edit</a>
         </div>
     </li>

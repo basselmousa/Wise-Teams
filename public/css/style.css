@@ -525,3 +525,14 @@ a:hover {
     color: #723BE4;
     font-size: 70px;
 }
+/*Assignment*/
+.table-striped tbody tr:nth-of-type(odd)
+{
+    background-color: #E1D5F9;
+
+}
+.dropdown-item:hover, .dropdown-item:focus {
+    color: #16181b;
+    text-decoration: none;
+    background-color: #EBE3FB;
+}
