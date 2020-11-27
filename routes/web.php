@@ -52,6 +52,9 @@ Route::prefix('teams')->group( function () {
     Route::get('/add',function () {
         return view('pages/Teams/add');
     });
+    Route::get('/info',function () {
+        return view('pages/Teams/info');
+    });
 });
 
 

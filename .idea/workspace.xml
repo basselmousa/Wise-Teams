@@ -20,11 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c099f9e-8be4-484f-9466-46a5cf8928e6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/logos/favicon-32x32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/Teams/add.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/Teams/info.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/Teams/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/Teams/add.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/Teams/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/Teams/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/Teams/team.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/Teams/team.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -238,7 +238,7 @@
       <workItem from="1606334920003" duration="797000" />
       <workItem from="1606410523612" duration="469000" />
       <workItem from="1606411181286" duration="10589000" />
-      <workItem from="1606500308454" duration="4654000" />
+      <workItem from="1606500308454" duration="8273000" />
     </task>
     <servers />
   </component>
@@ -261,10 +261,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="536" y="234" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603800026006">
+    <state x="536" y="234" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606505095193">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="536" y="234" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1603800026006" />
+    <state x="536" y="234" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1606505095193" />
     <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603717823420">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

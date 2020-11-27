@@ -8,9 +8,9 @@
             Team Name <i class="fas fa-chevron-down ml-3"></i>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/teams/edit">Edit</a>
+            <a class="dropdown-item" href="/teams/info">Info</a>
             <a class="dropdown-item" href="/teams/add">Add New Member</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="/teams/edit">Edit</a>
         </div>
     </li>
 @stop

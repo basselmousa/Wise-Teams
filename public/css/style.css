@@ -499,3 +499,29 @@ a:hover {
     background-position: center;
 
 }
+/*Team Info*/
+.Team-Info .card ul
+{
+    list-style: none;
+}
+.Team-Info .card-header {
+    background-color:#723BE4 ;
+    color: white;
+}
+.Team-Info .card ul li
+{
+    font-weight: 600;
+    color: #723BE4;
+    font-size: 18px;
+}
+.Team-Info .card ul li span
+{
+    font-weight: 100;
+    color: #5a6268;
+    font-size: 14px;
+}
+.Team-Info i
+{
+    color: #723BE4;
+    font-size: 70px;
+}
