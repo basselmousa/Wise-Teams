@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Tap Icon-->
-    <link rel="icon" href="{{asset('/images/logos/Main-Logo.png')}}">
+    <link rel="icon" href="{{ URL::asset('/images/logos/favicon-32x32.png') }}" type="image/x-icon"/>
 
     <title>@yield('title')</title>
 
