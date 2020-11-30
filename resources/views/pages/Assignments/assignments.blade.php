@@ -2,6 +2,9 @@
 @section('title','Teams');
 @section('nav-title','Assignments')
 @include('layouts.SideNavigation')
+@section('list-item')
+    <li><a href="/assignments/new"> <i class="fas fa-plus"></i> Create new Assignment</a></li>
+@stop
 @section('content')
     <section class="Assignments mt-5">
             <div class="row justify-content-center">
