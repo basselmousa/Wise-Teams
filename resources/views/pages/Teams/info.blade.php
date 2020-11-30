@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title','Teams');
-@section('nav-title','Add New Member')
+@section('nav-title','Team Name')
 @include('layouts.SideNavigation')
 
 @section('list-item')

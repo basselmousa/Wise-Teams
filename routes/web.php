@@ -67,6 +67,9 @@ Route::prefix('assignments')->group( function () {
     Route::get('/new',function (){
         return view('Pages/Assignments/new');
     });
+    Route::get('/Member-assignments',function (){
+        return view('Pages/Assignments/assignment_for_member');
+    });
 });
 
 
