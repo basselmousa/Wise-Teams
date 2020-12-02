@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,31 +21,39 @@ Route::get('/', function () {
 
 
 //Auth
-Auth::routes();
 Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
+    ->name('home');
 
+/**
+ * Start Profile Routes
+ *
+ */
 
-//Profile
-Route::prefix('profile')->group(function () {
-    Route::get('/',function () {
-       return view('pages/Profile/profile');
-    });
-    Route::get('/Edit',function () {
+Route::group(['prefix' => 'profile', 'as' => 'profile.'], function (){
+    Route::get('/', [\App\Http\Controllers\HomeController::class, 'profile']);
+
+    Route::get('/edit',function () {
         return view('pages/Profile/Edit-Profile');
     });
 });
-//Teams
-Route::prefix('teams')->group( function () {
+
+/** End Profile Routes */
+
+/**
+ * Start Teams Routes
+ */
+
+Route::group(['prefix' => 'teams', 'as' => 'teams.' ], function (){
     Route::get('/',function () {
-       return view('Pages/Teams/teams');
+        return view('Pages/Teams/teams');
     });
     Route::get('/team',function () {
-       return view('pages/Teams/team');
+        return view('pages/Teams/team');
     });
     Route::get('/new',function () {
-       return view('pages/Teams/new');
+        return view('pages/Teams/new');
     });
     Route::get('/edit',function () {
         return view('pages/Teams/edit');
@@ -58,11 +67,15 @@ Route::prefix('teams')->group( function () {
     Route::get('/assignments',function () {
         return view('Pages/Assignments/assignments');
     });
-
 });
-Route::prefix('assignments')->group( function () {
+
+/** End Teams Routes */
+
+/** Start Assignment Routes */
+
+Route::group(['prefix' => 'assignments' , 'as' => 'assignments.' ], function (){
     Route::get('/',function (){
-       return view('Pages/Assignments/assignments');
+        return view('Pages/Assignments/assignments');
     });
     Route::get('/new',function (){
         return view('Pages/Assignments/new');
@@ -72,4 +85,4 @@ Route::prefix('assignments')->group( function () {
     });
 });
 
-
+/** End Assignment Routes */
