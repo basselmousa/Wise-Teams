@@ -106,6 +106,7 @@ name: "Wave-Background"
     position: absolute;
     top: 200px;
     width:100%;
+    margin-top: 70px;
 }
 .Cover-Data h1 {
     font-size: 90px;

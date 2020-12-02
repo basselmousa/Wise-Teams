@@ -20,8 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c099f9e-8be4-484f-9466-46a5cf8928e6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/Assignments/assignment_for_member.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/SideNavigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/SideNavigation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/Assignments/assignments.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/Assignments/assignments.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/Teams/info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/Teams/info.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,6 +159,9 @@
       <path value="$PROJECT_DIR$/vendor/graham-campbell/result-type" />
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/vendor/fruitcake/laravel-cors" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
+      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
     </include_path>
   </component>
   <component name="ProjectId" id="1jPfpYbdQ8IQ4rERQ4ho0hxnijc" />
@@ -168,7 +176,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../wamp64/www/Project" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -176,14 +184,20 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\MY LAPTOP\Desktop\WiseTeams\public\images" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\MY LAPTOP\Desktop\WiseTeams\public\images" />
+      <recent name="C:\Users\MY LAPTOP\Desktop\WiseTeams\public\images\logos" />
+      <recent name="C:\Users\MY LAPTOP\Desktop\WiseTeams\resources\views\pages\Profile" />
+      <recent name="C:\Users\MY LAPTOP\Desktop\WiseTeams\resources\views\pages" />
       <recent name="C:\Users\MY LAPTOP\Desktop\WiseTeams\public\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\MY LAPTOP\Desktop\WiseTeams\public\images\logos" />
+      <recent name="C:\Users\MY LAPTOP\Desktop\WiseTeams\public\images" />
     </key>
   </component>
   <component name="RunManager">
@@ -201,7 +215,40 @@
       <option name="presentableId" value="Default" />
       <updated>1603710830499</updated>
       <workItem from="1603710831551" duration="7409000" />
-      <workItem from="1603798408760" duration="17697000" />
+      <workItem from="1603798408760" duration="38944000" />
+      <workItem from="1604230882427" duration="75000" />
+      <workItem from="1604231157998" duration="15205000" />
+      <workItem from="1604323807228" duration="142000" />
+      <workItem from="1604330812605" duration="1716000" />
+      <workItem from="1604575487558" duration="3724000" />
+      <workItem from="1604681809138" duration="1431000" />
+      <workItem from="1604854560772" duration="662000" />
+      <workItem from="1605109959356" duration="651000" />
+      <workItem from="1605301868440" duration="659000" />
+      <workItem from="1605364241022" duration="141000" />
+      <workItem from="1605443971424" duration="14408000" />
+      <workItem from="1605472667047" duration="146000" />
+      <workItem from="1605472865420" duration="229000" />
+      <workItem from="1605551719961" duration="21000" />
+      <workItem from="1605554832406" duration="15136000" />
+      <workItem from="1605662573693" duration="51000" />
+      <workItem from="1605875842927" duration="8573000" />
+      <workItem from="1605913111445" duration="1368000" />
+      <workItem from="1606064978134" duration="1030000" />
+      <workItem from="1606155188471" duration="7371000" />
+      <workItem from="1606248431543" duration="15000" />
+      <workItem from="1606248938788" duration="10794000" />
+      <workItem from="1606334920003" duration="797000" />
+      <workItem from="1606410523612" duration="469000" />
+      <workItem from="1606411181286" duration="10589000" />
+      <workItem from="1606500308454" duration="11016000" />
+      <workItem from="1606567320809" duration="5000" />
+      <workItem from="1606651111709" duration="851000" />
+      <workItem from="1606652543498" duration="51000" />
+      <workItem from="1606652611947" duration="10580000" />
+      <workItem from="1606663797516" duration="905000" />
+      <workItem from="1606742280357" duration="1084000" />
+      <workItem from="1606762630773" duration="5904000" />
     </task>
     <servers />
   </component>
@@ -218,19 +265,24 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="536" y="234" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603800026006">
+    <state x="536" y="234" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606505095193">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="536" y="234" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1603800026006" />
+    <state x="536" y="234" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1606505095193" />
     <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603717823420">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1603717823420" />
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1606248445598">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1606248445598" />
     <state width="1493" height="223" key="GridCell.Tab.0.bottom" timestamp="1603710913122">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -247,9 +299,27 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1603710913122" />
-    <state x="431" y="185" width="672" height="678" key="search.everywhere.popup" timestamp="1603801620175">
+    <state x="277" y="77" key="SettingsEditor" timestamp="1606659629512">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="431" y="185" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1603801620175" />
+    <state x="277" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1606659629512" />
+    <state x="425" y="197" key="run.anything.popup" timestamp="1605448185998">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1605448185998" />
+    <state x="431" y="185" width="672" height="678" key="search.everywhere.popup" timestamp="1605892673620">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="431" y="185" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1605892673620" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/layouts/navigation.blade.php</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

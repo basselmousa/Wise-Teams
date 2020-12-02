@@ -1,10 +1,26 @@
 @extends('layouts.app')
+@section('title','Login')
+@include('layouts.navigation')
+@section('style')
 
+    .Main-body
+    {
+    left:0px;
+    width:100%;
+    }
+    .welcome-nav{
+    -webkit-box-shadow: 0px -3px 32px -9px #723BE4 !important ;
+    box-shadow: 0px -3px 32px -12px #723BE4 !important;
+    margin-top: 0px !important;
+
+    }
+
+@stop
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container Login">
+    <div class="row justify-content-center Login-row">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card mx-auto">
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">

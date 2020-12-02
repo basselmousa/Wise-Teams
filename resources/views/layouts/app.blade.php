@@ -7,11 +7,10 @@
     <link rel="icon" href="{{asset('/images/logos/Main-Logo.png')}}">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Tap Icon-->
+    <link rel="icon" href="{{ URL::asset('/images/logos/favicon-32x32.png') }}" type="image/x-icon"/>
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <title>@yield('title')</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -22,13 +21,32 @@
     <!-- Styles -->
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('/css/style.css')}}">
+
+
+    <style>
+        @yield('style')
+    </style>
 </head>
 <body>
     <div id="app">
-        @include('layouts.navigation')
-        <main class="py-4">
-            @yield('content');
-        </main>
+        <div class="Main-body">
+            <div class="container-fluid">
+                <div class="row shadow-row justify-content-between">
+                    <div class="col-6">
+                        <h1 class="Page-Title">@yield('nav-title')</h1>
+                    </div>
+                    <div class="col-6 text-right">
+                        <ul class="d-flex justify-content-end mr-5 shadow-row-ul">
+                            @yield('list-item')
+                        </ul>
+                    </div>
+                </div>
+                @yield('content')
+            </div>
+        </div>
+
     </div>
+    <script src="{{asset('js/app.js')}}"></script>
+
 </body>
 </html>

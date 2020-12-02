@@ -6,6 +6,10 @@
 import WaveBackground from './components/layout/Wave-Background'
 import AnimatedLine from "./components/layout/AnimatedLine";
 import AboutWise from './components/layout/About-Wise';
+import Services from "./components/layout/Services";
+import Motivation from "./components/layout/Motivation";
+import FooterCom from "./components/layout/Footer-com";
+import TeamPage from "./components/pages/TeamPage";
 require('./bootstrap');
 
 window.Vue = require('vue');
@@ -34,7 +38,12 @@ const app = new Vue({
     components: {
         WaveBackground,
         AnimatedLine,
-        AboutWise
+        AboutWise,
+        Services,
+        Motivation,
+        FooterCom,
+        TeamPage,
 
     }
 });
+window.particlesJS = require('particles.js');
