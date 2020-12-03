@@ -34,10 +34,17 @@
                         </li>
                     @endif
                 @else
+<<<<<<< HEAD
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
+=======
+                    <li class="nav-item dropdown username">
+                        <a style="font-size: 14px" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->fullname }}
+                            <i class="fas fa-caret-square-down ml-2"></i>
+>>>>>>> cc932d6f54017db775fabcee4aaa5132dd3152a8
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
