@@ -24,10 +24,10 @@
                                     <li>Status</li>
                                 </ul>
                                 <ul class="d-flex flex-column inf">
-                                    <li>3170601031</li>
-                                    <li>Yazeed_nazal@gmail.com</li>
-                                    <li>Cs</li>
-                                    <li>male</li>
+                                    <li>{{ auth()->user()->username }}</li>
+                                    <li>{{ auth()->user()->email }}</li>
+                                    <li>{{ auth()->user()->specialization }}</li>
+                                    <li>{{ auth()->user()->gender }}</li>
                                     <li>Available</li>
                                 </ul>
 
