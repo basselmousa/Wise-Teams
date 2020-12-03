@@ -30,7 +30,7 @@
 
                                 <div class="col-md-6">
                                     <input id="username" type="text" placeholder="3170601031"
-                                           class="form-control @error('username') is-invalid @enderror" name="name"
+                                           class="form-control @error('username') is-invalid @enderror" name="username"
                                            value="{{ old('username') }}" required autocomplete="name" autofocus>
 
                                     @error('username')
@@ -46,10 +46,10 @@
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
-                                           class="form-control @error('name') is-invalid @enderror" name="name"
-                                           value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                           class="form-control @error('fullname') is-invalid @enderror" name="fullname"
+                                           value="{{ old('fullname') }}" required autocomplete="name" autofocus>
 
-                                    @error('name')
+                                    @error('fullname')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -90,13 +90,13 @@
                                 <label for="gender" class="col-md-4 col-form-label text-md-right">gender</label>
                                 <div class="col-md-6">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="1">
+                                        <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="male">
                                         <label class="form-check-label" for="gender">
                                             Male
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="0">
+                                        <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="female">
                                         <label class="form-check-label" for="gender">
                                             Female
                                         </label>
