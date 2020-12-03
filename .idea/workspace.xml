@@ -20,13 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c099f9e-8be4-484f-9466-46a5cf8928e6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/Assignments/assignment_for_member.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/SideNavigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/SideNavigation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navigation.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/Assignments/assignments.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/Assignments/assignments.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/Teams/info.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/Teams/info.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +176,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../wamp64/www/Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../laragon/www/Project" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -248,7 +248,20 @@
       <workItem from="1606652611947" duration="10580000" />
       <workItem from="1606663797516" duration="905000" />
       <workItem from="1606742280357" duration="1084000" />
-      <workItem from="1606762630773" duration="5904000" />
+      <workItem from="1606762630773" duration="6523000" />
+      <workItem from="1606823368047" duration="1515000" />
+      <workItem from="1606826223396" duration="1925000" />
+      <workItem from="1606913578671" duration="13000" />
+      <workItem from="1606915661168" duration="1019000" />
+      <workItem from="1606947147985" duration="963000" />
+      <workItem from="1606999145468" duration="752000" />
+      <workItem from="1607012516614" duration="716000" />
+      <workItem from="1607013670914" duration="1524000" />
+      <workItem from="1607016604251" duration="123000" />
+      <workItem from="1607017573111" duration="23000" />
+      <workItem from="1607017647943" duration="277000" />
+      <workItem from="1607017993871" duration="1758000" />
+      <workItem from="1607028238821" duration="1650000" />
     </task>
     <servers />
   </component>
@@ -270,56 +283,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="536" y="234" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606505095193">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="536" y="234" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1606505095193" />
-    <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603717823420">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="499" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1603717823420" />
-    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1606248445598">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1606248445598" />
-    <state width="1493" height="223" key="GridCell.Tab.0.bottom" timestamp="1603710913122">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1493" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1603710913122" />
-    <state width="1493" height="223" key="GridCell.Tab.0.center" timestamp="1603710913122">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1493" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1603710913122" />
-    <state width="1493" height="223" key="GridCell.Tab.0.left" timestamp="1603710913122">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1493" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1603710913122" />
-    <state width="1493" height="223" key="GridCell.Tab.0.right" timestamp="1603710913122">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state width="1493" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1603710913122" />
-    <state x="277" y="77" key="SettingsEditor" timestamp="1606659629512">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="277" y="77" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1606659629512" />
-    <state x="425" y="197" key="run.anything.popup" timestamp="1605448185998">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1605448185998" />
-    <state x="431" y="185" width="672" height="678" key="search.everywhere.popup" timestamp="1605892673620">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="431" y="185" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1605892673620" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/layouts/navigation.blade.php</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
