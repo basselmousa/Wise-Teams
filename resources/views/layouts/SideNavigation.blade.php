@@ -9,5 +9,15 @@
         <li  class="{{Request::path() === "chat"      ? 'active':''  }}"><a href=""><i class="fas fa-comments"></i><p>Chat</p></a></li>
         <li  class="{{Request::path() === "profile"   ? 'active':''  }}" ><a href="/profile"><i class="fas fa-user-circle"></i><p>Profile</p></a></li>
     </ul>
-    <p class="text-center" style="margin-top: 100px"><a href="#">Logout</a></p>
+
+    <p class="text-center" style="margin-top: 100px">
+        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+            Logout
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+    </p>
+
 </nav>
