@@ -6,7 +6,7 @@
     <section class="profile">
         <div class="row mt-3 mb-5">
             <div class="col-12 mt-5" >
-                <h1 class="text-center mb-3">Yazeed ahamad kamal Nazzal</h1>
+                <h1 class="text-center mb-3">{{ auth()->user()->fullname }}</h1>
 
             </div>
             <div class="col-md-12">

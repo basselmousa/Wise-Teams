@@ -33,7 +33,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['verified']], function (){
     Route::get('/', [\App\Http\Controllers\ProfileController::class, 'index'])->name('home');
 
-    Route::get('/Edit',[\App\Http\Controllers\ProfileController::class , 'create']);
+    Route::get('/Edit',[\App\Http\Controllers\ProfileController::class , 'show']);
 });
 
 /** End Profile Routes */
