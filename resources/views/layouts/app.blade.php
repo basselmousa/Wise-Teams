@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
+{{--    <meta name="referrer" content="no-referrer">--}}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Tap Icon -->
     <link rel="icon" href="{{asset('/images/logos/Main-Logo.png')}}">
@@ -47,6 +48,6 @@
 
     </div>
     <script src="{{asset('js/app.js')}}"></script>
-
+    @include('sweetalert::alert')
 </body>
 </html>
