@@ -1,0 +1,95 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\StoreTeam;
+use App\Models\Team;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
+
+class TeamController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $user = User::find(auth()->id());
+        $teams= $user->teams;
+        return view('Pages/Teams/teams',compact('teams'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('Pages.Teams.new');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(StoreTeam $request)
+    {
+        $user = User::find(auth()->id());
+        $user->teams()->create($request->validated());
+        return back();
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Team  $team
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Team $team)
+    {
+        $manager =$team->manager()->get()->first();
+        return view('pages/Teams/info',compact('team' ,'manager'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Team  $team
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Team $team)
+    {
+        return view('Pages.Teams.edit',compact('team'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Team  $team
+     * @return \Illuminate\Http\Response
+     */
+    public function update(StoreTeam $request, Team $team)
+    {
+        $team->update($request->validated());
+        return back();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Team  $team
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Team $team)
+    {
+        $team->delete();
+        return view('Pages.Teams.teams');
+    }
+}
