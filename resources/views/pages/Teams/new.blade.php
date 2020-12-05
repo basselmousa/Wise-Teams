@@ -10,7 +10,7 @@
                     <div class="card">
                         <div class="card-header">New Team</div>
                         <div class="card-body">
-                            <form method="POST" action="">
+                            <form method="POST" action="/teams">
                                 @csrf
 
                                 <div class="form-group row">
@@ -46,18 +46,40 @@
                                     <label for="join" class="col-md-4 col-form-label text-md-right">Join</label>
                                     <div class="col-md-6">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="join" id="exampleRadios1" value="1">
+                                            <input class="form-check-input" type="radio" name="joining" id="exampleRadios1" value="1">
                                             <label class="form-check-label" for="join">
                                                 Join By Invite Only
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="join" id="exampleRadios2" value="0">
+                                            <input class="form-check-input" type="radio" name="joining" id="exampleRadios2" value="0">
                                             <label class="form-check-label" for="join">
                                                 Any One Can Join
                                             </label>
                                         </div>
-                                        @error('gender')
+                                        @error('joining')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="adding" class="col-md-4 col-form-label text-md-right">Add Member By</label>
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="adding" id="exampleRadios1" value="1">
+                                            <label class="form-check-label" for="adding">
+                                                Any Member
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="adding" id="exampleRadios2" value="0">
+                                            <label class="form-check-label" for="adding">
+                                                Only By Manager
+                                            </label>
+                                        </div>
+                                        @error('adding')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

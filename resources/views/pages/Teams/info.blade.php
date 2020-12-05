@@ -6,12 +6,21 @@
 @section('list-item')
     <li class="dropdown">
         <button class="btn Team-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Team Name <i class="fas fa-chevron-down ml-3"></i>
+            {{$team->name}} <i class="fas fa-chevron-down ml-3"></i>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/teams/info">Info</a>
-            <a class="dropdown-item" href="/teams/add">Add New Member</a>
-            <a class="dropdown-item" href="/teams/edit">Edit</a>
+            <a class="dropdown-item" href="/teams/info/{{ $team->id }}">Info</a>
+            @if ( $team->adding == 1 || $team->manager_id == auth()->id() )
+                <a class="dropdown-item" href="/teams/add">Add New Member</a>
+            @endif
+            @if(auth()->id()===$team->manager_id)
+                <a class="dropdown-item" href="/teams/edit/{{$team->id}}">Edit</a>
+                <form action="teams/delete/{{$team->id}}">
+                    @csrf
+                    @method('delete')
+                    <button class="dropdown-item text-danger">delete</button>
+                </form>
+            @endif
         </div>
     </li>
 @stop
@@ -25,9 +34,9 @@
                     </div>
                     <div class="card-body">
                         <ul class="d-flex">
-                            <li class="ml-4">Team Leader:      <span class="pl-1"> Yazeed Nazal</span></li>
-                            <li class="ml-4">Team Name :       <span class="pl-1">Lorem ipsum dolor</span></li>
-                            <li class="ml-4">Team Description: <span class="pl-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></li>
+                            <li class="ml-4">Team Leader:      <span class="pl-1">{{$manager->fullname}}</span></li>
+                            <li class="ml-4">Team Name :       <span class="pl-1">{{$team->name}}</span></li>
+                            <li class="ml-4">Team Description: <span class="pl-1">{{$team->description}}</span></li>
                         </ul>
                     </div>
                 </div>

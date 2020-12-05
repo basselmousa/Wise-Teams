@@ -44,24 +44,21 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['verif
  * Start Teams Routes
  */
 
-Route::group(['prefix' => 'teams', 'as' => 'teams.' , 'middleware' => ['verified']], function (){
-    Route::get('/',function () {
-        return view('Pages/Teams/teams');
-    });
+Route::group(['prefix' => 'teams', 'as' => 'teams.' , 'middleware' => ['verified','auth']], function (){
+    Route::get('/',[\App\Http\Controllers\TeamController::class,'index']);
+    Route::post('/',[\App\Http\Controllers\TeamController::class,'store']);
+    Route::get('/new',[\App\Http\Controllers\TeamController::class,'create']);
+    Route::get('/edit/{team}',[\App\Http\Controllers\TeamController::class,'edit']);
+    Route::put('/edit/{team}',[\App\Http\Controllers\TeamController::class,'update']);
+    Route::delete('/delete/{team}',[\App\Http\Controllers\TeamController::class,'destroy']);
+    Route::get('/info/{team}',[\App\Http\Controllers\TeamController::class,'show']);
+
+
     Route::get('/team',function () {
         return view('pages/Teams/team');
     });
-    Route::get('/new',function () {
-        return view('pages/Teams/new');
-    });
-    Route::get('/edit',function () {
-        return view('pages/Teams/edit');
-    });
     Route::get('/add',function () {
         return view('pages/Teams/add');
-    });
-    Route::get('/info',function () {
-        return view('pages/Teams/info');
     });
     Route::get('/assignments',function () {
         return view('Pages/Assignments/assignments');
