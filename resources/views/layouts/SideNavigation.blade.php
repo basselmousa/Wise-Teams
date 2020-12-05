@@ -21,7 +21,4 @@
         </form>
     </p>
 
-
-    <p class="text-center logout-btn" ><a href="#">Logout</a></p>
-
 </nav>
