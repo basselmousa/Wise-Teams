@@ -24,27 +24,32 @@ class ProfileController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Request $request
+     * @param User $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit(User $id)
     {
 //        dd(auth()->user());
-
-        return view('pages.Profile.Edit-Profile');
+        if ($id->id != auth()->id()){
+            abort(401);
+        }
+        return view('pages.Profile.Edit-Profile', compact('id'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param UpdateProfileRequest $request
+     * @param User $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(UpdateProfileRequest $request)
+    public function update(UpdateProfileRequest $request, User $id)
     {
 //        dd($request['status']);
-        $user = User::find(auth()->id());
-        $user->update([
+        if ($id->id != auth()->id()){
+            abort(401);
+        }
+        $id->update([
             'email' => $request['email'],
             'fullname' => $request['fullname'],
             'gender' => $request['gender'],
@@ -57,12 +62,12 @@ class ProfileController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Request $request
+     * @param User $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Request $request)
+    public function destroy(User $id)
     {
-        $request->user()->delete();
+        $id->delete();
         return redirect()->route('home');
     }
 }
