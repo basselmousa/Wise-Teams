@@ -7,14 +7,15 @@
     <Section class="Edit-Profile">
         <div class="row">
             <div class="col-md-4">
-                <form method="post" action="{{ route('profile.update') }}">
+                <form method="post" action="{{ route('profile.update', $id->id) }}">
                     @csrf
+                    @method('PUT')
                     <div class="form-group">
                         <label for="Full">Full Name</label>
                         <input type="text" class="form-control @error('fullname') is-invalid @enderror"
                                name="fullname"
                                autocomplete="off" id="name"
-                               aria-describedby="emailHelp" value="{{ auth()->user()->fullname }}">
+                               aria-describedby="emailHelp" value="{{ $id->fullname }}">
                         @error('fullname')
                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -24,7 +25,7 @@
                     <div class="form-group">
                         <label for="Email">Email</label>
                         <input type="email" name="email"
-                               class="form-control @error('email') is-invalid @enderror" id="email" aria-describedby="emailHelp" value="{{ auth()->user()->email }}">
+                               class="form-control @error('email') is-invalid @enderror" id="email" aria-describedby="emailHelp" value="{{ $id->email }}">
                         @error('email')
                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -34,7 +35,7 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">specialization</label>
                         <input type="text" name="specialization"
-                               class="form-control @error('specialization') is-invalid @enderror" id="specialization" aria-describedby="emailHelp" value="{{ auth()->user()->specialization }}">
+                               class="form-control @error('specialization') is-invalid @enderror" id="specialization" aria-describedby="emailHelp" value="{{ $id->specialization }}">
                         @error('specialization')
                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -45,7 +46,7 @@
                         <label for="gender" class="col-md-3 col-form-label">gender</label>
                         <div class="col-md-5 pl-0">
                             <div class="form-check">
-                                <input class="form-check-input @error('gender') is-invalid @enderror" type="radio" name="gender" id="exampleRadios1" value="male" {{ auth()->user()->gender == 'male' ? 'checked' : '' }}>
+                                <input class="form-check-input @error('gender') is-invalid @enderror" type="radio" name="gender" id="exampleRadios1" value="male" {{ $id->gender == 'male' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="gender">
                                     Male
                                 </label>
@@ -56,7 +57,7 @@
                                 @enderror
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input @error('gender') is-invalid @enderror" type="radio" name="gender" id="exampleRadios2" value="female" {{ auth()->user()->gender == 'female' ? 'checked' : ''}}>
+                                <input class="form-check-input @error('gender') is-invalid @enderror" type="radio" name="gender" id="exampleRadios2" value="female" {{ $id->gender == 'female' ? 'checked' : ''}}>
                                 <label class="form-check-label" for="gender">
                                     Female
                                 </label>
@@ -76,9 +77,9 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">Status</label>
                         <select class="form-control @error('status') is-invalid @enderror" name="status">
-                            <option value="0" {{ auth()->user()->status == 0 ? 'selected' : '' }}>Available</option>
-                            <option value="1" {{ auth()->user()->status == 1 ? 'selected' : '' }}>Busy</option>
-                            <option value="2" {{ auth()->user()->status == 2 ? 'selected' : '' }}>Do not disturb</option>
+                            <option value="0" {{ $id->status == 0 ? 'selected' : '' }}>Available</option>
+                            <option value="1" {{ $id->status == 1 ? 'selected' : '' }}>Busy</option>
+                            <option value="2" {{ $id->status == 2 ? 'selected' : '' }}>Do not disturb</option>
                         </select>
                         @error('status')
                         <span class="invalid-feedback" role="alert">
