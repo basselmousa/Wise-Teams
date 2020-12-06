@@ -2,7 +2,6 @@
 @section('title','Edit Profile')
 @section('nav-title','Edit Profile')
 @include('layouts.SideNavigation')
-
 @section('content')
     <Section class="Edit-Profile">
         <div class="row">
@@ -89,8 +88,10 @@
                     </div>
                     <button class="btn Edit-Btn mt-4">Save Changes</button>
                 </form>
-                <p class="p-edit" style="padding-left: 20px; color: #723BE4; font-style: italic; margin-top: 50px">
-                    <a href="">Edit Profile Picture!</a>
+                <p class="p-edit" style="padding-left: 20px; color: #723BE4; font-style: italic; margin-top: 50px;font-size: 16px">
+                    <span type="button" class="" data-toggle="modal" data-target="#exampleModal">
+                        Change Profile Picture!
+                    </span>
                 </p>
             </div>
             <div class="col-md-8">
@@ -98,7 +99,47 @@
 
                 </div>
             </div>
-
         </div>
     </Section>
+@stop
+@section('model')
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Change Profile Picture</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <img class="d-block mx-auto rounded-circle " style="width: 130px; height: 130px"   id="blah" src="{{auth()->user()->gender == 'female' ? asset('images/female.png') : asset('images/male.png')}}" alt="your image" />
+                        </div>
+                        <div class="col-12">
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input @error('assignment') is-invalid @enderror"
+                                           name="assignment"
+                                           value="{{ old('assignment') }}" id="inputGroupFile01"
+                                           aria-describedby="inputGroupFileAddon01" onchange="readURL(this);">
+                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <button class="btn Edit-Btn mt-4">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @stop

@@ -47,7 +47,11 @@
         </div>
 
     </div>
+    <!-- Button trigger modal -->
+    @yield('model')
     <script src="{{asset('js/app.js')}}"></script>
+    <script src="{{asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
     @include('sweetalert::alert')
+    <script src="{{asset('js/custom.js')}}"></script>
 </body>
 </html>

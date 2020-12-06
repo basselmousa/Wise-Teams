@@ -2,7 +2,6 @@
 @section('title','Profile')
 @section('nav-title','Profile')
 @include('layouts.SideNavigation')
-
 @section('content')
     <section class="profile">
         <div class="row mt-3 mb-5">
@@ -47,17 +46,18 @@
                 </div>
             </div>
         </div>
-        <div class="w-75 mx-auto d-flex justify-content-end">
-            <button class="btn Edit-Btn"><a href="{{ route('profile.edit', auth()->id()) }}">Edit Profile</a></button>
-        </div>
-        <div class="w-75 mx-auto d-flex justify-content-end">
-            <form action="{{ route('profile.delete', auth()->id()) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button class="btn Edit-Btn">Delete Profile</button>
-            </form>
-
+        <div class="row w-75 justify-content-end">
+            <div class="mr-4">
+                <button class="btn Edit-Btn"><a href="{{ route('profile.edit', auth()->id()) }}">Edit Profile</a></button>
+            </div>
+            <div class="">
+                <form action="{{ route('profile.delete', auth()->id()) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger">Delete Profile</button>
+                </form>
+            </div>
         </div>
     </section>
-
 @stop
+
