@@ -3,7 +3,8 @@
 @section('nav-title','Teams')
 @include('layouts.SideNavigation')
 @section('list-item')
-    <li><a href="/teams/new"> <i class="fas fa-plus"></i> Create new Teams</a></li>
+    <li class="mr-3"><a href="/teams/new"> <i class="fas fa-plus"></i> Create new Teams</a></li>
+    <li><a href="/teams/find"> <i class="fas fa-search"></i> Find new Teams</a></li>
 @stop
 @section('content')
     <div class="row mt-5">

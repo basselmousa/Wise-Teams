@@ -43,7 +43,7 @@ class TeamController extends Controller
     {
         $user = User::find(auth()->id());
         $user->teams()->create($request->validated());
-        return back();
+        return  redirect()->route('teams.teams')->with('success', 'Team Was Created Successfully ');
     }
 
     /**
@@ -79,7 +79,7 @@ class TeamController extends Controller
     public function update(StoreTeam $request, Team $team)
     {
         $team->update($request->validated());
-        return back();
+        return redirect()->route('teams.teamInfo',[$team->id])->with('success', 'Team Was Updated Successfully ');
     }
 
     /**
@@ -91,6 +91,10 @@ class TeamController extends Controller
     public function destroy(Team $team)
     {
         $team->delete();
-        return view('Pages.Teams.teams');
+        return redirect()->route('teams.teams')->with('success', 'Team Was Deleted Successfully ');
+    }
+
+    public function find () {
+        return view('Pages.Teams.find_teams');
     }
 }

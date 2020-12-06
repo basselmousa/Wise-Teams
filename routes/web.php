@@ -46,25 +46,36 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['verif
  */
 
 Route::group(['prefix' => 'teams', 'as' => 'teams.' , 'middleware' => ['verified','auth']], function (){
+    //show All
     Route::get('/',[App\Http\Controllers\Teams\TeamController::class,'index'])->name('teams');
 
+    //Creating
     Route::get('/new',[App\Http\Controllers\Teams\TeamController::class,'create'])->name('newTeam');
     Route::post('/',[App\Http\Controllers\Teams\TeamController::class,'store']);
 
+    //editing
     Route::get('/edit/{team}',[App\Http\Controllers\Teams\TeamController::class,'edit'])->name('editTeam');
     Route::put('/edit/{team}',[App\Http\Controllers\Teams\TeamController::class,'update']);
 
+    //deleting
     Route::delete('/delete/{team}',[App\Http\Controllers\Teams\TeamController::class,'destroy']);
 
+    //information
     Route::get('/info/{team}',[App\Http\Controllers\Teams\TeamController::class,'show'])->name('teamInfo');
 
-
+    //Show Team Page
     Route::get('/team',function () {
         return view('pages/Teams/team');
     });
+
+    //Add New member
     Route::get('/add',function () {
         return view('pages/Teams/add');
     });
+    //Find Teams
+    Route::get('/find',[\App\Http\Controllers\Teams\TeamController::class,'find']);
+
+    //Team Assignments
     Route::get('/assignments',function () {
         return view('Pages/Assignments/assignments');
     });
