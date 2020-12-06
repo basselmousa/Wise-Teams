@@ -2,7 +2,6 @@
 @section('title','Edit Profile')
 @section('nav-title','Edit Profile')
 @include('layouts.SideNavigation')
-
 @section('content')
     <Section class="Edit-Profile">
         <div class="row">
@@ -98,7 +97,6 @@
 
                 </div>
             </div>
-
         </div>
     </Section>
 @stop

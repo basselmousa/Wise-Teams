@@ -47,10 +47,14 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['verif
 Route::group(['prefix' => 'teams', 'as' => 'teams.' , 'middleware' => ['verified','auth']], function (){
     Route::get('/',[\App\Http\Controllers\TeamController::class,'index']);
     Route::post('/',[\App\Http\Controllers\TeamController::class,'store']);
+
     Route::get('/new',[\App\Http\Controllers\TeamController::class,'create']);
+
     Route::get('/edit/{team}',[\App\Http\Controllers\TeamController::class,'edit']);
     Route::put('/edit/{team}',[\App\Http\Controllers\TeamController::class,'update']);
+
     Route::delete('/delete/{team}',[\App\Http\Controllers\TeamController::class,'destroy']);
+
     Route::get('/info/{team}',[\App\Http\Controllers\TeamController::class,'show']);
 
 

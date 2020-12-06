@@ -2,7 +2,6 @@
 @section('title','Profile')
 @section('nav-title','Profile')
 @include('layouts.SideNavigation')
-
 @section('content')
     <section class="profile">
         <div class="row mt-3 mb-5">
@@ -56,8 +55,7 @@
                 @method('DELETE')
                 <button class="btn Edit-Btn">Delete Profile</button>
             </form>
-
         </div>
     </section>
-
 @stop
+
