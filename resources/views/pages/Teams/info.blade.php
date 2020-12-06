@@ -15,7 +15,7 @@
             @endif
             @if(auth()->id()===$team->manager_id)
                 <a class="dropdown-item" href="/teams/edit/{{$team->id}}">Edit</a>
-                <form action="teams/delete/{{$team->id}}">
+                <form method="post" action="/teams/delete/{{$team->id}}">
                     @csrf
                     @method('delete')
                     <button class="dropdown-item text-danger">delete</button>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="card-body">
                         <ul class="d-flex">
-                            <li class="ml-4">Team Leader:      <span class="pl-1">{{$manager->fullname}}</span></li>
+                            <li class="ml-4">Team Manager:      <span class="pl-1">{{$manager->fullname}}</span></li>
                             <li class="ml-4">Team Name :       <span class="pl-1">{{$team->name}}</span></li>
                             <li class="ml-4">Team Description: <span class="pl-1">{{$team->description}}</span></li>
                         </ul>
