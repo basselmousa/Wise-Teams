@@ -118,21 +118,28 @@
                             <img class="d-block mx-auto rounded-circle " style="width: 130px; height: 130px"   id="blah" src="{{auth()->user()->gender == 'female' ? asset('images/female.png') : asset('images/male.png')}}" alt="your image" />
                         </div>
                         <div class="col-12">
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input @error('assignment') is-invalid @enderror"
-                                           name="assignment"
-                                           value="{{ old('assignment') }}" id="inputGroupFile01"
-                                           aria-describedby="inputGroupFileAddon01" onchange="readURL(this);">
-                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                    @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                            <form method="POST" action="{{ route('profile.avatar', auth()->id()) }}" enctype="multipart/form-data">
+                                @csrf
+                                @method('PUT')
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file"
+                                               class="custom-file-input @error('avatar') is-invalid @enderror"
+                                               name="avatar"
+                                               id="inputGroupFile01"
+                                               aria-describedby="inputGroupFileAddon01"
+                                               onchange="readURL(this);"
+                                        >
+                                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                        @error('avatar')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
-                            <button class="btn Edit-Btn mt-4">Save Changes</button>
+                                <button type="submit" class="btn Edit-Btn mt-4">Save Changes</button>
+                            </form>
                         </div>
                     </div>
                 </div>

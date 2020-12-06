@@ -10,9 +10,15 @@
 
             </div>
             <div class="col-md-12">
-                <div class="text-center mx-auto Avatar mb-3"
-                     style="background-image: url({{ auth()->user()->gender == 'female' ? asset('images/female.png') : asset('images/male.png') }})">
-                </div>
+                @if(auth()->user()->avatar)
+                    <div class="text-center mx-auto Avatar mb-3"
+                         style="background-image: url({{ asset('storage/'.auth()->user()->avatar) }})">
+                    </div>
+                @else
+                    <div class="text-center mx-auto Avatar mb-3"
+                         style="background-image: url({{  auth()->user()->gender == 'female' ? asset('images/female.png') : asset('images/male.png') }})">
+                    </div>
+                @endif
 
             </div>
 
@@ -48,7 +54,8 @@
         </div>
         <div class="row w-75 justify-content-end">
             <div class="mr-4">
-                <button class="btn Edit-Btn"><a href="{{ route('profile.edit', auth()->id()) }}">Edit Profile</a></button>
+                <button class="btn Edit-Btn"><a href="{{ route('profile.edit', auth()->id()) }}">Edit Profile</a>
+                </button>
             </div>
             <div class="">
                 <form action="{{ route('profile.delete', auth()->id()) }}" method="POST">
