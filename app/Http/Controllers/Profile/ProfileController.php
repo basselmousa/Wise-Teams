@@ -33,6 +33,7 @@ class ProfileController extends Controller
         if ($id->id != auth()->id()){
             abort(401);
         }
+
         return view('pages.Profile.Edit-Profile', compact('id'));
     }
 
