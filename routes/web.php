@@ -33,7 +33,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['verified']], function (){
     Route::get('/', [\App\Http\Controllers\Profile\ProfileController::class, 'index'])->name('home');
 
-    Route::get('/Edit',[\App\Http\Controllers\Profile\ProfileController::class , 'show'])->middleware('password.confirm')->name('edit');
+    Route::get('/Edit',[\App\Http\Controllers\Profile\ProfileController::class , 'edit'])->middleware('password.confirm')->name('edit');
     Route::post('/Edit',[\App\Http\Controllers\Profile\ProfileController::class , 'update'])->name('update');
     Route::get('/delete',[\App\Http\Controllers\Profile\ProfileController::class , 'destroy'])->name('delete');
 });
