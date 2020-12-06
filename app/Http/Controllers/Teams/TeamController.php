@@ -93,4 +93,8 @@ class TeamController extends Controller
         $team->delete();
         return redirect()->route('teams.teams')->with('success', 'Team Was Deleted Successfully ');
     }
+
+    public function find () {
+        return view('Pages.Teams.find_teams');
+    }
 }

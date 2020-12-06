@@ -71,6 +71,8 @@ Route::group(['prefix' => 'teams', 'as' => 'teams.' , 'middleware' => ['verified
     Route::get('/add',function () {
         return view('pages/Teams/add');
     });
+    //Find Teams
+    Route::get('/find',[\App\Http\Controllers\Teams\TeamController::class,'find']);
 
     //Team Assignments
     Route::get('/assignments',function () {
