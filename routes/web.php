@@ -45,17 +45,17 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['verif
  */
 
 Route::group(['prefix' => 'teams', 'as' => 'teams.' , 'middleware' => ['verified','auth']], function (){
-    Route::get('/',[\App\Http\Controllers\TeamController::class,'index'])->name('teams');
+    Route::get('/',[App\Http\Controllers\Teams\TeamController::class,'index'])->name('teams');
 
-    Route::get('/new',[\App\Http\Controllers\TeamController::class,'create'])->name('newTeam');
-    Route::post('/',[\App\Http\Controllers\TeamController::class,'store']);
+    Route::get('/new',[App\Http\Controllers\Teams\TeamController::class,'create'])->name('newTeam');
+    Route::post('/',[App\Http\Controllers\Teams\TeamController::class,'store']);
 
-    Route::get('/edit/{team}',[\App\Http\Controllers\TeamController::class,'edit'])->name('editTeam');
-    Route::put('/edit/{team}',[\App\Http\Controllers\TeamController::class,'update']);
+    Route::get('/edit/{team}',[App\Http\Controllers\Teams\TeamController::class,'edit'])->name('editTeam');
+    Route::put('/edit/{team}',[App\Http\Controllers\Teams\TeamController::class,'update']);
 
-    Route::delete('/delete/{team}',[\App\Http\Controllers\TeamController::class,'destroy']);
+    Route::delete('/delete/{team}',[App\Http\Controllers\Teams\TeamController::class,'destroy']);
 
-    Route::get('/info/{team}',[\App\Http\Controllers\TeamController::class,'show'])->name('teamInfo');
+    Route::get('/info/{team}',[App\Http\Controllers\Teams\TeamController::class,'show'])->name('teamInfo');
 
 
     Route::get('/team',function () {
