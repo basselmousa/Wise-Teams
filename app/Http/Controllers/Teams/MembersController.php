@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class MembersController extends Controller
 {
     public function index (Team $team) {
-        $members = $team->members();
+        $members = $team->members()->get();
         return view('Pages.Teams.members',compact('members','team'));
     }
 }
