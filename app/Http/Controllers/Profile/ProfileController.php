@@ -15,9 +15,9 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function index()
+    public function show(User $id)
     {
-        return view('pages.Profile.profile');
+        return view('pages.Profile.profile', compact('id'));
     }
 
 
@@ -57,7 +57,7 @@ class ProfileController extends Controller
             'specialization' => $request['specialization'],
             'status' => $request['status'],
         ]);
-        return redirect()->route('profile.home')->with('success', 'Your profile Is Updated');
+        return redirect()->route('profile.home', $id->id)->with('success', 'Your profile Is Updated');
     }
 
     /**

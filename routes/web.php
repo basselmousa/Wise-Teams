@@ -31,7 +31,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
  */
 
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['verified']], function (){
-    Route::get('/', [\App\Http\Controllers\Profile\ProfileController::class, 'index'])->name('home');
+    Route::get('/{id}', [\App\Http\Controllers\Profile\ProfileController::class, 'show'])->name('home');
     Route::get('/Edit/{id}',[\App\Http\Controllers\Profile\ProfileController::class , 'edit'])->middleware('password.confirm')->name('edit');
     Route::put('/Edit/avatar/{id}',[\App\Http\Controllers\Profile\UploadAvatarController::class , 'uploadAvatar'])->name('avatar');
 

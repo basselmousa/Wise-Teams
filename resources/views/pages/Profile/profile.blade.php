@@ -6,17 +6,17 @@
     <section class="profile">
         <div class="row mt-3 mb-5">
             <div class="col-12 mt-5">
-                <h1 class="text-center mb-3">{{ auth()->user()->fullname }}</h1>
+                <h1 class="text-center mb-3">{{  $id->fullname }}</h1>
 
             </div>
             <div class="col-md-12">
-                @if(auth()->user()->avatar)
+                @if( $id->avatar)
                     <div class="text-center mx-auto Avatar mb-3"
-                         style="background-image: url({{ asset('storage/'.auth()->user()->avatar) }})">
+                         style="background-image: url({{ asset('storage/'. $id->avatar) }})">
                     </div>
                 @else
                     <div class="text-center mx-auto Avatar mb-3"
-                         style="background-image: url({{  auth()->user()->gender == 'female' ? asset('images/female.png') : asset('images/male.png') }})">
+                         style="background-image: url({{   $id->gender == 'female' ? asset('images/female.png') : asset('images/male.png') }})">
                     </div>
                 @endif
 
@@ -33,14 +33,14 @@
                             <li>Status</li>
                         </ul>
                         <ul class="d-flex flex-column inf">
-                            <li>{{ auth()->user()->username }}</li>
-                            <li>{{ auth()->user()->email }}</li>
-                            <li>{{ auth()->user()->specialization }}</li>
-                            <li>{{ auth()->user()->gender }}</li>
+                            <li>{{  $id->username }}</li>
+                            <li>{{  $id->email }}</li>
+                            <li>{{  $id->specialization }}</li>
+                            <li>{{  $id->gender }}</li>
                             <li>
-                                @if(auth()->user()->status == 0)
+                                @if( $id->status == 0)
                                     {{ 'Available' }}
-                                @elseif(auth()->user()->status == 1)
+                                @elseif( $id->status == 1)
                                     {{ 'Busy' }}
                                 @else
                                     {{ 'Do Not Disturb' }}
@@ -52,19 +52,21 @@
                 </div>
             </div>
         </div>
-        <div class="row w-75 justify-content-end">
-            <div class="mr-4">
-                <button class="btn Edit-Btn"><a href="{{ route('profile.edit', auth()->id()) }}">Edit Profile</a>
-                </button>
+        @if($id->id == auth()->id())
+            <div class="row w-75 justify-content-end">
+                <div class="mr-4">
+                    <button class="btn Edit-Btn"><a href="{{ route('profile.edit', auth()->id()) }}">Edit Profile</a>
+                    </button>
+                </div>
+                <div class="">
+                    <form action="{{ route('profile.delete', auth()->id()) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger">Delete Profile</button>
+                    </form>
+                </div>
             </div>
-            <div class="">
-                <form action="{{ route('profile.delete', auth()->id()) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger">Delete Profile</button>
-                </form>
-            </div>
-        </div>
+        @endif
     </section>
 @stop
 

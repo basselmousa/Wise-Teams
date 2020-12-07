@@ -7,7 +7,7 @@
         <li  class="{{Request::path() === "assignments" ? 'active':''  }}" ><a href="/assignments"><i class="fas fa-file-alt"></i><p>Assigment</p></a></li>
         <li  class="{{Request::path() === "activity"  ? 'active':''  }}" ><a href=""><i class="fas fa-bell"></i><p>Activity</p></a></li>
         <li  class="{{Request::path() === "chat"      ? 'active':''  }}"><a href=""><i class="fas fa-comments"></i><p>Chat</p></a></li>
-        <li  class="{{Request::path() === "profile"   ? 'active':''  }}" ><a href="/profile"><i class="fas fa-user-circle"></i><p>Profile</p></a></li>
+        <li  class="{{Request::path() === "profile"   ? 'active':''  }}" ><a href="{{ route('profile.home', auth()->id()) }}"><i class="fas fa-user-circle"></i><p>Profile</p></a></li>
     </ul>
 
 
