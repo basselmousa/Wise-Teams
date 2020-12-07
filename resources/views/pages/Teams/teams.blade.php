@@ -22,7 +22,7 @@
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="z-index: 10000">
                                         <a class="dropdown-item" href="/teams/info/{{$team->id}}">Info</a>
                                         @if ( $team->adding == 1 || $team->manager_id == auth()->id() )
-                                            <a class="dropdown-item" href="/teams/add">Add New Member</a>
+                                            <a class="dropdown-item" href="/teams/add/{{$team->id}}">Add New Member</a>
                                         @endif
                                         @if(auth()->id()===$team->manager_id)
                                             <a class="dropdown-item" href="/teams/edit/{{$team->id}}">Edit</a>
@@ -57,7 +57,7 @@
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="z-index: 10000">
                                             <a class="dropdown-item" href="/teams/info/{{$team->id}}">Info</a>
                                             @if ( $team->adding == 1 || $team->manager_id == auth()->id() )
-                                                <a class="dropdown-item" href="/teams/add">Add New Member</a>
+                                                <a class="dropdown-item" href="/teams/add/{{$team->id}}">Add New Member</a>
                                             @endif
                                             @if(auth()->id()===$team->manager_id)
                                                 <a class="dropdown-item" href="/teams/edit/{{$team->id}}">Edit</a>
