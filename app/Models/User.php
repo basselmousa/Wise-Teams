@@ -50,4 +50,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public function teams() {
         return $this->hasMany(Team::class,'manager_id');
     }
+    public function teamsjoined() {
+        return $this->belongsToMany(Team::class,'members','user_id');
+    }
 }

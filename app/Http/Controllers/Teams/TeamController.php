@@ -8,6 +8,7 @@ use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\DB;
 
 class TeamController extends Controller
 {
@@ -20,7 +21,8 @@ class TeamController extends Controller
     {
         $user = User::find(auth()->id());
         $teams= $user->teams;
-        return view('Pages/Teams/teams',compact('teams'));
+        $teamsjoined = User::find(auth()->id())->teamsjoined;
+        return view('Pages/Teams/teams',compact('teams','teamsjoined'));
     }
 
     /**
