@@ -79,6 +79,9 @@ Route::group(['prefix' => 'teams', 'as' => 'teams.' , 'middleware' => ['verified
     Route::get('/assignments',function () {
         return view('Pages/Assignments/assignments');
     });
+
+    //Team Members
+    Route::get('/members/{team}',[\App\Http\Controllers\Teams\MembersController::class,'index']);
 });
 
 /** End Teams Routes */

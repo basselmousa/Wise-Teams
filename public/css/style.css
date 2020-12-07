@@ -580,3 +580,10 @@ a:hover {
 {
     box-shadow: none;
 }
+.Members-img
+{
+    background-size: cover;
+    background-position: center;
+    width: 60px;
+    height: 60px;
+}

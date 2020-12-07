@@ -47,9 +47,11 @@
         <div class="row justify-content-center mt-5">
             <div class="col-12 mb-5"><h1 class="text-center text-capitalize">statistics</h1></div>
             <div class="col-3 text-center">
-                <div class="mb-2"><i class="fas fa-users"></i></div>
-                <h5>Members</h5>
-                <p>{{ $members->count() }}</p>
+                <a href="/teams/members/{{$team->id}}">
+                    <div class="mb-2"><i class="fas fa-users"></i></div>
+                    <h5>Members</h5>
+                    <p>{{ $members->count() }}</p>
+                </a>
             </div>
             <div class="col-3 text-center">
                 <div class="mb-2"><i class="fas fa-file-alt"></i></div>
