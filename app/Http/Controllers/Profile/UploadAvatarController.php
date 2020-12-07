@@ -24,7 +24,7 @@ class UploadAvatarController extends Controller
             $id->update([
                 'avatar' => $avatar
             ]);
-            return redirect()->route('profile.edit', $id->id)->with('toast_success', 'Your Image Is Updated Successfully');
+            return redirect()->route('profile.home', $id->id)->with('toast_success', 'Your Image Is Updated Successfully');
         }catch (\Exception $e){
             return redirect()->route('profile.edit', $id->id)->with('toast_error', $e->getMessage());
         }
@@ -33,7 +33,7 @@ class UploadAvatarController extends Controller
     public function getImagePath($img)
     {
         if ($img){
-            return $img->store('usersAvatar');
+            return $img->store('usersAvatar','public');
         }
         return null;
     }

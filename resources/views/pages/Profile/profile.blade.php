@@ -11,11 +11,11 @@
             </div>
             <div class="col-md-12">
                 @if(auth()->user()->avatar)
-                    <div class="text-center mx-auto Avatar mb-3"
+                    <div class="text-center mx-auto Avatar mb-3 rounded-circle"
                          style="background-image: url({{ asset('storage/'.auth()->user()->avatar) }})">
                     </div>
                 @else
-                    <div class="text-center mx-auto Avatar mb-3"
+                    <div class="text-center mx-auto Avatar mb-3 rounded-circle"
                          style="background-image: url({{  auth()->user()->gender == 'female' ? asset('images/female.png') : asset('images/male.png') }})">
                     </div>
                 @endif
