@@ -49,7 +49,7 @@
             <div class="col-3 text-center">
                 <div class="mb-2"><i class="fas fa-users"></i></div>
                 <h5>Members</h5>
-                <p>100</p>
+                <p>{{ $members->count() }}</p>
             </div>
             <div class="col-3 text-center">
                 <div class="mb-2"><i class="fas fa-file-alt"></i></div>
