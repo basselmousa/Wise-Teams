@@ -11,13 +11,14 @@
             </div>
             <div class="col-md-12">
                 @if( $id->avatar)
-                    <div class="text-center mx-auto Avatar mb-3"
+                    <div class="text-center mx-auto Avatar mb-3 rounded-circle"
                          style="background-image: url({{ asset('storage/'. $id->avatar) }})">
                     </div>
                 @else
-                    <div class="text-center mx-auto Avatar mb-3"
+                    <div class="text-center mx-auto Avatar mb-3 rounded-circle"
                          style="background-image: url({{   $id->gender == 'female' ? asset('images/female.png') : asset('images/male.png') }})">
-            </div>
+                    </div>
+                @endif
 
             <div class="col-md-12">
                 <div class="col-md-6 col-xl-5 mx-auto">

@@ -50,7 +50,7 @@
                                 @endif
                             </div>
                             <div class="col-6 col-md-3" style="margin-top: 13px">
-                                <h5 class="pt-2">{{$user->fullname}}</h5>
+                                <a href="/profile/{{$user->id}}"><h5 class="pt-2">{{$user->fullname}}</h5></a>
                             </div>
                             <div class="col-3">
                                 <form method="post" action="/teams/add/{{$team->id}}">

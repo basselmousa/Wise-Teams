@@ -10,6 +10,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+resources/views/pages/Profile/profile.blade.php
 <<<<<<< HEAD
 .idea/php.xml
 .idea/blade.xml
@@ -18,3 +19,4 @@ yarn-error.log
 =======
 .idea/workspace.xml
 >>>>>>> 0912be3c6be8b7a40778f4535b6d97302d8e5952
+

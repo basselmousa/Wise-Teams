@@ -15,13 +15,25 @@ class MembersController extends Controller
         $members = $team->members()->get();
         return view('Pages.Teams.members',compact('members','team'));
     }
+
+
+
+
+
     public function new ( Team $team){
         return view('Pages.Teams.add',compact('team'));
     }
+
+
+
+
     public function find (Request $request,Team $team){
       $users =  User::where('username',$request->username)->get();
       return view('Pages.Teams.add',compact('users','team'));
     }
+
+
+
     public function add (Request $request , Team $team) {
         $user = User::find($request->member);
         try {
