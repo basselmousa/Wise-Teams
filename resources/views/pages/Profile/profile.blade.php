@@ -6,7 +6,7 @@
     <section class="profile">
         <div class="row mt-3 mb-5">
             <div class="col-12 mt-5">
-                <h1 class="text-center mb-3">{{  $id->fullname }}</h1>
+                <h1 class="text-center mb-3">{{ $id->fullname }}</h1>
 
             </div>
             <div class="col-md-12">
@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div>
-        @if($id->id == auth()->id())
+        @if( $id->id == auth()->id() )
             <div class="row w-75 justify-content-end">
                 <div class="mr-4">
                     <button class="btn Edit-Btn"><a href="{{ route('profile.edit', auth()->id()) }}">Edit Profile</a>

@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Profile;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Profile\UpdateProfileRequest;
+use App\Mail\DeleteUserProfileEmail;
+use App\Mail\UpdateUserProfileEmail;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 
@@ -34,6 +37,7 @@ class ProfileController extends Controller
             abort(401);
         }
 
+
         return view('pages.Profile.Edit-Profile', compact('id'));
     }
 
@@ -57,6 +61,7 @@ class ProfileController extends Controller
             'specialization' => $request['specialization'],
             'status' => $request['status'],
         ]);
+        Mail::to($id->email)->send(new UpdateUserProfileEmail($id->id));
         return redirect()->route('profile.home', $id->id)->with('success', 'Your profile Is Updated');
     }
 
@@ -68,7 +73,15 @@ class ProfileController extends Controller
      */
     public function destroy(User $id)
     {
-        $id->delete();
+        if (auth()->id() != $id->id){
+            abort(401);
+        }
+        try {
+            $id->delete();
+            Mail::to($id->email)->send(new DeleteUserProfileEmail());
+        } catch (\Exception $e) {
+            return  redirect()->route('profile.home', $id)->with('error', $e->getMessage());
+        }
         return redirect()->route('home');
     }
 }
