@@ -70,18 +70,16 @@ Route::group(['prefix' => 'teams', 'as' => 'teams.', 'middleware' => ['verified'
     });
 
     //Add New member
-<<<<<<< HEAD
+
     Route::get('/add', function () {
         return view('pages/Teams/add');
     });
-=======
+
     Route::get('/add/{team}',[\App\Http\Controllers\Teams\MembersController::class,'new']);
     Route::post('/add/{team}',[\App\Http\Controllers\Teams\MembersController::class,'find']);
     Route::put('/add/{team}',[\App\Http\Controllers\Teams\MembersController::class,'add']);
 
 
-
->>>>>>> 056ed6c2934bca5f6a4f61783a3da1dc28873cdc
     //Find Teams
     Route::get('/find', [\App\Http\Controllers\Teams\TeamController::class, 'find']);
 
