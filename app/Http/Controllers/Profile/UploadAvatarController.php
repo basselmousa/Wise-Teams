@@ -26,9 +26,13 @@ class UploadAvatarController extends Controller
             $id->update([
                 'avatar' => $avatar
             ]);
+<<<<<<< HEAD
 //            User::find($id);
             Mail::to($id->email)->send(new UpdateUserAvatarEmail());
             return redirect()->route('profile.edit', $id->id)->with('toast_success', 'Your Image Is Updated Successfully');
+=======
+            return redirect()->route('profile.home', $id->id)->with('toast_success', 'Your Image Is Updated Successfully');
+>>>>>>> 056ed6c2934bca5f6a4f61783a3da1dc28873cdc
         }catch (\Exception $e){
             return redirect()->route('profile.edit', $id->id)->with('toast_error', $e->getMessage());
         }
@@ -37,7 +41,7 @@ class UploadAvatarController extends Controller
     public function getImagePath($img)
     {
         if ($img){
-            return $img->store('usersAvatar');
+            return $img->store('usersAvatar','public');
         }
         return null;
     }

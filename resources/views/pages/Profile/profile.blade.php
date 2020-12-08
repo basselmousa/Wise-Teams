@@ -10,6 +10,7 @@
 
             </div>
             <div class="col-md-12">
+<<<<<<< HEAD
                 @if( $id->avatar)
                     <div class="text-center mx-auto Avatar mb-3"
                          style="background-image: url({{ asset('storage/'. $id->avatar) }})">
@@ -17,6 +18,15 @@
                 @else
                     <div class="text-center mx-auto Avatar mb-3"
                          style="background-image: url({{   $id->gender == 'female' ? asset('images/female.png') : asset('images/male.png') }})">
+=======
+                @if(auth()->user()->avatar)
+                    <div class="text-center mx-auto Avatar mb-3 rounded-circle"
+                         style="background-image: url({{ asset('storage/'.auth()->user()->avatar) }})">
+                    </div>
+                @else
+                    <div class="text-center mx-auto Avatar mb-3 rounded-circle"
+                         style="background-image: url({{  auth()->user()->gender == 'female' ? asset('images/female.png') : asset('images/male.png') }})">
+>>>>>>> 056ed6c2934bca5f6a4f61783a3da1dc28873cdc
                     </div>
                 @endif
 
