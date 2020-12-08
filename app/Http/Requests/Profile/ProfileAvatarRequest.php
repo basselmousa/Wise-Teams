@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Profile;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProfileAvatarRequest extends FormRequest
