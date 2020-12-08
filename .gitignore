@@ -10,7 +10,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-resources/views/pages/Profile/profile.blade.php
+/resources/views/pages/Profile/profile.blade.php
 <<<<<<< HEAD
 .idea/php.xml
 .idea/blade.xml

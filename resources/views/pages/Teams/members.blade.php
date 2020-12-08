@@ -22,7 +22,7 @@
                             @endif
                         </div>
                         <div class="col-6" style="margin-top: 13px">
-                            <a href=""><h5 class="pt-2">{{$member->fullname}}</h5></a>
+                            <a href="/profile/{{$member->id}}"><h5 class="pt-2">{{$member->fullname}}</h5></a>
                         </div>
 
                     </div>
