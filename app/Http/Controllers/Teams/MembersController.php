@@ -49,7 +49,7 @@ class MembersController extends Controller
                 return redirect(route('teams.teams'))->with('success', 'You add' . $user->fullname);
             }
             else{
-                throw new ModelNotFoundException('You Cant add Your self');
+                return  redirect(route('teams.teams'))->with('toast_error', 'You can`t add your self');;
             }
         }
         catch (\Exception $e) {
