@@ -76,10 +76,11 @@ Route::group(['prefix' => 'teams', 'as' => 'teams.', 'middleware' => ['verified'
     Route::put('/add/{team}',[\App\Http\Controllers\Teams\MembersController::class,'add']);
 
 
-    //Join Teams
+    //Join and leaving Teams
     Route::get('/find', [\App\Http\Controllers\Teams\TeamJoinController::class, 'findpage'])->name('find');
     Route::post('/find',[\App\Http\Controllers\Teams\TeamJoinController::class,'finding']);
     Route::post('/join/{team}',[\App\Http\Controllers\Teams\TeamJoinController::class,'join']);
+    Route::delete('/leaving/{team}',[\App\Http\Controllers\Teams\TeamJoinController::class,'leaving']);
 
     //Team Assignments
     Route::get('/assignments', function () {

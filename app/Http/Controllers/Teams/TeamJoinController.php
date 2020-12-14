@@ -36,4 +36,9 @@ class TeamJoinController extends Controller
                 return redirect(route('teams.find'))->with('toast_error', 'This team is private team');
             }
     }
+
+    public function leaving (Team $team) {
+        $team->members()->detach(auth()->user());
+        return redirect(route('teams.teams'))->with('success', 'You left' . $team->name);
+    }
 }
