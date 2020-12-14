@@ -24,7 +24,7 @@
                                         @if ( $team->adding == 1 || $team->manager_id == auth()->id() )
                                             <a class="dropdown-item" href="/teams/add/{{$team->id}}">Add New Member</a>
                                         @endif
-                                        @if(auth()->id()===$team->manager_id)
+                                        @if(auth()->id()===$team->manager_id || $team->adding == 1)
                                             <a class="dropdown-item" href="/teams/edit/{{$team->id}}">Edit</a>
                                             <form method="post" action="teams/delete/{{$team->id}}">
                                                 @csrf

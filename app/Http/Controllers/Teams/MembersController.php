@@ -11,6 +11,9 @@ use function PHPUnit\Framework\throwException;
 
 class MembersController extends Controller
 {
+
+
+
     public function index (Team $team) {
         $members = $team->members()->get();
         return view('Pages.Teams.members',compact('members','team'));
@@ -21,10 +24,14 @@ class MembersController extends Controller
 
 
     public function new ( Team $team){
-        return view('Pages.Teams.add',compact('team'));
+       if ($team->adding == 1 || $team->manager_id == auth()->id()){
+           return view('Pages.Teams.add',compact('team'));
+       }
+       else
+       {
+           abort('403');
+       }
     }
-
-
 
 
     public function find (Request $request,Team $team){
