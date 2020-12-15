@@ -3,7 +3,7 @@
         <div class="Team-Activity">
             <div class="row Chat-Box">
                 <div class="content mx-auto">
-                    <div class="row">
+                    <div v-for="(post,index) in posts" :key="index" class="row">
                         <div class="col-11 col-lg-8 Team-Post p-2 pr-3 pr-0">
                             <div class="row justify-content-start w-75">
                                 <div class="col-2 mr-5 mr-md-0">
@@ -15,15 +15,12 @@
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-10 pt-3">
-                                    <p class="pl-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet
-                                        distinctio enim, odit
-                                        quaerat sequi temporibus unde vero voluptatibus? Ad dolorum enim facere libero modi
-                                        molestias nemo nisi provident quam.</p>
+                                    <p class="pl-3" v-text="post.content"></p>
                                 </div>
                             </div>
                             <div class="row justify-content-end text-right">
                                 <div class="col-4">
-                                    <p class="pr-0 ">11/10/2020 10:10</p>
+                                    <p class="pr-0 " v-text="post.created_at"></p>
                                 </div>
                             </div>
                         </div>
@@ -45,31 +42,6 @@
                                 </div>
                             </div>
                             <div class="row justify-content-start text-left">
-                                <div class="col-4">
-                                    <p class="pr-0 ">11/10/2020 10:10</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-11 col-lg-8 Team-Post p-2 pr-3 pr-0">
-                            <div class="row justify-content-start w-75">
-                                <div class="col-2 mr-5 mr-md-0">
-                                    <div class="avatar "></div>
-                                </div>
-                                <div class="col-6 mt-3  text-left pl-0">
-                                    <h5>Doctor</h5>
-                                </div>
-                            </div>
-                            <div class="row justify-content-center">
-                                <div class="col-10 pt-3">
-                                    <p class="pl-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet
-                                        distinctio enim, odit
-                                        quaerat sequi temporibus unde vero voluptatibus? Ad dolorum enim facere libero modi
-                                        molestias nemo nisi provident quam.</p>
-                                </div>
-                            </div>
-                            <div class="row justify-content-end text-right">
                                 <div class="col-4">
                                     <p class="pr-0 ">11/10/2020 10:10</p>
                                 </div>
@@ -101,9 +73,20 @@
 <script>
 export default {
     name: "team-page",
-    props:['teamID'],
+    data () {
+      return {
+         posts:'',
+      }
+    },
+    props:['teamid'],
     created() {
-        axios.get('/teams/team/'+this.teamID)
+        axios.get('/teams/team/posts/'+this.teamid).then((response)=>(this.posts = response.data)).catch(function(error){console.log(error)});
+    }
+    ,
+    methods :{
+        setpost (data) {
+            this.posts = data;
+        }
     }
 }
 </script>

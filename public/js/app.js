@@ -2250,39 +2250,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "team-page",
-  props: ['teamID'],
+  data: function data() {
+    return {
+      posts: ''
+    };
+  },
+  props: ['teamid'],
   created: function created() {
-    axios.get('/teams/team/' + this.teamID);
+    var _this = this;
+
+    axios.get('/teams/team/posts/' + this.teamid).then(function (response) {
+      return _this.posts = response.data;
+    })["catch"](function (error) {
+      console.log(error);
+    });
+  },
+  methods: {
+    setpost: function setpost(data) {
+      this.posts = data;
+    }
   }
 });
 
@@ -40768,169 +40756,138 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("div", { staticClass: "Team-Activity" }, [
+      _c("div", { staticClass: "row Chat-Box" }, [
+        _c(
+          "div",
+          { staticClass: "content mx-auto" },
+          [
+            _vm._l(_vm.posts, function(post, index) {
+              return _c("div", { key: index, staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-11 col-lg-8 Team-Post p-2 pr-3 pr-0" },
+                  [
+                    _vm._m(0, true),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row justify-content-center" }, [
+                      _c("div", { staticClass: "col-10 pt-3" }, [
+                        _c("p", {
+                          staticClass: "pl-3",
+                          domProps: { textContent: _vm._s(post.content) }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "row justify-content-end text-right" },
+                      [
+                        _c("div", { staticClass: "col-4" }, [
+                          _c("p", {
+                            staticClass: "pr-0 ",
+                            domProps: { textContent: _vm._s(post.created_at) }
+                          })
+                        ])
+                      ]
+                    )
+                  ]
+                )
+              ])
+            }),
+            _vm._v(" "),
+            _vm._m(1)
+          ],
+          2
+        )
+      ]),
+      _vm._v(" "),
+      _vm._m(2)
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "Team-Activity" }, [
-        _c("div", { staticClass: "row Chat-Box" }, [
-          _c("div", { staticClass: "content mx-auto" }, [
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                { staticClass: "col-11 col-lg-8 Team-Post p-2 pr-3 pr-0" },
-                [
-                  _c("div", { staticClass: "row justify-content-start w-75" }, [
-                    _c("div", { staticClass: "col-2 mr-5 mr-md-0" }, [
-                      _c("div", { staticClass: "avatar " })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-6 mt-3  text-left pl-0" }, [
-                      _c("h5", [_vm._v("Student 1")])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row justify-content-center" }, [
-                    _c("div", { staticClass: "col-10 pt-3" }, [
-                      _c("p", { staticClass: "pl-3" }, [
-                        _vm._v(
-                          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet\n                                    distinctio enim, odit\n                                    quaerat sequi temporibus unde vero voluptatibus? Ad dolorum enim facere libero modi\n                                    molestias nemo nisi provident quam."
-                        )
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "row justify-content-end text-right" },
-                    [
-                      _c("div", { staticClass: "col-4" }, [
-                        _c("p", { staticClass: "pr-0 " }, [
-                          _vm._v("11/10/2020 10:10")
-                        ])
-                      ])
-                    ]
-                  )
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row justify-content-end" }, [
-              _c(
-                "div",
-                { staticClass: "col-11 col-md-8 Team-Post p-2 pl-3 pr-0" },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "row flex-row-reverse text-right p3-0" },
-                    [
-                      _c("div", { staticClass: "col-3 col-sm-2 p-0" }, [
-                        _c("div", { staticClass: "avatar" })
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-6 mt-3" }, [
-                        _c("h5", [_vm._v("Yazeed Nazal")])
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row justify-content-center" }, [
-                    _c("div", { staticClass: "col-10 pt-3" }, [
-                      _c("p", { staticClass: "pl-4" }, [
-                        _vm._v(
-                          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet\n                                    distincm."
-                        )
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "row justify-content-start text-left" },
-                    [
-                      _c("div", { staticClass: "col-4" }, [
-                        _c("p", { staticClass: "pr-0 " }, [
-                          _vm._v("11/10/2020 10:10")
-                        ])
-                      ])
-                    ]
-                  )
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                { staticClass: "col-11 col-lg-8 Team-Post p-2 pr-3 pr-0" },
-                [
-                  _c("div", { staticClass: "row justify-content-start w-75" }, [
-                    _c("div", { staticClass: "col-2 mr-5 mr-md-0" }, [
-                      _c("div", { staticClass: "avatar " })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-6 mt-3  text-left pl-0" }, [
-                      _c("h5", [_vm._v("Doctor")])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row justify-content-center" }, [
-                    _c("div", { staticClass: "col-10 pt-3" }, [
-                      _c("p", { staticClass: "pl-3" }, [
-                        _vm._v(
-                          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet\n                                    distinctio enim, odit\n                                    quaerat sequi temporibus unde vero voluptatibus? Ad dolorum enim facere libero modi\n                                    molestias nemo nisi provident quam."
-                        )
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "row justify-content-end text-right" },
-                    [
-                      _c("div", { staticClass: "col-4" }, [
-                        _c("p", { staticClass: "pr-0 " }, [
-                          _vm._v("11/10/2020 10:10")
-                        ])
-                      ])
-                    ]
-                  )
-                ]
+    return _c("div", { staticClass: "row justify-content-start w-75" }, [
+      _c("div", { staticClass: "col-2 mr-5 mr-md-0" }, [
+        _c("div", { staticClass: "avatar " })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-6 mt-3  text-left pl-0" }, [
+        _c("h5", [_vm._v("Student 1")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row justify-content-end" }, [
+      _c("div", { staticClass: "col-11 col-md-8 Team-Post p-2 pl-3 pr-0" }, [
+        _c("div", { staticClass: "row flex-row-reverse text-right p3-0" }, [
+          _c("div", { staticClass: "col-3 col-sm-2 p-0" }, [
+            _c("div", { staticClass: "avatar" })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-6 mt-3" }, [
+            _c("h5", [_vm._v("Yazeed Nazal")])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c("div", { staticClass: "col-10 pt-3" }, [
+            _c("p", { staticClass: "pl-4" }, [
+              _vm._v(
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet\n                                    distincm."
               )
             ])
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "row Message-Box justify-content-center" }, [
-          _c("div", { staticClass: "col-7 p-0" }, [
-            _c("div", { staticClass: "mx-auto content" }, [
-              _c("form", { attrs: { action: "post" } }, [
-                _c("div", { staticClass: "input-group" }, [
-                  _c("textarea", {
-                    staticClass: "form-control",
-                    attrs: {
-                      placeholder: "Send New Message",
-                      rows: "3",
-                      "aria-label": "With textarea"
-                    }
-                  })
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-2 col-md-1  p-0" }, [
-            _c("button", { staticClass: "btn Edit-Btn w-100 h-100" }, [
-              _vm._v("Send")
-            ])
+        _c("div", { staticClass: "row justify-content-start text-left" }, [
+          _c("div", { staticClass: "col-4" }, [
+            _c("p", { staticClass: "pr-0 " }, [_vm._v("11/10/2020 10:10")])
           ])
         ])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row Message-Box justify-content-center" },
+      [
+        _c("div", { staticClass: "col-7 p-0" }, [
+          _c("div", { staticClass: "mx-auto content" }, [
+            _c("form", { attrs: { action: "post" } }, [
+              _c("div", { staticClass: "input-group" }, [
+                _c("textarea", {
+                  staticClass: "form-control",
+                  attrs: {
+                    placeholder: "Send New Message",
+                    rows: "3",
+                    "aria-label": "With textarea"
+                  }
+                })
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-2 col-md-1  p-0" }, [
+          _c("button", { staticClass: "btn Edit-Btn w-100 h-100" }, [
+            _vm._v("Send")
+          ])
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
