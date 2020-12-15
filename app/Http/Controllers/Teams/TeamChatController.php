@@ -12,4 +12,7 @@ class TeamChatController extends Controller
         return view('pages.Teams.team',compact('team'));
 
     }
+    public function posts (Team $team) {
+        return $team->post()->latest()->get();
+    }
 }

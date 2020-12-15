@@ -38,6 +38,6 @@
     }
 @stop
 @section('content')
-    <team-page></team-page>
+    <team-page :teamID="{{$team->id}}"></team-page>
 @stop
 

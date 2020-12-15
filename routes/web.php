@@ -64,8 +64,9 @@ Route::group(['prefix' => 'teams', 'as' => 'teams.', 'middleware' => ['verified'
     //information
     Route::get('/info/{team}', [App\Http\Controllers\Teams\TeamController::class, 'show'])->name('teamInfo');
 
-    //Show Team Page
+    //Team Post Page
     Route::get('/team/{team}',[\App\Http\Controllers\Teams\TeamChatController::class,'index']);
+    Route::get('/team/posts/{team}',[\App\Http\Controllers\Teams\TeamChatController::class,'posts']);
 
     //Add New member
 

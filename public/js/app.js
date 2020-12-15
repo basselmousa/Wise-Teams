@@ -2279,7 +2279,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "team-page"
+  name: "team-page",
+  props: ['teamID'],
+  created: function created() {
+    axios.get('/teams/team/' + this.teamID);
+  }
 });
 
 /***/ }),

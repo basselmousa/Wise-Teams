@@ -100,7 +100,11 @@
 
 <script>
 export default {
-    name: "team-page"
+    name: "team-page",
+    props:['teamID'],
+    created() {
+        axios.get('/teams/team/'+this.teamID)
+    }
 }
 </script>
 
