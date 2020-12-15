@@ -53,4 +53,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public function teamsjoined() {
         return $this->belongsToMany(Team::class,'members','user_id');
     }
+    public function post () {
+        return $this->hasMany(Post::class,'user_id');
+    }
 }
