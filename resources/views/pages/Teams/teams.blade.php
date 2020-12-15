@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="col-12 text-center">
-                                <h2><a href="/teams/team">{{$team->name}}</a></h2>
+                                <h2><a href="/teams/team/{{$team->id}}">{{$team->name}}</a></h2>
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 text-center">
-                                    <h2><a href="/teams/team">{{$team->name}}</a></h2>
+                                    <h2><a href="/teams/team/{{$team->id}}">{{$team->name}}</a></h2>
                                 </div>
                             </div>
                         </div>
