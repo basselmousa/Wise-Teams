@@ -7,10 +7,10 @@
                         <div class="col-11 col-lg-8 Team-Post p-2 pr-3 pr-0">
                             <div :class="getClassFirstRow(post.user_id)">
                                 <div class="col-2 mr-5 mr-md-0">
-                                    <div class="avatar "></div>
+                                    <div class="avatar"  :style="setavatar(post.user.avatar,post.user.gender)"></div>
                                 </div>
                                 <div class="col-6 mt-3   text-left pl-0">
-                                    <h5 :class="{'text-right':checkUserSender(post.user_id)}">Student 1</h5>
+                                    <h5 :class="{'text-right':checkUserSender(post.user_id)}"  v-text="post.user.fullname">Student 1</h5>
                                 </div>
                             </div>
                             <div class="row justify-content-center">
@@ -86,6 +86,26 @@ export default {
             return {
                 'row justify-content-end text-right' :sender != this.user,
                 'row'                                :sender == this.user
+            }
+
+            },
+        setavatar (url,gender) {
+
+            if (url != null){
+                return {
+                    backgroundImage: `url(/storage/${url})`
+                }
+            }
+            else
+            {
+                if (gender == 'male'){
+                    return {
+                        backgroundImage : `url(/images/male.png)`
+                    }
+                }
+                else {
+                   return { backgroundImage : `url(/images/female.png)`}
+                }
             }
         }
     }

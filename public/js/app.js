@@ -2268,6 +2268,23 @@ __webpack_require__.r(__webpack_exports__);
         'row justify-content-end text-right': sender != this.user,
         'row': sender == this.user
       };
+    },
+    setavatar: function setavatar(url, gender) {
+      if (url != null) {
+        return {
+          backgroundImage: "url(/storage/".concat(url, ")")
+        };
+      } else {
+        if (gender == 'male') {
+          return {
+            backgroundImage: "url(/images/male.png)"
+          };
+        } else {
+          return {
+            backgroundImage: "url(/images/female.png)"
+          };
+        }
+      }
     }
   }
 });
@@ -40770,7 +40787,15 @@ var render = function() {
                   { staticClass: "col-11 col-lg-8 Team-Post p-2 pr-3 pr-0" },
                   [
                     _c("div", { class: _vm.getClassFirstRow(post.user_id) }, [
-                      _vm._m(0, true),
+                      _c("div", { staticClass: "col-2 mr-5 mr-md-0" }, [
+                        _c("div", {
+                          staticClass: "avatar",
+                          style: _vm.setavatar(
+                            post.user.avatar,
+                            post.user.gender
+                          )
+                        })
+                      ]),
                       _vm._v(" "),
                       _c(
                         "div",
@@ -40781,6 +40806,9 @@ var render = function() {
                             {
                               class: {
                                 "text-right": _vm.checkUserSender(post.user_id)
+                              },
+                              domProps: {
+                                textContent: _vm._s(post.user.fullname)
                               }
                             },
                             [_vm._v("Student 1")]
@@ -40815,19 +40843,11 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm._m(1)
+      _vm._m(0)
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-2 mr-5 mr-md-0" }, [
-      _c("div", { staticClass: "avatar " })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

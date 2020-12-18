@@ -13,6 +13,6 @@ class TeamChatController extends Controller
 
     }
     public function posts (Team $team) {
-        return $team->posts()->get();
+        return $team->posts()->with('user')->get();
     }
 }
