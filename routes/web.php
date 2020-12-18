@@ -67,6 +67,7 @@ Route::group(['prefix' => 'teams', 'as' => 'teams.', 'middleware' => ['verified'
     //Team Post Page
     Route::get('/team/{team}',[\App\Http\Controllers\Teams\TeamChatController::class,'index']);
     Route::get('/team/posts/{team}',[\App\Http\Controllers\Teams\TeamChatController::class,'posts']);
+    Route::post('/team/post',[\App\Http\Controllers\Teams\TeamChatController::class,'post']);
 
     //Add New member
 

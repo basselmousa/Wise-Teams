@@ -32,14 +32,14 @@
                     <div class="mx-auto content">
                         <form action="post" class="">
                             <div class="input-group">
-                            <textarea placeholder="Send New Message" class="form-control" rows="3"
+                            <textarea  v-model="post" placeholder="Send New Message" class="form-control" rows="3"
                                       aria-label="With textarea"></textarea>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="col-2 col-md-1  p-0">
-                    <button class="btn Edit-Btn w-100 h-100">Send</button>
+                    <button class="btn Edit-Btn w-100 h-100" @click="sendPost">Send</button>
                 </div>
             </div>
 
@@ -53,6 +53,7 @@ export default {
     data() {
         return {
             posts: '',
+            post:''
         }
     },
     props: ['teamid', 'manager', 'user'],
@@ -107,6 +108,14 @@ export default {
                    return { backgroundImage : `url(/images/female.png)`}
                 }
             }
+        },
+        sendPost() {
+            if ( this.post!= ''){
+                axios.post('/teams/team/post/',{userid:this.user,teamid:this.teamid,post:this.post}).then(res => {
+                   return res;
+                });
+            }
+            this.post = '';
         }
     }
 }

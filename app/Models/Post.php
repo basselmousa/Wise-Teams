@@ -9,7 +9,7 @@ class Post extends Model
 {
 
     use HasFactory;
-
+    protected $fillable = ['user_id','team_id','content'];
     protected $casts = [
         'created_at' => 'datetime:Y-m-d H:i',
     ];
