@@ -2227,29 +2227,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "team-page",
   data: function data() {
@@ -2257,7 +2234,7 @@ __webpack_require__.r(__webpack_exports__);
       posts: ''
     };
   },
-  props: ['teamid'],
+  props: ['teamid', 'manager', 'user'],
   created: function created() {
     var _this = this;
 
@@ -2268,8 +2245,29 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
+    checkUserSender: function checkUserSender(sender) {
+      return sender == this.user;
+    },
     setpost: function setpost(data) {
       this.posts = data;
+    },
+    getClassMainRow: function getClassMainRow(sender) {
+      return {
+        'row sender': sender == this.user,
+        'row': sender != this.user
+      };
+    },
+    getClassFirstRow: function getClassFirstRow(sender) {
+      return {
+        'row justify-content-start w-100 senderFirstRow': sender == this.user,
+        'row justify-content-start w-75 ': sender != this.user
+      };
+    },
+    getClassDateRow: function getClassDateRow(sender) {
+      return {
+        'row justify-content-end text-right': sender != this.user,
+        'row': sender == this.user
+      };
     }
   }
 });
@@ -40762,14 +40760,34 @@ var render = function() {
         _c(
           "div",
           { staticClass: "content mx-auto" },
-          [
-            _vm._l(_vm.posts, function(post, index) {
-              return _c("div", { key: index, staticClass: "row" }, [
+          _vm._l(_vm.posts, function(post, index) {
+            return _c(
+              "div",
+              { key: index, class: _vm.getClassMainRow(post.user_id) },
+              [
                 _c(
                   "div",
                   { staticClass: "col-11 col-lg-8 Team-Post p-2 pr-3 pr-0" },
                   [
-                    _vm._m(0, true),
+                    _c("div", { class: _vm.getClassFirstRow(post.user_id) }, [
+                      _vm._m(0, true),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-6 mt-3   text-left pl-0" },
+                        [
+                          _c(
+                            "h5",
+                            {
+                              class: {
+                                "text-right": _vm.checkUserSender(post.user_id)
+                              }
+                            },
+                            [_vm._v("Student 1")]
+                          )
+                        ]
+                      )
+                    ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "row justify-content-center" }, [
                       _c("div", { staticClass: "col-10 pt-3" }, [
@@ -40780,30 +40798,24 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "row justify-content-end text-right" },
-                      [
-                        _c("div", { staticClass: "col-4" }, [
-                          _c("p", {
-                            staticClass: "pr-0 ",
-                            domProps: { textContent: _vm._s(post.created_at) }
-                          })
-                        ])
-                      ]
-                    )
+                    _c("div", { class: _vm.getClassDateRow(post.user_id) }, [
+                      _c("div", { staticClass: "col-4" }, [
+                        _c("p", {
+                          staticClass: "pr-0 ",
+                          domProps: { textContent: _vm._s(post.created_at) }
+                        })
+                      ])
+                    ])
                   ]
                 )
-              ])
-            }),
-            _vm._v(" "),
-            _vm._m(1)
-          ],
-          2
+              ]
+            )
+          }),
+          0
         )
       ]),
       _vm._v(" "),
-      _vm._m(2)
+      _vm._m(1)
     ])
   ])
 }
@@ -40812,48 +40824,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row justify-content-start w-75" }, [
-      _c("div", { staticClass: "col-2 mr-5 mr-md-0" }, [
-        _c("div", { staticClass: "avatar " })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-6 mt-3  text-left pl-0" }, [
-        _c("h5", [_vm._v("Student 1")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row justify-content-end" }, [
-      _c("div", { staticClass: "col-11 col-md-8 Team-Post p-2 pl-3 pr-0" }, [
-        _c("div", { staticClass: "row flex-row-reverse text-right p3-0" }, [
-          _c("div", { staticClass: "col-3 col-sm-2 p-0" }, [
-            _c("div", { staticClass: "avatar" })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-6 mt-3" }, [
-            _c("h5", [_vm._v("Yazeed Nazal")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row justify-content-center" }, [
-          _c("div", { staticClass: "col-10 pt-3" }, [
-            _c("p", { staticClass: "pl-4" }, [
-              _vm._v(
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet\n                                    distincm."
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row justify-content-start text-left" }, [
-          _c("div", { staticClass: "col-4" }, [
-            _c("p", { staticClass: "pr-0 " }, [_vm._v("11/10/2020 10:10")])
-          ])
-        ])
-      ])
+    return _c("div", { staticClass: "col-2 mr-5 mr-md-0" }, [
+      _c("div", { staticClass: "avatar " })
     ])
   },
   function() {

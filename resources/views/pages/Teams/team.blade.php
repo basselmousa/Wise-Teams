@@ -38,6 +38,6 @@
     }
 @stop
 @section('content')
-    <team-page :teamID="{{$team->id}}"></team-page>
+    <team-page :teamID="{{$team->id}}" :manager="{{$team->manager_id}}" :user="{{auth()->id()}}"></team-page>
 @stop
 
