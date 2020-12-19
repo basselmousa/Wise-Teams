@@ -77,24 +77,29 @@ Route::group(['prefix' => 'teams', 'as' => 'teams.', 'middleware' => ['verified'
     //information
     Route::get('/info/{team}', [App\Http\Controllers\Teams\TeamController::class, 'show'])->name('teamInfo');
 
-    //Show Team Page
-    Route::get('/team', function () {
-        return view('pages/Teams/team');
-    });
+    //Team Post Page
+    Route::get('/team/{team}',[\App\Http\Controllers\Teams\TeamChatController::class,'index']);
+    Route::get('/team/posts/{team}',[\App\Http\Controllers\Teams\TeamChatController::class,'posts']);
+    Route::post('/team/post',[\App\Http\Controllers\Teams\TeamChatController::class,'post']);
 
     //Add New member
-
-    Route::get('/add', function () {
-        return view('pages/Teams/add');
-    });
 
     Route::get('/add/{team}',[\App\Http\Controllers\Teams\MembersController::class,'new']);
     Route::post('/add/{team}',[\App\Http\Controllers\Teams\MembersController::class,'find']);
     Route::put('/add/{team}',[\App\Http\Controllers\Teams\MembersController::class,'add']);
 
 
+<<<<<<< HEAD
     //Find Teams
     Route::get('/find', [\App\Http\Controllers\Teams\TeamController::class, 'find']);
+=======
+    //Join and leaving Teams
+    Route::get('/find', [\App\Http\Controllers\Teams\TeamJoinController::class, 'findpage'])->name('find');
+    Route::post('/find',[\App\Http\Controllers\Teams\TeamJoinController::class,'finding']);
+    Route::post('/join/{team}',[\App\Http\Controllers\Teams\TeamJoinController::class,'join']);
+    Route::delete('/leaving/{team}',[\App\Http\Controllers\Teams\TeamJoinController::class,'leaving']);
+
+>>>>>>> c8c3a83485c5fc78127e12d389ef03a474cb2a77
     //Team Assignments
     Route::group(['prefix' => '{id}', 'as' => 'assignments.'], function (){
         Route::get('/assignments',[\App\Http\Controllers\Teams\Assignments\TeamsAssignmentController::class, 'index'])->name('index');

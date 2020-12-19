@@ -587,3 +587,13 @@ a:hover {
     width: 60px;
     height: 60px;
 }
+
+.sender {
+    justify-content: flex-end !important
+}
+.senderFirstRow
+{
+    flex-direction: row-reverse !important;
+    text-align: right !important;
+    text-align: right !important;
+}

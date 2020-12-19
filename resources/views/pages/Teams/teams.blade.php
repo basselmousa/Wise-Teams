@@ -24,8 +24,10 @@
                                         @if ( $team->adding == 1 || $team->manager_id == auth()->id() )
                                             <a class="dropdown-item" href="/teams/add/{{$team->id}}">Add New Member</a>
                                         @endif
-                                        @if(auth()->id()===$team->manager_id)
+                                        @if(auth()->id()===$team->manager_id || $team->adding == 1)
                                             <a class="dropdown-item" href="/teams/edit/{{$team->id}}">Edit</a>
+                                        @endif
+                                        @if(auth()->id()===$team->manager_id)
                                             <form method="post" action="teams/delete/{{$team->id}}">
                                                 @csrf
                                                 @method('delete')
@@ -36,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="col-12 text-center">
-                                <h2><a href="/teams/team">{{$team->name}}</a></h2>
+                                <h2><a href="/teams/team/{{$team->id}}">{{$team->name}}</a></h2>
                             </div>
                         </div>
                     </div>
@@ -59,19 +61,16 @@
                                             @if ( $team->adding == 1 || $team->manager_id == auth()->id() )
                                                 <a class="dropdown-item" href="/teams/add/{{$team->id}}">Add New Member</a>
                                             @endif
-                                            @if(auth()->id()===$team->manager_id)
-                                                <a class="dropdown-item" href="/teams/edit/{{$team->id}}">Edit</a>
-                                                <form method="post" action="teams/delete/{{$team->id}}">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button class="dropdown-item text-danger">delete</button>
-                                                </form>
-                                            @endif
+                                            <form method="post" action="teams/leaving/{{$team->id}}">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="dropdown-item text-danger">leaving Team</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-12 text-center">
-                                    <h2><a href="/teams/team">{{$team->name}}</a></h2>
+                                    <h2><a href="/teams/team/{{$team->id}}">{{$team->name}}</a></h2>
                                 </div>
                             </div>
                         </div>
