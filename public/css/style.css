@@ -597,3 +597,8 @@ a:hover {
     text-align: right !important;
     text-align: right !important;
 }
+.grade-input
+{
+    width: 100px;
+    background: white;
+}

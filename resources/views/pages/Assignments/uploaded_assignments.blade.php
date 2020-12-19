@@ -42,7 +42,12 @@
                             </td>
                             <td>{{ $assignment->pivot->updated_at->diffForHumans() }}</td>
                             <td>{{ $assignment->pivot->status }}</td>
-                            <td>{{ "Action" }}</td>
+                            <td>
+                                <form action="">
+                                        <input type="text" class="form-control grade-input d-inline-block" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        <button class="btn Edit-Btn d-inline-block">point</button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
 

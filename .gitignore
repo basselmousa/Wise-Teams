@@ -11,6 +11,7 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 /resources/views/pages/Profile/profile.blade.php
+app/Http/Controllers/Teams/Assignments/UploadedAssignmentsController.php
 <<<<<<< HEAD
 .idea/php.xml
 .idea/blade.xml

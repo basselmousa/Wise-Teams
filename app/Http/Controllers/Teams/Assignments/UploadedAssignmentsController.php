@@ -23,6 +23,6 @@ class UploadedAssignmentsController extends Controller
     {
         $file = Str::after($request->file_path, '.');
 
-        return Storage::download($request->file_path, $request->file_name.".".$file);
+        return Storage::download('public/'.$request->file_path, $request->file_name.".".$file);
     }
 }
