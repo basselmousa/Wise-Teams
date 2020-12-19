@@ -7,10 +7,11 @@
                         <div class="col-11 col-lg-8 Team-Post p-2 pr-3 pr-0">
                             <div :class="getClassFirstRow(post.user_id)">
                                 <div class="col-2 mr-5 mr-md-0">
-                                    <div class="avatar"  :style="setavatar(post.user.avatar,post.user.gender)"></div>
+                                    <div class="avatar" :style="setavatar(post.user.avatar,post.user.gender)"></div>
                                 </div>
                                 <div class="col-6 mt-3   text-left pl-0">
-                                    <h5 :class="{'text-right':checkUserSender(post.user_id)}"  v-text="post.user.fullname">Student 1</h5>
+                                    <h5 :class="{'text-right':checkUserSender(post.user_id)}"
+                                        v-text="post.user.fullname">Student 1</h5>
                                 </div>
                             </div>
                             <div class="row justify-content-center">
@@ -32,7 +33,7 @@
                     <div class="mx-auto content">
                         <form action="post" class="">
                             <div class="input-group">
-                            <textarea  v-model="post" placeholder="Send New Message" class="form-control" rows="3"
+                            <textarea v-model="post" placeholder="Send New Message" class="form-control" rows="3"
                                       aria-label="With textarea"></textarea>
                             </div>
                         </form>
@@ -53,7 +54,7 @@ export default {
     data() {
         return {
             posts: '',
-            post:''
+            post: ''
         }
     },
     props: ['teamid', 'manager', 'user'],
@@ -64,55 +65,52 @@ export default {
     }
     ,
     methods: {
-        checkUserSender (sender) {
+        checkUserSender(sender) {
             return sender == this.user
         },
         setpost(data) {
             this.posts = data;
         },
         getClassMainRow(sender) {
-          return{
-              'row sender': sender == this.user,
-              'row'       :sender !=this.user,
-          }
+            return {
+                'row sender': sender == this.user,
+                'row': sender != this.user,
+            }
         }
         ,
         getClassFirstRow(sender) {
             return {
-                'row justify-content-start w-100 senderFirstRow' : sender == this.user,
-                'row justify-content-start w-75 '               : sender != this.user
+                'row justify-content-start w-100 senderFirstRow': sender == this.user,
+                'row justify-content-start w-75 ': sender != this.user
             }
         },
-        getClassDateRow (sender) {
+        getClassDateRow(sender) {
             return {
-                'row justify-content-end text-right' :sender != this.user,
-                'row'                                :sender == this.user
+                'row justify-content-end text-right': sender != this.user,
+                'row': sender == this.user
             }
 
-            },
-        setavatar (url,gender) {
+        },
+        setavatar(url, gender) {
 
-            if (url != null){
+            if (url != null) {
                 return {
                     backgroundImage: `url(/storage/${url})`
                 }
-            }
-            else
-            {
-                if (gender == 'male'){
+            } else {
+                if (gender == 'male') {
                     return {
-                        backgroundImage : `url(/images/male.png)`
+                        backgroundImage: `url(/images/male.png)`
                     }
-                }
-                else {
-                   return { backgroundImage : `url(/images/female.png)`}
+                } else {
+                    return {backgroundImage: `url(/images/female.png)`}
                 }
             }
         },
         sendPost() {
-            if ( this.post!= ''){
-                axios.post('/teams/team/post/',{userid:this.user,teamid:this.teamid,post:this.post}).then(res => {
-                   return res;
+            if (this.post != '') {
+                axios.post('/teams/team/post/', {userid: this.user, teamid: this.teamid, post: this.post}).then(res => {
+                    return res;
                 });
             }
             this.post = '';
