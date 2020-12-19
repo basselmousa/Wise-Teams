@@ -119,10 +119,8 @@ Route::group(['prefix' => 'teams', 'as' => 'teams.', 'middleware' => ['verified'
 
 /** Start Assignment Routes */
 
-Route::group(['prefix' => 'assignments', 'as' => 'assignments.', 'middleware' => ['verified']], function () {
-    Route::get('/', function () {
-        return view('Pages/Assignments/assignments');
-    });
+Route::group(['prefix' => 'assignments', 'as' => 'myAssignments.', 'middleware' => ['verified']], function () {
+    Route::get('/', [\App\Http\Controllers\Assignments\AssignmentController::class, 'index'])->name('show');
     Route::get('/new', function () {
         return view('Pages/Assignments/new');
     });
