@@ -16,8 +16,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
+Route::get('/i/{ass}', function (\App\Models\Assignment $ass){
+//    $user = \App\Models\User::find(\auth()->id());
+    $user = \App\Models\Assignment::find(1);
+//    $ass = \App\Models\Assignment::find(1);
+//    $user->assignments()->save($ass,[
+//        'file_path' => \Illuminate\Support\Str::random()
+//    ]);
+//    dd($user->assignments);
+//    dd($ass->users);
+    foreach ($ass->users as $item) {
+        dd($item);
+    }
+});
 
 //Auth
 Auth::routes(['verify' => true]);
@@ -82,10 +95,20 @@ Route::group(['prefix' => 'teams', 'as' => 'teams.', 'middleware' => ['verified'
 
     //Find Teams
     Route::get('/find', [\App\Http\Controllers\Teams\TeamController::class, 'find']);
-
     //Team Assignments
-    Route::get('/assignments', function () {
-        return view('Pages/Assignments/assignments');
+    Route::group(['prefix' => '{id}', 'as' => 'assignments.'], function (){
+        Route::get('/assignments',[\App\Http\Controllers\Teams\Assignments\TeamsAssignmentController::class, 'index'])->name('index');
+        Route::get('/assignments/new',[\App\Http\Controllers\Teams\Assignments\TeamsAssignmentController::class, 'create'])->name('new');
+        Route::post('/assignments/new',[\App\Http\Controllers\Teams\Assignments\TeamsAssignmentController::class, 'store'])->name('create');
+        Route::get('/assignments/Member-Assignment/{assignment}',[\App\Http\Controllers\Teams\Assignments\TeamsAssignmentController::class, 'show'])->name('show');
+        Route::post('/assignments/Member-Assignment/{assignment}',[\App\Http\Controllers\Teams\Assignments\UploadAssignmentsController::class, 'store'])->name('upload');
+        Route::delete('/assignments/delete/{assignment}',[\App\Http\Controllers\Teams\Assignments\TeamsAssignmentController::class, 'destroy'])->name('delete');
+
+        Route::group(['prefix' => 'uploaded/{assignments}','as' => 'uploaded.'], function (){
+            Route::get('/', [\App\Http\Controllers\Teams\Assignments\UploadedAssignmentsController::class, 'index'])->name('showUploads');
+            Route::post('/', [\App\Http\Controllers\Teams\Assignments\UploadedAssignmentsController::class, 'download'])->name('downloadFile');
+        });
+
     });
 
     //Team Members
@@ -104,8 +127,32 @@ Route::group(['prefix' => 'assignments', 'as' => 'assignments.', 'middleware' =>
         return view('Pages/Assignments/new');
     });
     Route::get('/Member-assignments', function () {
-        return view('Pages/Assignments/assignment_for_member');
+//        return view('Pages/Assignments/assignment_for_member');
+//        $ass = \App\Models\Assignment::all();
+//        $team = \App\Models\Team::find(1);
+//        $assd = $ass->team;
+//        foreach ($team->assignments as $assignment) {
+//            dump($assignment->question);
+//
+//        }
+//        dump($assd->description);
+//        dump(auth()->user()->teams);
+//        foreach ($ass as $item) {
+//            dump($item->team->name);
+//        }
+//        dd($ass[0]->team->manager->teams[0]->assignments);
+//        dd($ass[0]->team->manager->fullname);
+//        foreach ($ass as $ass) {
+//            dump($ass->team);
+//
+//        }
     });
 });
 
 /** End Assignment Routes */
+
+/** Start Contact Us Routes */
+Route::group(['prefix' => 'contact', 'as' => 'contact.' ], function (){
+    Route::post('sendcontactemail', [\App\Http\Controllers\ContactUs\ContactUsController::class, 'sendContactEmail'])->name('sendContact');
+});
+/** End Contact Us Routes */
