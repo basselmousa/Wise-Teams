@@ -13,7 +13,9 @@ class UploadedAssignmentsController extends Controller
 {
     public function index(Team $id, Assignment $assignments)
     {
-
+        if ($id->manager_id != auth()->id()){
+            abort(401);
+        }
         return view('pages.Assignments.uploaded_assignments', compact('id', 'assignments'));
     }
 

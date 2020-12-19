@@ -10,7 +10,7 @@
                     <div class="card">
                         <div class="card-header">New Assignment</div>
                         <div class="card-body">
-                            <form method="POST" action="">
+                            <form method="POST" action="{{ route('teams.assignments.create', $id->id) }}">
                                 @csrf
 
                                 <div class="form-group row">
