@@ -89,17 +89,17 @@ Route::group(['prefix' => 'teams', 'as' => 'teams.', 'middleware' => ['verified'
     Route::put('/add/{team}',[\App\Http\Controllers\Teams\MembersController::class,'add']);
 
 
-<<<<<<< HEAD
+
     //Find Teams
     Route::get('/find', [\App\Http\Controllers\Teams\TeamController::class, 'find']);
-=======
+
     //Join and leaving Teams
     Route::get('/find', [\App\Http\Controllers\Teams\TeamJoinController::class, 'findpage'])->name('find');
     Route::post('/find',[\App\Http\Controllers\Teams\TeamJoinController::class,'finding']);
     Route::post('/join/{team}',[\App\Http\Controllers\Teams\TeamJoinController::class,'join']);
     Route::delete('/leaving/{team}',[\App\Http\Controllers\Teams\TeamJoinController::class,'leaving']);
 
->>>>>>> c8c3a83485c5fc78127e12d389ef03a474cb2a77
+
     //Team Assignments
     Route::group(['prefix' => '{id}', 'as' => 'assignments.'], function (){
         Route::get('/assignments',[\App\Http\Controllers\Teams\Assignments\TeamsAssignmentController::class, 'index'])->name('index');
@@ -109,6 +109,7 @@ Route::group(['prefix' => 'teams', 'as' => 'teams.', 'middleware' => ['verified'
         Route::post('/assignments/Member-Assignment/{assignment}',[\App\Http\Controllers\Teams\Assignments\UploadAssignmentsController::class, 'store'])->name('upload');
         Route::delete('/assignments/delete/{assignment}',[\App\Http\Controllers\Teams\Assignments\TeamsAssignmentController::class, 'destroy'])->name('delete');
 
+        // Uploaded Files For Assignment Routes
         Route::group(['prefix' => 'uploaded/{assignments}','as' => 'uploaded.'], function (){
             Route::get('/', [\App\Http\Controllers\Teams\Assignments\UploadedAssignmentsController::class, 'index'])->name('showUploads');
             Route::post('/', [\App\Http\Controllers\Teams\Assignments\UploadedAssignmentsController::class, 'download'])->name('downloadFile');
