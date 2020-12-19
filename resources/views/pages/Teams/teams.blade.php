@@ -19,7 +19,8 @@
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-ellipsis-h"></i>
                                     </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="z-index: 10000">
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
+                                         style="z-index: 10000">
                                         <a class="dropdown-item" href="/teams/info/{{$team->id}}">Info</a>
                                         @if ( $team->adding == 1 || $team->manager_id == auth()->id() )
                                             <a class="dropdown-item" href="/teams/add/{{$team->id}}">Add New Member</a>
@@ -27,6 +28,9 @@
                                         @if(auth()->id()===$team->manager_id || $team->adding == 1)
                                             <a class="dropdown-item" href="/teams/edit/{{$team->id}}">Edit</a>
                                         @endif
+                                        <a class="dropdown-item" href="{{ route('teams.assignments.index', $team->id) }}">
+                                            Show Assignments
+                                        </a>
                                         @if(auth()->id()===$team->manager_id)
                                             <form method="post" action="teams/delete/{{$team->id}}">
                                                 @csrf
@@ -45,37 +49,38 @@
                 </div>
             </div>
         @endforeach
-            @foreach($teamsjoined as $team)
-                <div class=" col-12 col-sm-6 col-lg-3 mb-4 ">
-                    <div class="Team-box ">
-                        <div class="w-100">
-                            <div class="row justify-content-end h-100 justify-content-between w-100">
-                                <div class="col-12 text-right p-0">
-                                    <div class="dropdown">
-                                        <button class="dropdown-toggle Option" type="button" id="dropdownMenuButton"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-h"></i>
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="z-index: 10000">
-                                            <a class="dropdown-item" href="/teams/info/{{$team->id}}">Info</a>
-                                            @if ( $team->adding == 1 || $team->manager_id == auth()->id() )
-                                                <a class="dropdown-item" href="/teams/add/{{$team->id}}">Add New Member</a>
-                                            @endif
-                                            <form method="post" action="teams/leaving/{{$team->id}}">
-                                                @csrf
-                                                @method('delete')
-                                                <button class="dropdown-item text-danger">leaving Team</button>
-                                            </form>
-                                        </div>
+        @foreach($teamsjoined as $team)
+            <div class=" col-12 col-sm-6 col-lg-3 mb-4 ">
+                <div class="Team-box ">
+                    <div class="w-100">
+                        <div class="row justify-content-end h-100 justify-content-between w-100">
+                            <div class="col-12 text-right p-0">
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle Option" type="button" id="dropdownMenuButton"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
+                                         style="z-index: 10000">
+                                        <a class="dropdown-item" href="/teams/info/{{$team->id}}">Info</a>
+                                        @if ( $team->adding == 1 || $team->manager_id == auth()->id() )
+                                            <a class="dropdown-item" href="/teams/add/{{$team->id}}">Add New Member</a>
+                                        @endif
+                                        <form method="post" action="teams/leaving/{{$team->id}}">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="dropdown-item text-danger">leaving Team</button>
+                                        </form>
                                     </div>
                                 </div>
-                                <div class="col-12 text-center">
-                                    <h2><a href="/teams/team/{{$team->id}}">{{$team->name}}</a></h2>
-                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <h2><a href="/teams/team/{{$team->id}}">{{$team->name}}</a></h2>
                             </div>
                         </div>
                     </div>
                 </div>
-            @endforeach
+            </div>
+        @endforeach
     </div>
 @stop

@@ -12,7 +12,9 @@
             @if ( $team->adding == 1 || $team->manager_id == auth()->id() )
                 <a class="dropdown-item" href="/teams/add/{{$team->id}}">Add New Member</a>
             @endif
-
+            <a class="dropdown-item" href="{{ route('teams.assignments.index', $team->id) }}">
+                Show Assignments
+            </a>
             @if(auth()->id()===$team->manager_id)
                 <a class="dropdown-item" href="/teams/edit/{{$team->id}}">Edit</a>
                 <form method="post" action="teams/delete/{{$team->id}}">
@@ -54,9 +56,11 @@
                 </a>
             </div>
             <div class="col-3 text-center">
-                <div class="mb-2"><i class="fas fa-file-alt"></i></div>
-                <h5>assigment</h5>
-                <p>100</p>
+                <a href="{{ route('teams.assignments.index', $team->id) }}">
+                    <div class="mb-2"><i class="fas fa-file-alt"></i></div>
+                    <h5>assigment</h5>
+                    <p>{{ $assignments->count() }}</p>
+                </a>
             </div>
             <div class="col-3 text-center">
                 <div class="mb-2"><i class="fas fa-comment-dots"></i></div>

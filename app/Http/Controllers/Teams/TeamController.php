@@ -58,7 +58,8 @@ class TeamController extends Controller
     {
         $manager =$team->manager()->get()->first();
         $members = $team->members();
-        return view('pages/Teams/info',compact('team' ,'manager','members'));
+        $assignments = $team->assignments();
+        return view('pages/Teams/info',compact('team' ,'manager','members', 'assignments'));
     }
 
     /**
