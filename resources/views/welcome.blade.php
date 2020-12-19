@@ -44,15 +44,15 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h1>Contact Us</h1>
-                        <form method="psot" action="">
+                        <form method="post" action="{{ route('contact.sendContact') }}">
                             @csrf
                             <div class="form-group w-75">
                                 <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <input type="email" required class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
                             </div>
                             <div class="form-group w-75">
                                 <label for="exampleFormControlTextarea1">Message</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea class="form-control" required id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
                             </div>
                             <div class="mt-4">
                                 <button class="btn">Send</button>
@@ -72,5 +72,6 @@
 
 </div>
 <script src="{{asset('/js/app.js')}}"></script>
+@include('sweetalert::alert')
 </body>
 </html>
