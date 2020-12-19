@@ -53,4 +53,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function teamsjoined() {
         return $this->belongsToMany(Team::class,'members','user_id');
     }
+
+    public function assignments()
+    {
+        return $this->belongsToMany(Assignment::class, 'uploaded', 'user_id')->withPivot(['file_path', 'status', 'grade'])->withTimestamps();
+    }
+
 }
