@@ -31,7 +31,7 @@
                             <td>{{ $assignment->username }}</td>
                             <td>
                                 <form
-                                    action="{{ route('teams.assignments.uploaded.downloadFile', [$id->id, $assignment->id]) }}"
+                                    action="{{ route('teams.assignments.uploaded.downloadFile', [$id->id, $assignments->id]) }}"
                                     method="post">
                                     @csrf
                                     <input type="hidden" name="file_path" value="{{ $assignment->pivot->file_path }}">

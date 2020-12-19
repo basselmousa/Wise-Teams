@@ -22,6 +22,7 @@ class UploadedAssignmentsController extends Controller
     public function download(Team $id, Assignment $assignments, Request $request)
     {
         $file = Str::after($request->file_path, '.');
+        dd($request->file_path);
         return Storage::download($request->file_path, $request->file_name.".".$file);
     }
 }
