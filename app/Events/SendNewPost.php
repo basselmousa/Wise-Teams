@@ -13,16 +13,25 @@ use Illuminate\Queue\SerializesModels;
 class SendNewPost implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
-    public $name= "hi";
+    public $userid;
+    public $gender;
+    public $username;
+    public $avatar;
+    public $content;
+    public $date;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($userid,$gender,$name,$avatar,$content,$date)
     {
-        //
+        $this->userid=$userid;
+        $this->gender=$gender;
+        $this->username=$name;
+        $this->avatar=$avatar;
+        $this->content=$content;
+        $this->date=$date;
     }
 
     /**
