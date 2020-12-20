@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Teams;
 
+use App\Events\SendNewPost;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\Team;
@@ -17,6 +18,8 @@ class TeamChatController extends Controller
         return $team->posts()->with('user')->get();
     }
     public function post (Request $request) {
+
+        SendNewPost::dispatch();
         Post::create([
             'user_id'=>$request->userid,
             'team_id'=>$request->teamid,
