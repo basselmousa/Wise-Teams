@@ -53,14 +53,28 @@ export default {
     name: "team-page",
     data() {
         return {
-            posts: '',
+            posts: [],
             post: ''
         }
     },
     props: ['teamid', 'manager', 'user'],
     created() {
         axios.get('/teams/team/posts/' + this.teamid).then((response) => (this.posts = response.data)).catch(function (error) {
-            console.log(error)
+        });
+        window.Echo.channel('WiseTeams').listen('SendNewPost', e => {
+            let user = {
+                'avatar'  :e.avatar,
+                'fullname':e.fullname,
+                'gender'  :e.gender
+            };
+            let p = {
+                'user':user,
+                'user_id':e.user_id,
+                'content':e.content
+            }
+            this.posts.push(p);
+
+
         });
     }
     ,
