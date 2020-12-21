@@ -70,7 +70,8 @@ export default {
             let p = {
                 'user':user,
                 'user_id':e.user_id,
-                'content':e.content
+                'content':e.content,
+                'created_at':e.created_at
             }
             this.posts.push(p);
 

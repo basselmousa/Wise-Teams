@@ -18,7 +18,7 @@ class SendNewPost implements ShouldBroadcast
     public $fullname;
     public $avatar;
     public $content;
-    public $date;
+    public $created_at;
     /**
      * Create a new event instance.
      *
@@ -31,7 +31,7 @@ class SendNewPost implements ShouldBroadcast
         $this->fullname=$name;
         $this->avatar=$avatar;
         $this->content=$content;
-        $this->date=$date;
+        $this->created_at=$date;
     }
 
     /**
