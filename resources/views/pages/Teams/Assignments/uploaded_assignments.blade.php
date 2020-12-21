@@ -20,12 +20,13 @@
                         <th scope="col">File</th>
                         <th scope="col">Uploaded At</th>
                         <th scope="col">Upload Status</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col">Assignment Point</th>
+                        <th scope="col">Grade User Assignment</th>
                     </tr>
                     </thead>
                     <tbody>
                     @php($i=0)
-                    @foreach($assignments->users as $assignment)
+                    @foreach( $assignments->users as $assignment)
                         <tr>
                             <th scope="row">{{ ++$i }}</th>
                             <td>{{ $assignment->username }}</td>
@@ -42,7 +43,23 @@
                             </td>
                             <td>{{ $assignment->pivot->updated_at->diffForHumans() }}</td>
                             <td>{{ $assignment->pivot->status }}</td>
-                            <td>{{ "Action" }}</td>
+                            <td>{{ $assignments->points }}</td>
+                            <td>
+                                <form method="post" action="{{ route('teams.assignments.uploaded.grading', [$id->id, $assignments->id]) }}">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="hidden" name="user_id" value="{{ $assignment->id }}">
+                                    <input type="number" name="grade"
+                                           class="form-control grade-input d-inline-block @error('grade') is-invalid @enderror">
+
+                                    <button class="btn Edit-Btn d-inline-block" type="submit">point</button>
+                                    @error('grade')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
 

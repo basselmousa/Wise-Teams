@@ -81,7 +81,8 @@ class TeamsAssignmentController extends Controller
      */
     public function show(Team $id, Assignment $assignment)
     {
-        return view('pages.Teams.Assignments.assignment_for_member', compact('assignment'));
+        $user = $assignment->users;
+        return view('pages.Teams.Assignments.assignment_for_member', compact('assignment', 'user'));
     }
 
     /**

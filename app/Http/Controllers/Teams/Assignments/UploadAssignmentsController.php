@@ -18,7 +18,7 @@ class UploadAssignmentsController extends Controller
     public function getImagePath($img)
     {
         if ($img) {
-            return $img->store('assignmentsFile');
+            return $img->store('assignmentsFile', 'public');
         }
         return null;
     }

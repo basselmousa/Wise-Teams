@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title','Teams');
-@section('nav-title','Assignments Name')
+@section('nav-title','Upload Assignment')
 @include('layouts.SideNavigation')
 @section('content')
     <section class="Assignment-Show mt-5">
@@ -25,18 +25,21 @@
             </div>
             @if(auth()->id() != $assignment->team->manager_id)
                 @foreach($assignment->users as $user)
+                    @if($user->id == auth()->id())
 
-                    <div class="col-7">
-                        <h5>Last modified</h5>
+                        <div class="col-7">
+                            <h5>Last modified</h5>
                         <span
                             class="{{ $user->pivot->updated_at->gt($assignment->ending_date)  ? 'text-danger' : 'text-success' }}">
                         {{ $user->pivot->updated_at }}
                     </span>
-                    </div>
-                    <div class="col-7">
-                        <h5>Submission status</h5>
-                        <span class="text-success">Submitted for grading</span>
-                    </div>
+                        </div>
+                        <div class="col-7">
+                            <h5>Submission status</h5>
+                            <span class="text-success">Submitted for grading</span>
+                        </div>
+
+                    @endif
 
                 @endforeach
             @else

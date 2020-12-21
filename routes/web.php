@@ -113,6 +113,7 @@ Route::group(['prefix' => 'teams', 'as' => 'teams.', 'middleware' => ['verified'
         Route::group(['prefix' => 'uploaded/{assignments}','as' => 'uploaded.'], function (){
             Route::get('/', [\App\Http\Controllers\Teams\Assignments\UploadedAssignmentsController::class, 'index'])->name('showUploads');
             Route::post('/', [\App\Http\Controllers\Teams\Assignments\UploadedAssignmentsController::class, 'download'])->name('downloadFile');
+            Route::put('/', [\App\Http\Controllers\Teams\Assignments\UploadedAssignmentsController::class, 'grade'])->name('grading');
         });
 
     });
