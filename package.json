@@ -25,8 +25,10 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.1",
+        "laravel-echo": "^1.10.0",
         "moment": "^2.29.1",
         "particles.js": "^2.0.0",
+        "pusher-js": "^7.0.2",
         "sweetalert2": "^10.11.1"
     }
 }
