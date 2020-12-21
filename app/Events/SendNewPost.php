@@ -13,9 +13,9 @@ use Illuminate\Queue\SerializesModels;
 class SendNewPost implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $userid;
+    public $user_id;
     public $gender;
-    public $username;
+    public $fullname;
     public $avatar;
     public $content;
     public $date;
@@ -24,11 +24,11 @@ class SendNewPost implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct($userid,$gender,$name,$avatar,$content,$date)
+    public function __construct($user_id,$gender,$name,$avatar,$content,$date)
     {
-        $this->userid=$userid;
+        $this->user_id=$user_id;
         $this->gender=$gender;
-        $this->username=$name;
+        $this->fullname=$name;
         $this->avatar=$avatar;
         $this->content=$content;
         $this->date=$date;

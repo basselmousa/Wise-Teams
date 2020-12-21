@@ -2232,7 +2232,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "team-page",
   data: function data() {
     return {
-      posts: '',
+      posts: [],
       post: ''
     };
   },
@@ -2242,8 +2242,20 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get('/teams/team/posts/' + this.teamid).then(function (response) {
       return _this.posts = response.data;
-    })["catch"](function (error) {
-      console.log(error);
+    })["catch"](function (error) {});
+    window.Echo.channel('WiseTeams').listen('SendNewPost', function (e) {
+      var user = {
+        'avatar': e.avatar,
+        'fullname': e.fullname,
+        'gender': e.gender
+      };
+      var p = {
+        'user': user,
+        'user_id': e.user_id,
+        'content': e.content
+      };
+
+      _this.posts.push(p);
     });
   },
   methods: {
