@@ -8,8 +8,10 @@ use App\Mail\TeamAssignments\AssignmentUploadedEmail;
 use App\Models\Assignment;
 use App\Models\Team;
 use App\Models\User;
+use App\Notifications\AssignmentUploadedNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification;
 
 class UploadAssignmentsController extends Controller
 {
@@ -34,8 +36,11 @@ class UploadAssignmentsController extends Controller
                 'file_path' => $file_path,
                 'status' => 1
             ]);
-            Mail::to($id->manager->email)
-                ->send(new AssignmentUploadedEmail(auth()->user()->username, $assignment->name, $assignment->id, $id->id));
+//            auth()->user()->notify(new AssignmentUploadedNotification());
+            $id->manager->notify(new AssignmentUploadedNotification(auth()->user()->username,$assignment->name ,$id->id ,$assignment->id));
+//            Notification::send(->email, new AssignmentUploadedNotification());
+//            Mail::to($id->manager->email)
+//                ->send(new AssignmentUploadedEmail(auth()->user()->username, $assignment->name, $assignment->id, $id->id));
             return redirect()->route('teams.assignments.show', [$id->id, $assignment->id])->with('success', 'Your File Was Uploaded');
         }catch (\Exception $exception){
             if ($exception->getCode() == 23000){
