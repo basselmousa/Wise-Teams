@@ -20,16 +20,17 @@ Route::get('/', function () {
 
 Route::get('/i/{ass}', function (\App\Models\Assignment $ass){
 //    $user = \App\Models\User::find(\auth()->id());
-    $user = \App\Models\Assignment::find(1);
+//    $user = \App\Models\Assignment::find(1);
 //    $ass = \App\Models\Assignment::find(1);
 //    $user->assignments()->save($ass,[
 //        'file_path' => \Illuminate\Support\Str::random()
 //    ]);
 //    dd($user->assignments);
 //    dd($ass->users);
-    foreach ($ass->users as $item) {
-        dd($item);
-    }
+//    foreach ($ass->users as $item) {
+//        dd($item);
+//    }
+    dd(\Illuminate\Notifications\DatabaseNotification::all());
 });
 
 //Auth
@@ -44,8 +45,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['verified']], function () {
     Route::get('/{id}', [\App\Http\Controllers\Profile\ProfileController::class, 'show'])->name('home');
-    Route::get('/Edit/{id}', [\App\Http\Controllers\Profile\ProfileController::class, 'edit'])->name('edit');
     Route::middleware(['password.confirm'])->group(function () {
+        Route::get('/Edit/{id}', [\App\Http\Controllers\Profile\ProfileController::class, 'edit'])->name('edit');
         Route::put('/Edit/avatar/{id}', [\App\Http\Controllers\Profile\UploadAvatarController::class, 'uploadAvatar'])->name('avatar');
         Route::put('/Edit/{id}', [\App\Http\Controllers\Profile\ProfileController::class, 'update'])->name('update');
         Route::delete('/delete/{id}', [\App\Http\Controllers\Profile\ProfileController::class, 'destroy'])->name('delete');
@@ -161,3 +162,9 @@ Route::group(['prefix' => 'contact', 'as' => 'contact.' ], function (){
     Route::post('sendcontactemail', [\App\Http\Controllers\ContactUs\ContactUsController::class, 'sendContactEmail'])->name('sendContact');
 });
 /** End Contact Us Routes */
+
+Route::group(['prefix' => 'teams' , 'as' => 'activity.', 'middleware' => ['verified']], function (){
+    Route::get('activity', [\App\Http\Controllers\Activity\ActivityController::class, 'index'])->name('main');
+    Route::post('activity', [\App\Http\Controllers\Activity\ActivityController::class, 'markAsRead'])->name('notification.markAsRead');
+    Route::put('activity', [\App\Http\Controllers\Activity\ActivityController::class, 'markAsUnRead'])->name('notification.markAsUnRead');
+});

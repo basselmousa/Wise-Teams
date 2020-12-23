@@ -20,15 +20,12 @@
                         <th scope="col">Team</th>
                         <th scope="col">End Date</th>
                         <th scope="col">Assignment Status</th>
-                        {{--                        @if(auth()->id() == $id->manager_id)--}}
-                        {{--                            <th scope="col">Actions</th>--}}
-                        {{--                        @endif--}}
                     </tr>
                     </thead>
                     <tbody>
                     @php($i=0)
-                    @foreach(auth()->user()->teamsjoined as $joined)
-                        @foreach($joined->assignments as $assignment)
+                    @forelse(auth()->user()->teamsjoined as $joined)
+                        @forelse($joined->assignments as $assignment)
                             <tr>
                                 <th scope="row">{{ ++$i }}</th>
                                 <td>
@@ -55,8 +52,14 @@
                                 {{--                                @endif--}}
                                 {{--                            </td>--}}
                             </tr>
-                        @endforeach
-                    @endforeach
+                        @empty
+                            @php( alert('Empty Table','There is no Assignments For You','warning'))
+                            <div class="alert alert-warning">There Is no Assignments Right now</div>
+                        @endforelse
+                    @empty
+                        @php( alert('Empty Table','you are not belong to any team please join team','warning'))
+                        <div class="alert alert-warning">You Are Not member in any team </div>
+                    @endforelse
 
                     </tbody>
                 </table>

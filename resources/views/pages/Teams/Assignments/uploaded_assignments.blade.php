@@ -14,19 +14,22 @@
             <div class="col-10">
                 <table class="table table-striped">
                     <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">User Name</th>
-                        <th scope="col">File</th>
-                        <th scope="col">Uploaded At</th>
-                        <th scope="col">Upload Status</th>
-                        <th scope="col">Assignment Point</th>
-                        <th scope="col">Grade User Assignment</th>
-                    </tr>
+                    @if(! $assignments->users)
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">User Name</th>
+                            <th scope="col">File</th>
+                            <th scope="col">Uploaded At</th>
+                            <th scope="col">Upload Status</th>
+                            <th scope="col">Assignment Point</th>
+                            <th scope="col">Grade User Assignment</th>
+                        </tr>
+                    @endif
+
                     </thead>
                     <tbody>
                     @php($i=0)
-                    @foreach( $assignments->users as $assignment)
+                    @forelse($assignments->users as $assignment)
                         <tr>
                             <th scope="row">{{ ++$i }}</th>
                             <td>{{ $assignment->username }}</td>
@@ -61,7 +64,10 @@
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                         @php( alert('Empty Table','There is no data','warning'))
+                        <div class="alert alert-success">There Is no Data</div>
+                    @endforelse
 
                     </tbody>
                 </table>
