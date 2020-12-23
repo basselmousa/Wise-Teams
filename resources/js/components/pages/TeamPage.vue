@@ -61,7 +61,7 @@ export default {
     created() {
         axios.get('/teams/team/posts/' + this.teamid).then((response) => (this.posts = response.data)).catch(function (error) {
         });
-        window.Echo.channel('WiseTeams').listen('SendNewPost', e => {
+        window.Echo.private('SendNewPost.'+this.teamid).listen('SendNewPost', e => {
             let user = {
                 'avatar'  :e.avatar,
                 'fullname':e.fullname,

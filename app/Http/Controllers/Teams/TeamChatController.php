@@ -34,6 +34,6 @@ class TeamChatController extends Controller
       $user = User::where('id',$request->userid)->first();
         $createat = Carbon::parse($post->created_at);
 
-        SendNewPost::dispatch($user->id,$user->gender,$user->fullname,$user->avatar,$post->content,$createat->format('m-d-Y' .'  ' . 'h:m'));
+        SendNewPost::dispatch($user->id,$user->gender,$user->fullname,$user->avatar,$post->content,$createat->format('d-m-Y' .'  ' . 'h:m'),$request->teamid);
     }
 }
