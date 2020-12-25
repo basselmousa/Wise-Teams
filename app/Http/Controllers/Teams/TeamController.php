@@ -71,7 +71,12 @@ class TeamController extends Controller
      */
     public function edit(Team $team)
     {
-        return view('Pages.Teams.edit',compact('team'));
+        if ($team->manager_id == auth()->id()){
+            return view('Pages.Teams.edit',compact('team'));
+        }
+        else{
+            abort('403');
+        }
     }
 
     /**
@@ -83,8 +88,14 @@ class TeamController extends Controller
      */
     public function update(StoreTeam $request, Team $team)
     {
-        $team->update($request->validated());
-        return redirect()->route('teams.teamInfo',[$team->id])->with('success', 'Team Was Updated Successfully ');
+        if ($team->manager_id == auth()->id()){
+            $team->update($request->validated());
+            return redirect()->route('teams.teamInfo',[$team->id])->with('success', 'Team Was Updated Successfully ');
+        }
+        else
+            {
+            abort('403');
+        }
     }
 
     /**
@@ -95,8 +106,14 @@ class TeamController extends Controller
      */
     public function destroy(Team $team)
     {
-        $team->delete();
-        return redirect()->route('teams.teams')->with('success', 'Team Was Deleted Successfully ');
+        if ($team->manager_id == auth()->id()){
+            $team->delete();
+            return redirect()->route('teams.teams')->with('success', 'Team Was Deleted Successfully ');
+        }
+        else{
+            abort('403');
+        }
+
     }
 
 }
