@@ -15,9 +15,10 @@ class UploadedAssignmentsController extends Controller
 {
     public function index(Team $id, Assignment $assignments)
     {
-        if ($id->manager_id != auth()->id()) {
+        if ($id->manager_id != auth()->id() | $assignments->team_id != $id->id ) {
             abort(401);
         }
+
         return view('pages.Teams.Assignments.uploaded_assignments', compact('id', 'assignments'));
     }
 

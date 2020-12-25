@@ -14,20 +14,21 @@
             <div class="col-10">
                 <table class="table table-striped">
                     <thead>
-                    @if(! $assignments->users)
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">User Name</th>
-                            <th scope="col">File</th>
-                            <th scope="col">Uploaded At</th>
-                            <th scope="col">Upload Status</th>
-                            <th scope="col">Assignment Point</th>
-                            <th scope="col">Grade User Assignment</th>
-                        </tr>
-                    @endif
+
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">File</th>
+                        <th scope="col">Uploaded At</th>
+                        <th scope="col">Upload Status</th>
+                        <th scope="col">Assignment Point</th>
+                        <th scope="col">Grade User Assignment</th>
+                    </tr>
+
 
                     </thead>
                     <tbody>
+
                     @php($i=0)
                     @forelse($assignments->users as $assignment)
                         <tr>
@@ -38,7 +39,8 @@
                                     action="{{ route('teams.assignments.uploaded.downloadFile', [$id->id, $assignments->id]) }}"
                                     method="post">
                                     @csrf
-                                    <input type="hidden" name="file_path" value="{{ $assignment->pivot->file_path }}">
+                                    <input type="hidden" name="file_path"
+                                           value="{{ $assignment->pivot->file_path }}">
                                     <input type="hidden" name="file_name"
                                            value="{{ $assignments->team->name."-".$assignment->username . "-". $assignment->fullname }}">
                                     <button type="submit" class="btn btn-primary">Download File</button>
@@ -48,7 +50,8 @@
                             <td>{{ $assignment->pivot->status }}</td>
                             <td>{{ $assignments->points }}</td>
                             <td>
-                                <form method="post" action="{{ route('teams.assignments.uploaded.grading', [$id->id, $assignments->id]) }}">
+                                <form method="post"
+                                      action="{{ route('teams.assignments.uploaded.grading', [$id->id, $assignments->id]) }}">
                                     @csrf
                                     @method('PUT')
                                     <input type="hidden" name="user_id" value="{{ $assignment->id }}">
@@ -65,7 +68,7 @@
                             </td>
                         </tr>
                     @empty
-                         @php( alert('Empty Table','There is no data','warning'))
+                        @php( alert('Empty Table','There is no data','warning'))
                         <div class="alert alert-success">There Is no Data</div>
                     @endforelse
 
