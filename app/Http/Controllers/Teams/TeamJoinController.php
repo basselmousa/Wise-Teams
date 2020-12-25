@@ -29,7 +29,7 @@ class TeamJoinController extends Controller
     //Join the team that we found
     public function join(Team $team)
     {
-        //chek if the team can be joined by any one
+        //check if the team can be joined by any one
         if ($team->joining) {
 
             //check that if the team manager try to be a member

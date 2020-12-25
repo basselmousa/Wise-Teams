@@ -44,11 +44,11 @@ class MembersController extends Controller
 
 
     public function add (Request $request , Team $team) {
-        //chek who can make this action
+        //check who can make this action
         if ($team->adding == 1 || $team->manager_id == auth()->id()){
             $user = User::find($request->member);
             try {
-                //chek if the team manager try to be a member
+                //check if the team manager try to be a member
                 if ($user->id != $team->manager_id) {
                     $team->members()->save($user);
                     return redirect(route('teams.teams'))->with('success', 'You add' . $user->fullname);
