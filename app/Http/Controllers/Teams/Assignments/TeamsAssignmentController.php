@@ -28,7 +28,18 @@ class TeamsAssignmentController extends Controller
     {
 //        dd($id->assignments[0]->team);
         $assignments = $id->assignments;
-        return view('pages.Teams.Assignments.assignments', compact('assignments', 'id'));
+        $grades = auth()->user()->assignments;
+        $gradesArray = [];
+        $filesArray = [];
+        foreach ($grades as $grade) {
+            $gradesArray[$grade->pivot->assignment_id] = $grade->pivot->grade;
+        }
+        foreach ($grades as $grade) {
+            $filesArray[$grade->pivot->assignment_id] = $grade->pivot->file_path;
+        }
+
+//        dd($gradesArray);
+        return view('pages.Teams.Assignments.assignments', compact('assignments', 'id', 'gradesArray', 'filesArray'));
     }
 
     /**

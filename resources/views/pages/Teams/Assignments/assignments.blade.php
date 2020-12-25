@@ -19,6 +19,9 @@
                         <th scope="col">Name</th>
                         <th scope="col">Team</th>
                         <th scope="col">End Date</th>
+                        @if(auth()->id() != $id->manager_id)
+                            <th scope="col">Grades</th>
+                        @endif
                         <th scope="col">Assignment Status</th>
                         @if(auth()->id() == $id->manager_id)
                             <th scope="col">Actions</th>
@@ -35,6 +38,17 @@
                             </td>
                             <td>{{ $assignment->team->name }}</td>
                             <td>{{ $assignment->ending_date->diffForHumans() }}</td>
+
+                            @if(auth()->id() != $id->manager_id)
+                                <td>
+                                    @if(isset($filesArray[$assignment->id]))
+                                        {{ ! is_null($gradesArray[$assignment->id]) ? $gradesArray[$assignment->id] : "Not Graded Yet" }}
+                                    @else
+                                        {{ "You Are Not Uploaded Any File"  }}
+                                    @endif
+                                </td>
+                            @endif
+
                             <td>
                                 @if($assignment->ending_date < \Carbon\Carbon::now()->toDateTimeString())
                                     <span
@@ -46,7 +60,8 @@
                             </td>
                             <td>
                                 @if(auth()->id() == $id->manager_id)
-                                    <form action="{{ route('teams.assignments.delete', [$id->id , $assignment->id]) }}" method="post">
+                                    <form action="{{ route('teams.assignments.delete', [$id->id , $assignment->id]) }}"
+                                          method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>
