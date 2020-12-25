@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Team;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreTeam extends FormRequest
+class FindNewTeam extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,7 @@ class StoreTeam extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|max:255',
-            'description'=>'required|max:255',
-            'joining'=>'required|boolean',
-            'adding'=>'required|boolean'
-
+            'name'=>'required|max:30|min:2'
         ];
     }
 }

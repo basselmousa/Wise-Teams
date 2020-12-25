@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Teams;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Team\FindNewTeam;
 use App\Models\Team;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,7 @@ class TeamJoinController extends Controller
     public function findpage () {
         return view('Pages.Teams.find_teams');
     }
-    public function finding ( Request $request) {
+    public function finding ( FindNewTeam $request) {
           $teams =  Team::where('name',$request->name)->get();
               return view('pages.Teams.find_teams',compact('teams'));
     }

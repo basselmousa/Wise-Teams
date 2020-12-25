@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Teams;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreTeam;
+use App\Http\Requests\Team\StoreTeam;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;

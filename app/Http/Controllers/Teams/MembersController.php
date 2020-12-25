@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Teams;
 
 use App\Http\Controllers\Controller;
+use App\Http\Team\Requests\FindNewMember;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -34,7 +35,8 @@ class MembersController extends Controller
     }
 
 
-    public function find (Request $request,Team $team){
+    public function find (FindNewMember $request,Team $team){
+        $request->validated();
       $users =  User::where('username',$request->username)->get();
       return view('Pages.Teams.add',compact('users','team'));
     }
