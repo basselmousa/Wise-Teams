@@ -15,7 +15,7 @@ class MembersController extends Controller
 {
 
 
-
+    //get all members for the team
     public function index (Team $team) {
         $members = $team->members()->get();
         return view('Pages.Teams.members',compact('members','team'));
@@ -24,7 +24,7 @@ class MembersController extends Controller
 
 
 
-
+    // redirect to member add view after checking the rules
     public function new ( Team $team){
        if ($team->adding == 1 || $team->manager_id == auth()->id()){
            return view('Pages.Teams.add',compact('team'));
@@ -35,7 +35,7 @@ class MembersController extends Controller
        }
     }
 
-
+    //find a member by username
     public function find (AddNewMember $request,Team $team){
       $users =  User::where('username',$request->username)->get();
       return view('Pages.Teams.add',compact('users','team'));
@@ -44,18 +44,24 @@ class MembersController extends Controller
 
 
     public function add (Request $request , Team $team) {
-        $user = User::find($request->member);
-        try {
-            if ($user->id != $team->manager_id) {
-                $team->members()->save($user);
-                return redirect(route('teams.teams'))->with('success', 'You add' . $user->fullname);
+        //chek who can make this action
+        if ($team->adding == 1 || $team->manager_id == auth()->id()){
+            $user = User::find($request->member);
+            try {
+                //chek if the team manager try to be a member
+                if ($user->id != $team->manager_id) {
+                    $team->members()->save($user);
+                    return redirect(route('teams.teams'))->with('success', 'You add' . $user->fullname);
+                }
+                else{
+                    return  redirect(route('teams.teams'))->with('toast_error', 'You can`t add your self');;
+                }
             }
-            else{
-                return  redirect(route('teams.teams'))->with('toast_error', 'You can`t add your self');;
+            catch (\Exception $e) {
+                return redirect(route('teams.teams'))->with('toast_error', 'You can`t add'. $user->fullname);
             }
+
         }
-        catch (\Exception $e) {
-            return redirect(route('teams.teams'))->with('toast_error', 'You can`t add'. $user->fullname);
-        }
+
     }
 }

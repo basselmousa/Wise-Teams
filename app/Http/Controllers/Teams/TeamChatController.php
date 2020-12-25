@@ -14,17 +14,20 @@ use Illuminate\Http\Request;
 
 class TeamChatController extends Controller
 {
+
+    //redirect to team chat view
     public function index (Team $team) {
         return view('pages.Teams.team',compact('team'));
 
     }
 
-
+    // api ti get all team post
     public function posts (Team $team) {
         return $team->posts()->with('user')->get();
     }
 
 
+    //create new post for the team
     public function post (Request $request) {
       $post =  Post::create([
             'user_id'=>$request->userid,
