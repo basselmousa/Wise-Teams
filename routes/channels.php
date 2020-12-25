@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Broadcast;
 |
 */
 
-Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
+Broadcast::channel('SendNewPost.{team}', function ($user, \App\Models\Team $team) {
+   if ($team->members->contains($user) || $user->id == $team->manager_id){
+       return true;
+   }
+   else {
+       return  false;
+   }
 });

@@ -18,20 +18,23 @@ class SendNewPost implements ShouldBroadcast
     public $fullname;
     public $avatar;
     public $content;
-    public $date;
+    public $created_at;
+    public $teamid;
+
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($user_id,$gender,$name,$avatar,$content,$date)
+    public function __construct($user_id,$gender,$name,$avatar,$content,$date,$teamid)
     {
         $this->user_id=$user_id;
         $this->gender=$gender;
         $this->fullname=$name;
         $this->avatar=$avatar;
         $this->content=$content;
-        $this->date=$date;
+        $this->created_at=$date;
+        $this->teamid=$teamid;
     }
 
     /**
@@ -41,6 +44,6 @@ class SendNewPost implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('WiseTeams');
+        return new PrivateChannel('SendNewPost.'.$this->teamid);
     }
 }

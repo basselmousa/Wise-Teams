@@ -2243,7 +2243,7 @@ __webpack_require__.r(__webpack_exports__);
     axios.get('/teams/team/posts/' + this.teamid).then(function (response) {
       return _this.posts = response.data;
     })["catch"](function (error) {});
-    window.Echo.channel('WiseTeams').listen('SendNewPost', function (e) {
+    window.Echo["private"]('SendNewPost.' + this.teamid).listen('SendNewPost', function (e) {
       var user = {
         'avatar': e.avatar,
         'fullname': e.fullname,
@@ -2252,7 +2252,8 @@ __webpack_require__.r(__webpack_exports__);
       var p = {
         'user': user,
         'user_id': e.user_id,
-        'content': e.content
+        'content': e.content,
+        'created_at': e.created_at
       };
 
       _this.posts.push(p);
