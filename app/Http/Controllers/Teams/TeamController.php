@@ -56,10 +56,11 @@ class TeamController extends Controller
      */
     public function show(Team $team)
     {
-        $manager =$team->manager()->get()->first();
-        $members = $team->members();
+        $manager     =$team->manager()->get()->first();
+        $members     = $team->members();
         $assignments = $team->assignments();
-        return view('pages/Teams/info',compact('team' ,'manager','members', 'assignments'));
+        $posts       = $team->posts();
+        return view('pages/Teams/info',compact('team' ,'manager','members', 'assignments','posts'));
     }
 
     /**
