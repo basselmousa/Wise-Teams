@@ -10,7 +10,7 @@ class ActivityController extends Controller
 {
     public function index()
     {
-        $notifications = DatabaseNotification::where('notifiable_id' ,'=',auth()->id())->get();
+        $notifications = DatabaseNotification::where('notifiable_id' ,'=',auth()->id())->orderBy('created_at', 'desc')->get();
         return view('pages.activity.main', compact('notifications'));
     }
 

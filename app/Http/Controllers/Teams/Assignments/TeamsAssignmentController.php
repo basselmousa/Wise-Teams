@@ -145,7 +145,9 @@ class TeamsAssignmentController extends Controller
      */
     public function destroy(Team $id, Assignment $assignment)
     {
-
+        if ($id->manager_id != auth()->id()){
+            abort(401);
+        }
         try {
             $assignment->delete();
             return redirect()->route('teams.assignments.index', [$id->id])->with('success', 'Assignment ' . $assignment->name . " Deleted Successfully");
