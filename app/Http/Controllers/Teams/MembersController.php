@@ -37,8 +37,10 @@ class MembersController extends Controller
 
     //find a member by username
     public function find (AddNewMember $request,Team $team){
+
       $users =  User::where('username',$request->username)->get();
       return view('Pages.Teams.add',compact('users','team'));
+
     }
 
 
@@ -50,9 +52,16 @@ class MembersController extends Controller
             try {
                 //check if the team manager try to be a member
                 if ($user->id != $team->manager_id) {
-                    $user->notify(new \App\Notifications\AddNewMember($user->fullname,$team->name,auth()->user()->fullname));
-                    $team->members()->save($user);
-                    return redirect(route('teams.teams'))->with('success', 'You add' . $user->fullname);
+                    try {
+                        $team->members()->save($user);
+                        $user->notify(new \App\Notifications\AddNewMember($user->fullname,$team->name,auth()->user()->fullname));
+                        return redirect(route('teams.teams'))->with('success', 'You add' . $user->fullname);
+                    }catch (\Exception $exception){
+                        if ($exception->getCode() == 23000){
+                            return redirect(route('teams.teams'))->with('toast_error', "This User Is Exists In This Team");
+                        }
+                        return redirect(route('teams.teams'))->with('toast_error', $exception->getCode());
+                    }
                 }
                 else{
                     return  redirect(route('teams.teams'))->with('toast_error', 'You can`t add your self');;

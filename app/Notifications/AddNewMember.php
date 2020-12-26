@@ -13,6 +13,7 @@ class AddNewMember extends Notification
     private $username;
     private $teamname;
     private $manager;
+    private $url;
     /**
      * Create a new notification instance.
      *
@@ -23,6 +24,7 @@ class AddNewMember extends Notification
         $this->username = $username;
         $this->teamname =$teamname;
         $this->manager  =$manager;
+        $this->url = route('teams.teams');
     }
 
     /**
@@ -33,7 +35,7 @@ class AddNewMember extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     /**
@@ -46,7 +48,12 @@ class AddNewMember extends Notification
     {
         return (new MailMessage)
             ->subject('You have been added to New Team')
-            ->markdown('emails/Team/AddNewMember',['username'=>$this->username,'team'=>$this->teamname,'manager'=>$this->manager]);
+            ->markdown('emails/Team/AddNewMember',[
+                'username'=>$this->username,
+                'team'=>$this->teamname,
+                'manager'=>$this->manager,
+                'url' => $this->url
+            ]);
     }
 
     /**
@@ -58,7 +65,8 @@ class AddNewMember extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            "member" => $this->username,
+            "team" => $this->teamname
         ];
     }
 }
