@@ -18,19 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/i/{ass}', function (\App\Models\Assignment $ass){
-//    $user = \App\Models\User::find(\auth()->id());
-//    $user = \App\Models\Assignment::find(1);
-//    $ass = \App\Models\Assignment::find(1);
-//    $user->assignments()->save($ass,[
-//        'file_path' => \Illuminate\Support\Str::random()
-//    ]);
-//    dd($user->assignments);
-//    dd($ass->users);
-//    foreach ($ass->users as $item) {
-//        dd($item);
-//    }
-    dd(\Illuminate\Notifications\DatabaseNotification::all());
+Route::get('/i/{ass}', function (\App\Models\Team $ass){
+    foreach ($ass->todos as $todo) {
+        dump($todo->team_id, $todo->task);
+    }
+    dd("ss");
 });
 
 //Auth
@@ -71,7 +63,16 @@ Route::group(['prefix' => 'teams', 'as' => 'teams.', 'middleware' => ['verified'
     //editing
     Route::get('/edit/{team}', [App\Http\Controllers\Teams\TeamController::class, 'edit'])->name('editTeam');
     Route::put('/edit/{team}', [App\Http\Controllers\Teams\TeamController::class, 'update']);
+    // Todo List For Teams
+    Route::group(['prefix' => '{id}', 'as' => 'todo.'], function (){
+        Route::get('/todo', [\App\Http\Controllers\Todo\TodoController::class, 'index'])->name('show');
+        Route::get('/todo/donned', [\App\Http\Controllers\Todo\TodoController::class, 'succeed'])->name('succeed');
+        Route::get('/todo/create', [\App\Http\Controllers\Todo\TodoController::class, 'create'])->name('create');
+        Route::post('/todo/create', [\App\Http\Controllers\Todo\TodoController::class, 'store'])->name('store');
+        Route::put('/todo/{todo}', [\App\Http\Controllers\Todo\TodoController::class, 'markAsDone'])->name('markAsDone');
+        Route::delete('/todo/{todo}', [\App\Http\Controllers\Todo\TodoController::class, 'destroy'])->name('delete');
 
+    });
     //deleting
     Route::delete('/delete/{team}', [App\Http\Controllers\Teams\TeamController::class, 'destroy']);
 

@@ -32,4 +32,9 @@ class Team extends Model
     {
         return $this->hasMany(Post::class, 'team_id');
     }
+
+    public function todos()
+    {
+        return $this->hasMany(Todo::class, 'team_id');
+    }
 }

@@ -28,6 +28,9 @@
                                         @if(auth()->id()===$team->manager_id || $team->adding == 1)
                                             <a class="dropdown-item" href="/teams/edit/{{$team->id}}">Edit</a>
                                         @endif
+                                        @if(auth()->id()===$team->manager_id )
+                                            <a class="dropdown-item" href="{{ route('teams.todo.show',$team->id) }}">Todo</a>
+                                        @endif
                                         <a class="dropdown-item" href="{{ route('teams.assignments.index', $team->id) }}">
                                             Show Assignments
                                         </a>
