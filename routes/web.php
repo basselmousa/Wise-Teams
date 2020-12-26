@@ -36,7 +36,7 @@ Route::get('/i/{ass}', function (\App\Models\Assignment $ass){
 //Auth
 Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, '__invoke'])->name('home');
 
 /**
  * Start Profile Routes
@@ -128,38 +128,14 @@ Route::group(['prefix' => 'teams', 'as' => 'teams.', 'middleware' => ['verified'
 /** Start Assignment Routes */
 
 Route::group(['prefix' => 'assignments', 'as' => 'myAssignments.', 'middleware' => ['verified']], function () {
-    Route::get('/', [\App\Http\Controllers\Assignments\AssignmentController::class, 'index'])->name('show');
-    Route::get('/new', function () {
-        return view('Pages/Assignments/new');
-    });
-    Route::get('/Member-assignments', function () {
-//        return view('Pages/Assignments/assignment_for_member');
-//        $ass = \App\Models\Assignment::all();
-//        $team = \App\Models\Team::find(1);
-//        $assd = $ass->team;
-//        foreach ($team->assignments as $assignment) {
-//            dump($assignment->question);
-//
-//        }
-//        dump($assd->description);
-//        dump(auth()->user()->teams);
-//        foreach ($ass as $item) {
-//            dump($item->team->name);
-//        }
-//        dd($ass[0]->team->manager->teams[0]->assignments);
-//        dd($ass[0]->team->manager->fullname);
-//        foreach ($ass as $ass) {
-//            dump($ass->team);
-//
-//        }
-    });
+    Route::get('/', [\App\Http\Controllers\Assignments\AssignmentController::class, '__invoke'])->name('show');
 });
 
 /** End Assignment Routes */
 
 /** Start Contact Us Routes */
 Route::group(['prefix' => 'contact', 'as' => 'contact.' ], function (){
-    Route::post('sendcontactemail', [\App\Http\Controllers\ContactUs\ContactUsController::class, 'sendContactEmail'])->name('sendContact');
+    Route::post('sendcontactemail', [\App\Http\Controllers\ContactUs\ContactUsController::class, '__invoke'])->name('sendContact');
 });
 /** End Contact Us Routes */
 
