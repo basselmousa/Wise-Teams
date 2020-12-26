@@ -65,7 +65,7 @@
             <div class="col-3 text-center">
                 <div class="mb-2"><i class="fas fa-comment-dots"></i></div>
                 <h5>Posts</h5>
-                <p>100</p>
+                <p>{{$posts->count()}}</p>
             </div>
 
         </div>

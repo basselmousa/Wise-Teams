@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Teams;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreTeam;
+use App\Http\Requests\Team\StoreTeam;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -56,10 +56,11 @@ class TeamController extends Controller
      */
     public function show(Team $team)
     {
-        $manager =$team->manager()->get()->first();
-        $members = $team->members();
+        $manager     =$team->manager()->get()->first();
+        $members     = $team->members();
         $assignments = $team->assignments();
-        return view('pages/Teams/info',compact('team' ,'manager','members', 'assignments'));
+        $posts       = $team->posts();
+        return view('pages/Teams/info',compact('team' ,'manager','members', 'assignments','posts'));
     }
 
     /**
@@ -70,7 +71,12 @@ class TeamController extends Controller
      */
     public function edit(Team $team)
     {
-        return view('Pages.Teams.edit',compact('team'));
+        if ($team->manager_id == auth()->id()){
+            return view('Pages.Teams.edit',compact('team'));
+        }
+        else{
+            abort('403');
+        }
     }
 
     /**
@@ -82,8 +88,14 @@ class TeamController extends Controller
      */
     public function update(StoreTeam $request, Team $team)
     {
-        $team->update($request->validated());
-        return redirect()->route('teams.teamInfo',[$team->id])->with('success', 'Team Was Updated Successfully ');
+        if ($team->manager_id == auth()->id()){
+            $team->update($request->validated());
+            return redirect()->route('teams.teamInfo',[$team->id])->with('success', 'Team Was Updated Successfully ');
+        }
+        else
+            {
+            abort('403');
+        }
     }
 
     /**
@@ -94,8 +106,14 @@ class TeamController extends Controller
      */
     public function destroy(Team $team)
     {
-        $team->delete();
-        return redirect()->route('teams.teams')->with('success', 'Team Was Deleted Successfully ');
+        if ($team->manager_id == auth()->id()){
+            $team->delete();
+            return redirect()->route('teams.teams')->with('success', 'Team Was Deleted Successfully ');
+        }
+        else{
+            abort('403');
+        }
+
     }
 
 }
