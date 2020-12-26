@@ -8,6 +8,10 @@ if (!function_exists('getNameFromType')) {
                 return "Uploade Assignment";
             case 'App\Notifications\TeamAssignmentNotification':
                 return "Assignment Created";
+            case 'App\Notifications\Tasks\CreateTaskNotification':
+                return "Task Created";
+            case 'App\Notifications\Tasks\MarkTaskAsDoneNotification':
+                return "Task Ended";
             default:
                 return $type;
         }
@@ -31,9 +35,32 @@ if (!function_exists('getAssignmentNameFromID')) {
     function getAssignmentNameFromID($assignment)
     {
         $name = \App\Models\Assignment::where('name', '=', $assignment)->first();
-        return $name->name;
+        return "On Assignment ". $name->name;
     }
 }
+if (!function_exists('getTaskCreatedByTeam')) {
+    function getTaskCreatedByTeam($team_name)
+    {
+        return "On Team ". $team_name;
+    }
+}
+
+
+if (!function_exists('getTaskCreatedByUser')) {
+    function getTaskCreatedByUser($created_by)
+    {
+        return $created_by . " Create Task";
+    }
+}
+
+if (!function_exists('getCompletedTask')) {
+    function getCompletedTask($task)
+    {
+        return $task . " Donned";
+    }
+}
+
+
 
 /** Filter Notification Type To Be Dynamic And More Efficient */
 if (!function_exists('getFunctionTypeByDataPassed')) {
@@ -44,8 +71,13 @@ if (!function_exists('getFunctionTypeByDataPassed')) {
                 return getAssignmentNameFromID($data['assignment']);
             case 'App\Notifications\TeamAssignmentNotification' :
                 return $data['team'];
+            case 'App\Notifications\Tasks\CreateTaskNotification' :
+                return getTaskCreatedByTeam($data['team_name']);
+            case 'App\Notifications\Tasks\MarkTaskAsDoneNotification' :
+                return getTaskCreatedByTeam($data['team']);
             default:
                 return 'Un Signed';
+
         }
     }
 }
@@ -58,9 +90,21 @@ if (!function_exists('getNotificationActionByDataPassed')) {
             case 'App\Notifications\AssignmentUploadedNotification' :
                 return getFullnameFromID($data['username'], $notifiable_id);
             case 'App\Notifications\TeamAssignmentNotification':
-                return $data['team']." Team Created Assignment";
+                return $data['team'] . " Team Created Assignment";
+            case 'App\Notifications\Tasks\CreateTaskNotification' :
+                return getTaskCreatedByUser($data['created_by']);
+            case 'App\Notifications\Tasks\MarkTaskAsDoneNotification' :
+                return getCompletedTask($data['task']);
             default:
                 return 'Un Signed';
         }
+    }
+}
+
+if (!function_exists('convertFromTimeStampToHumanTime')) {
+    function convertFromTimeStampToHumanTime($time)
+    {
+
+        return $time->diffForHumans();
     }
 }
