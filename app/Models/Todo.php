@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Todo extends Model
+{
+    use HasFactory;
+    protected $fillable = [
+        'team_id' , 'task', 'done', 'done_at'
+    ];
+
+    protected $casts = [
+        'done_at' => 'datetime'
+    ];
+
+    public function team()
+    {
+        return $this->belongsTo(Team::class);
+    }
+}
