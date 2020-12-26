@@ -50,6 +50,7 @@ class MembersController extends Controller
             try {
                 //check if the team manager try to be a member
                 if ($user->id != $team->manager_id) {
+                    $user->notify(new \App\Notifications\AddNewMember($user->fullname,$team->name,auth()->user()->fullname));
                     $team->members()->save($user);
                     return redirect(route('teams.teams'))->with('success', 'You add' . $user->fullname);
                 }
@@ -58,7 +59,7 @@ class MembersController extends Controller
                 }
             }
             catch (\Exception $e) {
-                return redirect(route('teams.teams'))->with('toast_error', 'You can`t add'. $user->fullname);
+                return redirect(route('teams.teams'))->with('toast_error', 'You can`t add'. $user->fullname. $e->getMessage());
             }
 
         }
