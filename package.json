@@ -29,6 +29,7 @@
         "moment": "^2.29.1",
         "particles.js": "^2.0.0",
         "pusher-js": "^7.0.2",
-        "sweetalert2": "^10.11.1"
+        "sweetalert2": "^10.11.1",
+        "twilio-video": "^2.0.0"
     }
 }
