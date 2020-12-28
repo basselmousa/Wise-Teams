@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 
 class AssignmentController extends Controller
 {
-    
+
     public function __invoke()
     {
+
         return view('pages.Assignments.assignments');
     }
 }

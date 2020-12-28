@@ -14,6 +14,7 @@
             <div class="col-10">
                 <table class="table table-striped">
                     <thead>
+                    @if(count($assignments->users) > 0)
 
                     <tr>
                         <th scope="col">#</th>
@@ -24,6 +25,7 @@
                         <th scope="col">Assignment Point</th>
                         <th scope="col">Grade User Assignment</th>
                     </tr>
+                    @endif
 
 
                     </thead>
@@ -69,7 +71,7 @@
                         </tr>
                     @empty
                         @php( alert('Empty Table','There is no data','warning'))
-                        <div class="alert alert-success">There Is no Data</div>
+                        <div class="alert alert-warning">There Is no Uploaded Yet</div>
                     @endforelse
 
                     </tbody>
