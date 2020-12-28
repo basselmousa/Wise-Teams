@@ -12,6 +12,8 @@ if (!function_exists('getNameFromType')) {
                 return "Task Created";
             case 'App\Notifications\Tasks\MarkTaskAsDoneNotification':
                 return "Task Ended";
+            case 'App\Notifications\AddNewMember':
+                return "Added To New Team";
             default:
                 return $type;
         }
@@ -61,6 +63,21 @@ if (!function_exists('getCompletedTask')) {
 }
 
 
+if (!function_exists('getAddedMemberToTeam')) {
+    function getAddedMemberToTeam($member)
+    {
+        return $member == auth()->user()->fullname ? "You Added To New team" : $member. " Added to New team";
+    }
+}
+
+if (!function_exists('getTeamJoinedTo')) {
+    function getTeamJoinedTo($team)
+    {
+        return "On Team ". $team;
+    }
+}
+
+
 
 /** Filter Notification Type To Be Dynamic And More Efficient */
 if (!function_exists('getFunctionTypeByDataPassed')) {
@@ -75,6 +92,8 @@ if (!function_exists('getFunctionTypeByDataPassed')) {
                 return getTaskCreatedByTeam($data['team_name']);
             case 'App\Notifications\Tasks\MarkTaskAsDoneNotification' :
                 return getTaskCreatedByTeam($data['team']);
+            case 'App\Notifications\AddNewMember' :
+                return getTeamJoinedTo($data['team']);
             default:
                 return 'Un Signed';
 
@@ -95,6 +114,8 @@ if (!function_exists('getNotificationActionByDataPassed')) {
                 return getTaskCreatedByUser($data['created_by']);
             case 'App\Notifications\Tasks\MarkTaskAsDoneNotification' :
                 return getCompletedTask($data['task']);
+            case 'App\Notifications\AddNewMember' :
+                return getAddedMemberToTeam($data['member']);
             default:
                 return 'Un Signed';
         }
