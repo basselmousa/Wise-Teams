@@ -16,8 +16,7 @@ class AddNewMember extends FormRequest
 
     public function authorize()
     {
-        $team = Team::find($this->route('team'));
-        return auth() && ($team[0]->manager_id == auth()->id() || $team[0]->adding == 1);
+        return auth();
     }
 
     /**

@@ -37,10 +37,14 @@ class MembersController extends Controller
 
     //find a member by username
     public function find (AddNewMember $request,Team $team){
-
-      $users =  User::where('username',$request->username)->get();
-      return view('Pages.Teams.add',compact('users','team'));
-
+        if ($team->manager_id == auth()->id() || $team->adding == 1){
+            $users =  User::where('username',$request->username)->get();
+            return view('Pages.Teams.add',compact('users','team'));
+        }
+        else
+        {
+            abort('403');
+        }
     }
 
 
