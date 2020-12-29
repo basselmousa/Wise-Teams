@@ -2,7 +2,7 @@
     <div>
         <div class="row justify-content-end mt-5">
             <div class="col-3">
-                <button class="btn btn-danger">End Meeting</button>
+                <button @click="endMeeting" class="btn btn-danger">End Meeting</button>
             </div>
         </div>
         <div class="p-5">
@@ -79,6 +79,11 @@ export default {
             }, error => {
                 console.error(`Unable to connect to Room: ${error.message}`);
             });
+        },
+        endMeeting: function (){
+           axios.post('/teams/meeting/delete/'+this.teamid).then(function (res) {
+               window.location.href = '/teams';
+           });
         }
     },
     mounted : function () {

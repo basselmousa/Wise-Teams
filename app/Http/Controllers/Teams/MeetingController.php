@@ -22,6 +22,9 @@ class MeetingController extends Controller
     public function getTeamToken (Team $team) {
        $meering = $team->meeting()->first();
        return $meering->tokens;
-
+    }
+    public function destroy (Team $team) {
+        $team->meeting()->delete();
+        return redirect(route('teams.teams'));
     }
 }

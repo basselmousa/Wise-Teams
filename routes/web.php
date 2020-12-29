@@ -107,6 +107,9 @@ Route::group(['prefix' => 'teams', 'as' => 'teams.', 'middleware' => ['verified'
     Route::get('/meeting/{team}',[\App\Http\Controllers\Teams\MeetingController::class,'index']);
     Route::get('/meeting/join/{team}',[\App\Http\Controllers\Teams\MeetingController::class,'getTeamToken']);
     Route::post('/meeting',[\App\Http\Controllers\Teams\MeetingController::class,'store']);
+    Route::post('/meeting/delete/{team}',[\App\Http\Controllers\Teams\MeetingController::class,'destroy']);
+
+
     //Team Assignments
     Route::group(['prefix' => '{id}', 'as' => 'assignments.'], function (){
         Route::get('/assignments',[\App\Http\Controllers\Teams\Assignments\TeamsAssignmentController::class, 'index'])->name('index');
