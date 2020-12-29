@@ -85,7 +85,6 @@ Route::group(['prefix' => 'teams', 'as' => 'teams.', 'middleware' => ['verified'
     Route::post('/team/post',[\App\Http\Controllers\Teams\TeamChatController::class,'post']);
 
     //Add New member
-
     Route::get('/add/{team}',[\App\Http\Controllers\Teams\MembersController::class,'new']);
     Route::post('/add/{team}',[\App\Http\Controllers\Teams\MembersController::class,'find']);
     Route::put('/add/{team}',[\App\Http\Controllers\Teams\MembersController::class,'add']);
@@ -101,7 +100,12 @@ Route::group(['prefix' => 'teams', 'as' => 'teams.', 'middleware' => ['verified'
     Route::post('/join/{team}',[\App\Http\Controllers\Teams\TeamJoinController::class,'join']);
     Route::delete('/leaving/{team}',[\App\Http\Controllers\Teams\TeamJoinController::class,'leaving']);
 
+    //Team Members
+    Route::get('/members/{team}',[\App\Http\Controllers\Teams\MembersController::class,'index']);
 
+    //Team Meeting
+    Route::get('/meeting/{team}',[\App\Http\Controllers\Teams\MeetingController::class,'index']);
+    Route::post('/meeting',[\App\Http\Controllers\Teams\MeetingController::class,'store']);
     //Team Assignments
     Route::group(['prefix' => '{id}', 'as' => 'assignments.'], function (){
         Route::get('/assignments',[\App\Http\Controllers\Teams\Assignments\TeamsAssignmentController::class, 'index'])->name('index');
@@ -119,9 +123,6 @@ Route::group(['prefix' => 'teams', 'as' => 'teams.', 'middleware' => ['verified'
         });
 
     });
-
-    //Team Members
-    Route::get('/members/{team}',[\App\Http\Controllers\Teams\MembersController::class,'index']);
 });
 
 /** End Teams Routes */
