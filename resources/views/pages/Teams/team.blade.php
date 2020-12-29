@@ -6,7 +6,9 @@
     @if(auth()->id() === $team->manager_id)
         <button class="Team-btn mr-3 Meeting"><a href="/teams/meeting/{{$team->id}}">Meeting<i class="fas fa-video pl-2"></i></a></button>
     @else
-        <button class="Team-btn mr-3 Meeting"><a href="/teams/meeting/{{$team->id}}">Join<i class="fas fa-video pl-2"></i></a></button>
+        @if($team->meeting()->count() >= 1)
+            <button class="Team-btn mr-3 Meeting"><a href="/teams/meeting/{{$team->id}}">Join<i class="fas fa-video pl-2"></i></a></button>
+        @endif
     @endif
     <li class="dropdown">
         <button class="btn Team-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
