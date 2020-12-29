@@ -4,7 +4,8 @@
 @include('layouts.SideNavigation')
 @section('list-item')
     <li class="dropdown">
-        <button class="btn Team-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn Team-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
             {{$team->name}} <i class="fas fa-chevron-down ml-3"></i>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -27,7 +28,10 @@
     </li>
 @stop
 @section('content')
-    <video-chat :teamid="{{$team->id}}"></video-chat>
-@stop
+    @if(auth()->id() == $team->manager_id)
+        <video-chat :teamid="{{$team->id}}"></video-chat>
+    @else
+        <meeting-join :teamid="{{$team->id}}"></meeting-join>
+    @endif
 
-</script>
+@stop

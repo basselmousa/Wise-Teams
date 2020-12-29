@@ -11,6 +11,7 @@ import Motivation from "./components/layout/Motivation";
 import FooterCom from "./components/layout/Footer-com";
 import TeamPage from "./components/pages/TeamPage";
 import VideoChat from "./components/layout/VideoChat";
+import MeetingJoin from "./components/pages/MeetingJoin";
 require('./bootstrap');
 
 window.Vue = require('vue');
@@ -44,7 +45,8 @@ const app = new Vue({
         Motivation,
         FooterCom,
         TeamPage,
-        VideoChat
+        VideoChat,
+        MeetingJoin
 
     }
 });

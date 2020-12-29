@@ -38,6 +38,6 @@ class Team extends Model
         return $this->hasMany(Todo::class, 'team_id');
     }
     public function meeting () {
-        return $this->belongsTo(Meeting::class);
+        return $this->hasOne(Meeting::class);
     }
 }

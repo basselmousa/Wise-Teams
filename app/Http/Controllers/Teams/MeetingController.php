@@ -19,4 +19,9 @@ class MeetingController extends Controller
          'tokens'=>$request->tokens
       ]);
     }
+    public function getTeamToken (Team $team) {
+       $meering = $team->meeting()->first();
+       return $meering->tokens;
+
+    }
 }

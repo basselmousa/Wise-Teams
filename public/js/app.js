@@ -5324,6 +5324,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'video-chat',
   data: function data() {
@@ -5429,6 +5435,85 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Wave-Background"
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/MeetingJoin.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/MeetingJoin.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "MeetingJoin",
+  props: ['teamid'],
+  data: function data() {
+    return {
+      accessToken: ''
+    };
+  },
+  methods: {
+    getAccessToken: function getAccessToken() {
+      var _this = this;
+
+      var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"); // Request a new token
+
+
+      axios.get('/teams/meeting/join/' + this.teamid).then(function (response) {
+        _this.accessToken = response.data;
+        console.log(_this.accessToken);
+      })["catch"](function (error) {
+        console.log(error);
+      }).then(function () {
+        _this.connectToRoom();
+      });
+    },
+    connectToRoom: function connectToRoom() {
+      var _require = __webpack_require__(/*! twilio-video */ "./node_modules/twilio-video/es5/index.js"),
+          connect = _require.connect,
+          createLocalVideoTrack = _require.createLocalVideoTrack;
+
+      connect(this.accessToken, {
+        name: 'cool room'
+      }).then(function (room) {
+        console.log("Successfully joined a Room: ".concat(room));
+        var videoChatWindow = document.getElementById('video-chat-window');
+        createLocalVideoTrack().then(function (track) {
+          videoChatWindow.appendChild(track.attach());
+        });
+        room.on('participantConnected', function (participant) {
+          console.log("Participant \"".concat(participant.identity, "\" connected"));
+          participant.tracks.forEach(function (publication) {
+            if (publication.isSubscribed) {
+              var track = publication.track;
+              videoChatWindow.appendChild(track.attach());
+            }
+          });
+          participant.on('trackSubscribed', function (track) {
+            videoChatWindow.appendChild(track.attach());
+          });
+        });
+      }, function (error) {
+        console.error("Unable to connect to Room: ".concat(error.message));
+      });
+    }
+  },
+  mounted: function mounted() {// this.getAccessToken();
+  }
 });
 
 /***/ }),
@@ -10100,6 +10185,25 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 // module
 exports.push([module.i, "\n.Services-com[data-v-32d91670] {\n    margin-top: 60px;\n}\n.Services-com .container > h1[data-v-32d91670], .Services-com h3[data-v-32d91670] {\n    color: #723BE4;\n}\n.Services-com .container .row[data-v-32d91670] {\n    margin-top: 40px;\n}\n.Services-com .container .row h1[data-v-32d91670]:first-of-type {\n    font-size: 120px;\n    background: linear-gradient(-45deg, #3366E9, #723BE4, #3366E9, #723BE4);\n    background-size: 400% 400%;\n    -webkit-animation: gradient-data-v-32d91670 7s linear infinite;\n            animation: gradient-data-v-32d91670 7s linear infinite;\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n}\n@-webkit-keyframes gradient-data-v-32d91670 {\n0% {\n        background-position: 0% 50%;\n}\n50% {\n        background-position: 100% 50%;\n}\n100% {\n        background-position: 0% 50%;\n}\n}\n@keyframes gradient-data-v-32d91670 {\n0% {\n        background-position: 0% 50%;\n}\n50% {\n        background-position: 100% 50%;\n}\n100% {\n        background-position: 0% 50%;\n}\n}\n.Services-com .container .row p[data-v-32d91670] {\n    font-size: 14px;\n    color: #4F4F4F;\n    letter-spacing: 2px;\n    line-height: 30px;\n    margin: 0px 20px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/layout/VideoChat.vue?vue&type=style&index=0&id=79f2b0f9&scoped=true&lang=css&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/layout/VideoChat.vue?vue&type=style&index=0&id=79f2b0f9&scoped=true&lang=css& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\nvideo[data-v-79f2b0f9]{\n    width: 300px;\n}\n#video-chat-window > video[data-v-79f2b0f9]\n{\n    max-width: 300px;\n    overflow: hidden;\n}\n", ""]);
 
 // exports
 
@@ -49590,6 +49694,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/layout/VideoChat.vue?vue&type=style&index=0&id=79f2b0f9&scoped=true&lang=css&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/layout/VideoChat.vue?vue&type=style&index=0&id=79f2b0f9&scoped=true&lang=css& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./VideoChat.vue?vue&type=style&index=0&id=79f2b0f9&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/layout/VideoChat.vue?vue&type=style&index=0&id=79f2b0f9&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/layout/Wave-Background.vue?vue&type=style&index=0&id=799c15b0&scoped=true&lang=css&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/layout/Wave-Background.vue?vue&type=style&index=0&id=799c15b0&scoped=true&lang=css& ***!
@@ -75431,10 +75565,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/layout/VideoChat.vue?vue&type=template&id=79f2b0f9&":
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/layout/VideoChat.vue?vue&type=template&id=79f2b0f9& ***!
-  \*******************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/layout/VideoChat.vue?vue&type=template&id=79f2b0f9&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/layout/VideoChat.vue?vue&type=template&id=79f2b0f9&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -75453,15 +75587,25 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "p-5" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "grid grid-flow-row grid-cols-3 grid-rows-3 gap-4 bg-black/]"
-        },
-        [_c("div", { attrs: { id: "video-chat-window" } })]
-      )
+    return _c("div", [
+      _c("div", { staticClass: "row justify-content-end mt-5" }, [
+        _c("div", { staticClass: "col-3" }, [
+          _c("button", { staticClass: "btn btn-danger" }, [
+            _vm._v("End Meeting")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "p-5" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "grid grid-flow-row grid-cols-3 grid-rows-3 gap-4 bg-black/]"
+          },
+          [_c("div", { attrs: { id: "video-chat-window" } })]
+        )
+      ])
     ])
   }
 ]
@@ -75534,6 +75678,48 @@ var staticRenderFns = [
             )
           ])
         ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/MeetingJoin.vue?vue&type=template&id=68155742&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/MeetingJoin.vue?vue&type=template&id=68155742&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "p-5" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "grid grid-flow-row grid-cols-3 grid-rows-3 gap-4 bg-black/]"
+          },
+          [_c("div", { attrs: { id: "video-chat-window" } })]
+        )
       ])
     ])
   }
@@ -87866,11 +88052,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_layout_Footer_com__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/layout/Footer-com */ "./resources/js/components/layout/Footer-com.vue");
 /* harmony import */ var _components_pages_TeamPage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/pages/TeamPage */ "./resources/js/components/pages/TeamPage.vue");
 /* harmony import */ var _components_layout_VideoChat__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/layout/VideoChat */ "./resources/js/components/layout/VideoChat.vue");
+/* harmony import */ var _components_pages_MeetingJoin__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/pages/MeetingJoin */ "./resources/js/components/pages/MeetingJoin.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+
 
 
 
@@ -87910,7 +88098,8 @@ var app = new Vue({
     Motivation: _components_layout_Motivation__WEBPACK_IMPORTED_MODULE_4__["default"],
     FooterCom: _components_layout_Footer_com__WEBPACK_IMPORTED_MODULE_5__["default"],
     TeamPage: _components_pages_TeamPage__WEBPACK_IMPORTED_MODULE_6__["default"],
-    VideoChat: _components_layout_VideoChat__WEBPACK_IMPORTED_MODULE_7__["default"]
+    VideoChat: _components_layout_VideoChat__WEBPACK_IMPORTED_MODULE_7__["default"],
+    MeetingJoin: _components_pages_MeetingJoin__WEBPACK_IMPORTED_MODULE_8__["default"]
   }
 });
 window.particlesJS = __webpack_require__(/*! particles.js */ "./node_modules/particles.js/particles.js");
@@ -88479,9 +88668,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _VideoChat_vue_vue_type_template_id_79f2b0f9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./VideoChat.vue?vue&type=template&id=79f2b0f9& */ "./resources/js/components/layout/VideoChat.vue?vue&type=template&id=79f2b0f9&");
+/* harmony import */ var _VideoChat_vue_vue_type_template_id_79f2b0f9_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./VideoChat.vue?vue&type=template&id=79f2b0f9&scoped=true& */ "./resources/js/components/layout/VideoChat.vue?vue&type=template&id=79f2b0f9&scoped=true&");
 /* harmony import */ var _VideoChat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./VideoChat.vue?vue&type=script&lang=js& */ "./resources/js/components/layout/VideoChat.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _VideoChat_vue_vue_type_style_index_0_id_79f2b0f9_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./VideoChat.vue?vue&type=style&index=0&id=79f2b0f9&scoped=true&lang=css& */ "./resources/js/components/layout/VideoChat.vue?vue&type=style&index=0&id=79f2b0f9&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -88489,13 +88680,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _VideoChat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _VideoChat_vue_vue_type_template_id_79f2b0f9___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _VideoChat_vue_vue_type_template_id_79f2b0f9___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _VideoChat_vue_vue_type_template_id_79f2b0f9_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _VideoChat_vue_vue_type_template_id_79f2b0f9_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "79f2b0f9",
   null
   
 )
@@ -88521,19 +88712,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/layout/VideoChat.vue?vue&type=template&id=79f2b0f9&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/components/layout/VideoChat.vue?vue&type=template&id=79f2b0f9& ***!
-  \*************************************************************************************/
+/***/ "./resources/js/components/layout/VideoChat.vue?vue&type=style&index=0&id=79f2b0f9&scoped=true&lang=css&":
+/*!***************************************************************************************************************!*\
+  !*** ./resources/js/components/layout/VideoChat.vue?vue&type=style&index=0&id=79f2b0f9&scoped=true&lang=css& ***!
+  \***************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_VideoChat_vue_vue_type_style_index_0_id_79f2b0f9_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./VideoChat.vue?vue&type=style&index=0&id=79f2b0f9&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/layout/VideoChat.vue?vue&type=style&index=0&id=79f2b0f9&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_VideoChat_vue_vue_type_style_index_0_id_79f2b0f9_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_VideoChat_vue_vue_type_style_index_0_id_79f2b0f9_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_VideoChat_vue_vue_type_style_index_0_id_79f2b0f9_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_VideoChat_vue_vue_type_style_index_0_id_79f2b0f9_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_VideoChat_vue_vue_type_style_index_0_id_79f2b0f9_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/layout/VideoChat.vue?vue&type=template&id=79f2b0f9&scoped=true&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/layout/VideoChat.vue?vue&type=template&id=79f2b0f9&scoped=true& ***!
+  \*************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VideoChat_vue_vue_type_template_id_79f2b0f9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./VideoChat.vue?vue&type=template&id=79f2b0f9& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/layout/VideoChat.vue?vue&type=template&id=79f2b0f9&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VideoChat_vue_vue_type_template_id_79f2b0f9___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VideoChat_vue_vue_type_template_id_79f2b0f9_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./VideoChat.vue?vue&type=template&id=79f2b0f9&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/layout/VideoChat.vue?vue&type=template&id=79f2b0f9&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VideoChat_vue_vue_type_template_id_79f2b0f9_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VideoChat_vue_vue_type_template_id_79f2b0f9___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_VideoChat_vue_vue_type_template_id_79f2b0f9_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -88621,6 +88828,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Wave_Background_vue_vue_type_template_id_799c15b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Wave_Background_vue_vue_type_template_id_799c15b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/MeetingJoin.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/pages/MeetingJoin.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _MeetingJoin_vue_vue_type_template_id_68155742_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MeetingJoin.vue?vue&type=template&id=68155742&scoped=true& */ "./resources/js/components/pages/MeetingJoin.vue?vue&type=template&id=68155742&scoped=true&");
+/* harmony import */ var _MeetingJoin_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MeetingJoin.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/MeetingJoin.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MeetingJoin_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MeetingJoin_vue_vue_type_template_id_68155742_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _MeetingJoin_vue_vue_type_template_id_68155742_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "68155742",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/pages/MeetingJoin.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/MeetingJoin.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/pages/MeetingJoin.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MeetingJoin_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./MeetingJoin.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/MeetingJoin.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MeetingJoin_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/MeetingJoin.vue?vue&type=template&id=68155742&scoped=true&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/pages/MeetingJoin.vue?vue&type=template&id=68155742&scoped=true& ***!
+  \**************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MeetingJoin_vue_vue_type_template_id_68155742_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./MeetingJoin.vue?vue&type=template&id=68155742&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/MeetingJoin.vue?vue&type=template&id=68155742&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MeetingJoin_vue_vue_type_template_id_68155742_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MeetingJoin_vue_vue_type_template_id_68155742_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
