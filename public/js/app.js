@@ -5566,6 +5566,9 @@ __webpack_require__.r(__webpack_exports__);
           teamid: this.teamid,
           post: this.post
         }).then(function (res) {
+          $(".Chat-Box ").animate({
+            scrollTop: 100000
+          }, 100000);
           return res;
         });
       }
