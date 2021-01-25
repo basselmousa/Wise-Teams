@@ -69,7 +69,10 @@ export default {
         }
     },
     mounted() {
-        // this.getAccessToken();
+        this.getAccessToken();
+        setInterval(function (){
+            $('video').css('width','250px');
+        },1000)
     }
 }
 </script>

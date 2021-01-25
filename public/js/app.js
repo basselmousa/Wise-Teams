@@ -5417,7 +5417,11 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   },
-  mounted: function mounted() {// this.getAccessToken();
+  mounted: function mounted() {
+    this.getAccessToken();
+    setInterval(function () {
+      $('video').css('width', '250px');
+    }, 1000);
   }
 });
 
@@ -5668,6 +5672,9 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     console.log('Video chat room loading...');
     this.getAccessToken();
+    setInterval(function () {
+      $('video').css('width', '250px');
+    }, 1000);
   }
 });
 

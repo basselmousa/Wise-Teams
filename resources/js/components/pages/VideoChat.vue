@@ -89,6 +89,9 @@ export default {
     mounted : function () {
         console.log('Video chat room loading...')
         this.getAccessToken();
+        setInterval(function (){
+            $('video').css('width','250px');
+        },1000)
     }
 }
 </script>
