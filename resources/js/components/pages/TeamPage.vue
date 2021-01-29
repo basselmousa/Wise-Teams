@@ -125,6 +125,7 @@ export default {
         sendPost() {
             if (this.post != '') {
                 axios.post('/teams/team/post/', {userid: this.user, teamid: this.teamid, post: this.post}).then(res => {
+                    $(".Chat-Box ").animate({ scrollTop:100000}, 100);
                     return res;
                 });
             }

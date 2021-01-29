@@ -3,7 +3,7 @@
 @section('nav-title','Create New Assignment')
 @include('layouts.SideNavigation')
 @section('content')
-    <div class="row">
+    <div class="row mt-5">
         <div class="container Login mt-0 ">
             <div class="row Login-row">
                 <div class=" col-lg-5">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="col-lg-7 mt-5 ">
-                    <div class="Assignment-Img">
+                    <div class="Task-img" style="height: 400px">
 
                     </div>
 

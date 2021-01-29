@@ -22,7 +22,14 @@ class TeamJoinController extends Controller
     public function finding(FindNewTeam $request)
     {
         $teams = Team::where('name', $request->name)->get();
-        return view('pages.Teams.find_teams', compact('teams'));
+        if (count($teams)>0){
+            return view('pages.Teams.find_teams', compact('teams'));
+        }
+        else{
+            return redirect(route('teams.find'))->with('warning','no such team');
+
+        }
+
     }
 
 
@@ -36,16 +43,25 @@ class TeamJoinController extends Controller
             if ($team->manager_id != auth()->id()) {
                 try {
                     $team->members()->save(auth()->user());
-                    return redirect(route('teams.teams'))->with('success', 'You Join' . $team->name);
+                    return redirect(route('teams.teams'))->with('success', 'You Join ' . $team->name);
                 } catch (Exception $e) {
-                    return redirect(route('teams.find'))->with('toast_error', 'Something went wrong');
+                    if ($e->getCode() == 23000) {
+                        //if team member try to join again
+                        return redirect(route('teams.find'))->with('toast_error', 'you are already in the team ');
+                    }
+                    else{
+                        // unKnown error
+                        return redirect(route('teams.find'))->with('toast_error', 'Something went wrong');
+                    }
                 }
 
             } else {
+                //if the team manager try to join his team
                 return redirect(route('teams.find'))->with('toast_error', 'You can`t join your team ');
             }
 
         } else {
+            // if the team is private team
             return redirect(route('teams.find'))->with('toast_error', 'This team is private team');
         }
     }
@@ -55,6 +71,6 @@ class TeamJoinController extends Controller
     public function leaving(Team $team)
     {
         $team->members()->detach(auth()->user());
-        return redirect(route('teams.teams'))->with('success', 'You left' . $team->name);
+        return redirect(route('teams.teams'))->with('success', 'You left ' . $team->name);
     }
 }

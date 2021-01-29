@@ -5417,7 +5417,11 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   },
-  mounted: function mounted() {// this.getAccessToken();
+  mounted: function mounted() {
+    this.getAccessToken();
+    setInterval(function () {
+      $('video').css('width', '250px');
+    }, 1000);
   }
 });
 
@@ -5562,6 +5566,9 @@ __webpack_require__.r(__webpack_exports__);
           teamid: this.teamid,
           post: this.post
         }).then(function (res) {
+          $(".Chat-Box ").animate({
+            scrollTop: 100000
+          }, 100);
           return res;
         });
       }
@@ -5668,6 +5675,9 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     console.log('Video chat room loading...');
     this.getAccessToken();
+    setInterval(function () {
+      $('video').css('width', '250px');
+    }, 1000);
   }
 });
 
@@ -75273,7 +75283,7 @@ var render = function() {
             _vm._v(" "),
             _c("p", { staticClass: "mt-4" }, [
               _vm._v(
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda at atque beatae\n                    consectetur corporis cum dolor, doloremque, dolorum eius excepturi facilis illum incidunt ipsa\n                    iste nisi quidem recusandae rerum?"
+                '"Wise Teams" or shorted by (WT), Online Learning and communication platform that oriented to Wise Students and instructors.\n                    It Enables them to Stay in connection throughout the educational stages, including learning and evaluation of the educational process.\n                '
               )
             ])
           ],

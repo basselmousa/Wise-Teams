@@ -16,7 +16,7 @@ class CreateMeetingsTable extends Migration
         Schema::create('meetings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('team_id')
-                ->constrained('team')
+                ->constrained('teams')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->text('tokens');
