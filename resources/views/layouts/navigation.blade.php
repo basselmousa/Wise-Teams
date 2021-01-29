@@ -1,4 +1,4 @@
-<nav class="navbar welcome-nav navbar-expand-md  shadow-sm">
+<nav class="navbar welcome-nav navbar-expand-md  shadow-sm" style="z-index: 13445345345;">
     <div class="container">
         <a class="navbar-brand Logo-brand" style="background-image: url('{{asset("images/Logos/Main-Logo.png")}}')"
            href="{{ url('/') }}">
@@ -9,7 +9,7 @@
             <span class="navbar-toggler-icon"><i class="fas fa-bars" style="color:#723BE4 "></i></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="z-index: 1000000000">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="ml-4"><a href="/#about">About</a></li>
