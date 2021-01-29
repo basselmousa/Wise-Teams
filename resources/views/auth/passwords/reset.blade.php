@@ -16,8 +16,7 @@
 
 @stop
 @section('content')
-<div class="container ">
-    ol
+<div class="container Login ">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

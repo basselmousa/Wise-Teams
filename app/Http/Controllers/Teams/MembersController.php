@@ -9,6 +9,7 @@ use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\isEmpty;
 use function PHPUnit\Framework\throwException;
 
 class MembersController extends Controller
@@ -39,7 +40,13 @@ class MembersController extends Controller
     public function find (AddNewMember $request,Team $team){
         if ($team->manager_id == auth()->id() || $team->adding == 1){
             $users =  User::where('username',$request->username)->get();
-            return view('Pages.Teams.add',compact('users','team'));
+            if (count($users)>0){
+                return view('Pages.Teams.add',compact('users','team'));
+            }
+            else{
+                return redirect(route('teams.memberFind',['team'=>$team->id]))->with('warning','no such user ');
+            }
+
         }
         else
         {
@@ -59,21 +66,33 @@ class MembersController extends Controller
                     try {
                         $team->members()->save($user);
                         $user->notify(new \App\Notifications\AddNewMember($user->fullname,$team->name,auth()->user()->fullname));
-                        return redirect(route('teams.teams'))->with('success', 'You add' . $user->fullname);
+                        return redirect(route('teams.teams'))->with('success', 'You add ' . $user->fullname);
                     }catch (\Exception $exception){
                         if ($exception->getCode() == 23000){
+                            //if the user is already in the team
                             return redirect(route('teams.teams'))->with('toast_error', "This User Is Exists In This Team");
                         }
-                        return redirect(route('teams.teams'))->with('toast_error', $exception->getCode());
+                        else{
+                            // if the error code not 23000
+                            return redirect(route('teams.teams'))->with('toast_error','something went wrong');
+                        }
                     }
                 }
                 else{
-                    return  redirect(route('teams.teams'))->with('toast_error', 'You can`t add your self');;
+                    //if user try to add team manager
+                    return  redirect(route('teams.teams'))->with('toast_error', 'You can`t add team manager');;
                 }
             }
             catch (\Exception $e) {
-                return redirect(route('teams.teams'))->with('toast_error', 'You can`t add'. $user->fullname. $e->getMessage());
+                //other errors
+                return redirect(route('teams.teams'))->with('toast_error', 'You can`t add'. $user->fullname);
             }
+
+        }
+        else
+        {
+            // if you have no privilege ti add members
+            return redirect(route('teams.teams'))->with('toast_error','you cant add members');
 
         }
 

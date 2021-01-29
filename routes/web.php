@@ -85,14 +85,12 @@ Route::group(['prefix' => 'teams', 'as' => 'teams.', 'middleware' => ['verified'
     Route::post('/team/post',[\App\Http\Controllers\Teams\TeamChatController::class,'post']);
 
     //Add New member
-    Route::get('/add/{team}',[\App\Http\Controllers\Teams\MembersController::class,'new']);
+    Route::get('/add/{team}',[\App\Http\Controllers\Teams\MembersController::class,'new'])->name('memberFind');
     Route::post('/add/{team}',[\App\Http\Controllers\Teams\MembersController::class,'find']);
     Route::put('/add/{team}',[\App\Http\Controllers\Teams\MembersController::class,'add']);
 
 
 
-    //Find Teams
-    Route::get('/find', [\App\Http\Controllers\Teams\TeamController::class, 'find']);
 
     //Join and leaving Teams
     Route::get('/find', [\App\Http\Controllers\Teams\TeamJoinController::class, 'findpage'])->name('find');
