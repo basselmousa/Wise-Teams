@@ -16,15 +16,15 @@
                     <thead>
                     @if(count($assignments->users) > 0)
 
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">User Name</th>
-                        <th scope="col">File</th>
-                        <th scope="col">Uploaded At</th>
-                        <th scope="col">Upload Status</th>
-                        <th scope="col">Assignment Point</th>
-                        <th scope="col">Grade User Assignment</th>
-                    </tr>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">User Name</th>
+                            <th scope="col">File</th>
+                            <th scope="col">Uploaded At</th>
+                            <th scope="col">Upload Status</th>
+                            <th scope="col">Assignment Point</th>
+                            <th scope="col">Grade User Assignment</th>
+                        </tr>
                     @endif
 
 

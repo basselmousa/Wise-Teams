@@ -13,23 +13,33 @@ use Illuminate\Http\Request;
 
 class TodoController extends Controller
 {
+
+    /**
+     * Show All Tasks
+     */
     public function index(Team $id)
     {
-        if ($id->manager_id != auth()->id()){
+        if ($id->manager_id != auth()->id()) {
             abort(401);
         }
-        $todos = $id->todos->where('done' , '=', false)->all();
+        $todos = $id->todos->where('done', '=', false)->all();
         return view('pages.Teams.Todo.todos', compact('todos', 'id'));
     }
 
+    /**
+     * Create New Task Form
+     */
     public function create(Team $id)
     {
-        if ($id->manager_id != auth()->id()){
+        if ($id->manager_id != auth()->id()) {
             abort(401);
         }
         return view('pages.Teams.Todo.new', compact('id'));
     }
 
+    /**
+     * Create New Task
+     */
     public function store(TodoRequest $request, Team $id)
     {
         try {
@@ -39,12 +49,15 @@ class TodoController extends Controller
             ]);
             auth()->user()->notify(new CreateTaskNotification($id->name, $id->manager->fullname));
             return redirect()->route('teams.todo.show', $id->id)->with('success', 'Your Task Created Successfully');
-        }catch (\Exception $exception){
+        } catch (\Exception $exception) {
             return redirect()->route('teams.todo.show', $id->id)->with('toast_error', $exception->getMessage());
 
         }
     }
 
+    /**
+     * Mark Task As Done
+     */
     public function markAsDone(Team $id, Todo $todo)
     {
         try {
@@ -54,29 +67,35 @@ class TodoController extends Controller
             ]);
             auth()->user()->notify(new MarkTaskAsDoneNotification($todo->task, $id->name));
             return back()->with('success', 'Your Task Is Done now');
-        }catch (\Exception $exception){
+        } catch (\Exception $exception) {
             return back()->with('toast_error', $exception->getMessage());
         }
     }
 
+    /**
+     * Show All Donned Tasks
+     */
     public function succeed(Team $id)
     {
-        if ($id->manager_id != auth()->id()){
+        if ($id->manager_id != auth()->id()) {
             abort(401);
         }
-        $todos = $id->todos->where('done' , '=', true)->all();
+        $todos = $id->todos->where('done', '=', true)->all();
         return view('pages.Teams.Todo.succeed', compact('todos', 'id'));
     }
 
+    /**
+     * Delete Specific Task
+     */
     public function destroy(Team $id, Todo $todo)
     {
-        if ($id->manager_id != auth()->id()){
+        if ($id->manager_id != auth()->id()) {
             abort(401);
         }
         try {
             $todo->delete();
             return back()->with('success', 'Your Task Is Deleted Successfully');
-        }catch (\Exception $exception){
+        } catch (\Exception $exception) {
             return back()->with('toast_error', $exception->getMessage());
         }
     }

@@ -7,10 +7,9 @@ use Illuminate\Http\Request;
 
 class AssignmentController extends Controller
 {
-
+    // show all assignments depends on auth user
     public function __invoke()
     {
-
         return view('pages.Assignments.assignments');
     }
 }

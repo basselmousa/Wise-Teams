@@ -11,10 +11,12 @@ use Illuminate\Support\Facades\Mail;
 class UploadAvatarController extends Controller
 {
 
-
+    /**
+     * Upload User Avatar
+     */
     public function uploadAvatar(ProfileAvatarRequest $request, User $id)
     {
-//        dd($request->all());
+
         if (auth()->user()->id != $id->id) {
             abort(401);
         }
@@ -32,7 +34,9 @@ class UploadAvatarController extends Controller
             return redirect()->route('profile.edit', $id->id)->with('toast_error', $e->getMessage());
         }
     }
-
+    /**
+     * Save Avatar In Storage
+     */
     public function getImagePath($img)
     {
         if ($img) {

@@ -13,6 +13,9 @@ use PhpParser\Node\Expr\Cast\Int_;
 
 class UploadedAssignmentsController extends Controller
 {
+    /**
+     *Show Uploaded Files For Specific Assignment
+     */
     public function index(Team $id, Assignment $assignments)
     {
         if ($id->manager_id != auth()->id() | $assignments->team_id != $id->id ) {
@@ -22,6 +25,9 @@ class UploadedAssignmentsController extends Controller
         return view('pages.Teams.Assignments.uploaded_assignments', compact('id', 'assignments'));
     }
 
+    /**
+     * Download Assignment File
+     */
     public function download(Team $id, Assignment $assignments, Request $request)
     {
         $file = Str::after($request->file_path, '.');
@@ -37,6 +43,9 @@ class UploadedAssignmentsController extends Controller
         }
     }
 
+    /**
+     * Garde User Assignment
+     */
     public function grade(Team $id, Assignment $assignments, GradeUserAssignmentRequest $request)
     {
 //        dd($assignments->points);

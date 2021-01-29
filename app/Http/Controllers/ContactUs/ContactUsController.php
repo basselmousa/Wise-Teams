@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Mail;
 class ContactUsController extends Controller
 {
 
+    // send contact message
     public function __invoke(ContactUsRequest $request)
     {
         Mail::to(config('mail.from.address'))->send(new ContactUsMail($request->email, $request->message));

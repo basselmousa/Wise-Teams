@@ -20,13 +20,11 @@ use Illuminate\Support\Facades\Notification;
 class TeamsAssignmentController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return Application|Factory|View|Response
+     * Show Assignments And User Grade
      */
     public function index(Team $id)
     {
-//        dd($id->assignments[0]->team);
+
         $assignments = $id->assignments;
         $grades = auth()->user()->assignments;
         $gradesArray = [];
@@ -38,14 +36,12 @@ class TeamsAssignmentController extends Controller
             $filesArray[$grade->pivot->assignment_id] = $grade->pivot->file_path;
         }
 
-//        dd($gradesArray);
+
         return view('pages.Teams.Assignments.assignments', compact('assignments', 'id', 'gradesArray', 'filesArray'));
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Application|Factory|View|Response
+     * Show Create Assignment Form
      */
     public function create(Team $id)
     {
@@ -56,10 +52,7 @@ class TeamsAssignmentController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * Create Assignment
      */
     public function store(TeamsAssignmentsRequest $request, Team $id)
     {
@@ -78,18 +71,6 @@ class TeamsAssignmentController extends Controller
                     $ass->ending_date->diffForHumans(),
                     $member->username
                 ));
-//                Notification::send($member->email, new TeamAssignmentNotification(
-//                    $id->name,
-//                        url('teams/' . $id->id . '/assignments/Member-Assignment/' . $ass->id),
-//                        $ass->ending_date->diffForHumans())
-//                );
-//                Mail::to($member->email)
-//                    ->send(new TeamAssignmentsEmail(
-//                            $id->name,
-//                            url('teams/' . $id->id . '/assignments/Member-Assignment/' . $ass->id),
-//                            $ass->ending_date->diffForHumans()
-//                        )
-//                    );
             }
             return redirect()->route('teams.assignments.index', $id->id)->with('success', 'Assignment Created Successfully');
         } catch (\Exception $e) {
@@ -98,10 +79,7 @@ class TeamsAssignmentController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return Application|Factory|View|Response
+     * Show Team Assignments
      */
     public function show(Team $id, Assignment $assignment)
     {
@@ -115,33 +93,7 @@ class TeamsAssignmentController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param int $id
-     * @return Response
-     */
-    public function update()
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
+     * Delete Assignment
      */
     public function destroy(Team $id, Assignment $assignment)
     {

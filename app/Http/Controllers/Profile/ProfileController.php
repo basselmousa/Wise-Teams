@@ -14,9 +14,7 @@ use Illuminate\Http\Request;
 class ProfileController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * Show profile page
      */
     public function show(User $id)
     {
@@ -25,14 +23,11 @@ class ProfileController extends Controller
 
 
     /**
-     * Display the specified resource.
-     *
-     * @param User $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * show Edit Profile Page
      */
     public function edit(User $id)
     {
-//        dd(auth()->user());
+
         if ($id->id != auth()->id()){
             abort(401);
         }
@@ -42,15 +37,10 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param UpdateProfileRequest $request
-     * @param User $id
-     * @return \Illuminate\Http\RedirectResponse
+     * Update User Profile
      */
     public function update(UpdateProfileRequest $request, User $id)
     {
-//        dd($request['status']);
         if ($id->id != auth()->id()){
             abort(401);
         }
@@ -66,10 +56,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param User $id
-     * @return \Illuminate\Http\RedirectResponse
+     * Delete User Profile
      */
     public function destroy(User $id)
     {
