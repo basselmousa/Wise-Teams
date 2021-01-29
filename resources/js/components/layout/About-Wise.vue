@@ -11,9 +11,9 @@
                 <div class="col-md-6 Info">
                     <h1 class="text-center">About Wise Teams</h1>
                     <animated-line></animated-line>
-                    <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda at atque beatae
-                        consectetur corporis cum dolor, doloremque, dolorum eius excepturi facilis illum incidunt ipsa
-                        iste nisi quidem recusandae rerum?</p>
+                    <p class="mt-4">"Wise Teams" or shorted by (WT), Online Learning and communication platform that oriented to Wise Students and instructors.
+                        It Enables them to Stay in connection throughout the educational stages, including learning and evaluation of the educational process.
+                    </p>
                 </div>
 
             </div>

@@ -5568,7 +5568,7 @@ __webpack_require__.r(__webpack_exports__);
         }).then(function (res) {
           $(".Chat-Box ").animate({
             scrollTop: 100000
-          }, 100000);
+          }, 100);
           return res;
         });
       }
@@ -75283,7 +75283,7 @@ var render = function() {
             _vm._v(" "),
             _c("p", { staticClass: "mt-4" }, [
               _vm._v(
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda at atque beatae\n                    consectetur corporis cum dolor, doloremque, dolorum eius excepturi facilis illum incidunt ipsa\n                    iste nisi quidem recusandae rerum?"
+                '"Wise Teams" or shorted by (WT), Online Learning and communication platform that oriented to Wise Students and instructors.\n                    It Enables them to Stay in connection throughout the educational stages, including learning and evaluation of the educational process.\n                '
               )
             ])
           ],
