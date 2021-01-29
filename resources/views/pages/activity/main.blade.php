@@ -7,7 +7,7 @@
     <section class="Assignments mt-5">
         <div class="row justify-content-center">
             <div class="col-10">
-                <table class="table table-striped">
+                <table class="table">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -20,8 +20,10 @@
                     </thead>
                     <tbody>
                     @php($i=0)
-                    <tr class="">
                         @foreach($notifications as $notification)
+                            <tr class="" style="background: @if (!$notification->read_at)
+                                #E1D5F9
+                            @endif" >
                             <th scope="row">{{ ++$i }}</th>
                             {{--                            <td>--}}
                             {{--                                <a href="{{ route('teams.assignments.show', [$assignment->team->id, $assignment->id]) }}">{{ $assignment->name }}</a>--}}
