@@ -56,25 +56,30 @@ class TeamsAssignmentController extends Controller
      */
     public function store(TeamsAssignmentsRequest $request, Team $id)
     {
-        try {
-            $ass = Assignment::create([
-                'team_id' => $id->id,
-                'name' => $request->name,
-                'question' => $request->questions,
-                'points' => $request->point,
-                'ending_date' => $request->date
-            ]);
-            foreach ($id->members as $member) {
-                $member->notify(new TeamAssignmentNotification(
-                    $id->name,
-                    url('teams/' . $id->id . '/assignments/Member-Assignment/' . $ass->id),
-                    $ass->ending_date->diffForHumans(),
-                    $member->username
-                ));
+        if ($id->manager_id == auth()->id()) {
+            try {
+                $ass = Assignment::create([
+                    'team_id' => $id->id,
+                    'name' => $request->name,
+                    'question' => $request->questions,
+                    'points' => $request->point,
+                    'ending_date' => $request->date
+                ]);
+                foreach ($id->members as $member) {
+                    $member->notify(new TeamAssignmentNotification(
+                        $id->name,
+                        url('teams/' . $id->id . '/assignments/Member-Assignment/' . $ass->id),
+                        $ass->ending_date->diffForHumans(),
+                        $member->username
+                    ));
+                }
+                return redirect()->route('teams.assignments.index', $id->id)->with('success', 'Assignment Created Successfully');
+            } catch (\Exception $e) {
+                return redirect()->route('teams.assignments.new', $id->id)->with('toast_error', $e->getMessage());
             }
-            return redirect()->route('teams.assignments.index', $id->id)->with('success', 'Assignment Created Successfully');
-        } catch (\Exception $e) {
-            return redirect()->route('teams.assignments.new', $id->id)->with('toast_error', $e->getMessage());
+        }
+        else{
+            abort(401);
         }
     }
 
@@ -85,7 +90,7 @@ class TeamsAssignmentController extends Controller
     {
         $user = $assignment->users;
         foreach ($id->members as $member) {
-            if ($member->id == auth()->id() || $id->manager_id == auth()->id()){
+            if ($member->id == auth()->id() || $id->manager_id == auth()->id()) {
                 return view('pages.Teams.Assignments.assignment_for_member', compact('assignment', 'user'));
             }
         }
@@ -97,7 +102,7 @@ class TeamsAssignmentController extends Controller
      */
     public function destroy(Team $id, Assignment $assignment)
     {
-        if ($id->manager_id != auth()->id()){
+        if ($id->manager_id != auth()->id()) {
             abort(401);
         }
         try {

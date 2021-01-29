@@ -13,17 +13,19 @@ class MeetingStartingNotification extends Notification
 
     private $userFullName;
     private $teamName;
+    private $manager;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($userFullName, $teamName)
+    public function __construct($userFullName, $teamName, $manager)
     {
 
         $this->userFullName = $userFullName;
         $this->teamName = $teamName;
+        $this->manager = $manager;
     }
 
     /**
@@ -61,7 +63,8 @@ class MeetingStartingNotification extends Notification
     {
         return [
             'username' => $this->userFullName,
-            'team' => $this->teamName
+            'team' => $this->teamName,
+            'manager' => $this->manager
         ];
     }
 }

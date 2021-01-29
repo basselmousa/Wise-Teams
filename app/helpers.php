@@ -14,6 +14,8 @@ if (!function_exists('getNameFromType')) {
                 return "Task Ended";
             case 'App\Notifications\AddNewMember':
                 return "Added To New Team";
+            case 'App\Notifications\MeetingStartingNotification':
+                return "Meeting Started";
             default:
                 return $type;
         }
@@ -69,9 +71,17 @@ if (!function_exists('getAddedMemberToTeam')) {
         return $member == auth()->user()->fullname ? "You Added To New team" : $member. " Added to New team";
     }
 }
+// get Manger Name That Press On Meeting Button
+if (!function_exists('getTeamManagerThatStartMeeting')) {
+    function getTeamManagerThatStartMeeting($teamName)
+    {
+        return $teamName . " Start Meeting";
+    }
+}
 
-if (!function_exists('getTeamJoinedTo')) {
-    function getTeamJoinedTo($team)
+// get team name from meeting notification
+if (!function_exists('getTeamBelongToAction')) {
+    function getTeamBelongToAction($team)
     {
         return "On Team ". $team;
     }
@@ -93,7 +103,8 @@ if (!function_exists('getFunctionTypeByDataPassed')) {
             case 'App\Notifications\Tasks\MarkTaskAsDoneNotification' :
                 return getTaskCreatedByTeam($data['team']);
             case 'App\Notifications\AddNewMember' :
-                return getTeamJoinedTo($data['team']);
+            case 'App\Notifications\MeetingStartingNotification' :
+                return getTeamBelongToAction($data['team']);
             default:
                 return 'Un Signed';
 
@@ -116,6 +127,8 @@ if (!function_exists('getNotificationActionByDataPassed')) {
                 return getCompletedTask($data['task']);
             case 'App\Notifications\AddNewMember' :
                 return getAddedMemberToTeam($data['member']);
+            case 'App\Notifications\MeetingStartingNotification' :
+                return getTeamManagerThatStartMeeting($data['manager']);
             default:
                 return 'Un Signed';
         }

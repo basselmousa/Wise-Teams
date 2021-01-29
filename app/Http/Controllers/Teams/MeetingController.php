@@ -23,7 +23,7 @@ class MeetingController extends Controller
         ]);
         $team = Team::find($request->teamid);
         foreach ($team->members as $member) {
-            $member->notify(new MeetingStartingNotification($member->fullname, $team->name));
+            $member->notify(new MeetingStartingNotification($member->fullname, $team->name, $team->manager->fullname));
         }
     }
 
