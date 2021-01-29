@@ -5383,6 +5383,8 @@ __webpack_require__.r(__webpack_exports__);
         console.log(_this.accessToken);
       })["catch"](function (error) {
         console.log(error);
+        alert('meeting ended by manager');
+        window.location.href = '/teams';
       }).then(function () {
         _this.connectToRoom();
       });
@@ -5418,9 +5420,19 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
+    var _this = this;
+
     this.getAccessToken();
     setInterval(function () {
       $('video').css('width', '250px');
+
+      var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+
+      axios.get('/teams/meeting/join/' + _this.teamid).then(function (response) {})["catch"](function (error) {
+        console.log(error);
+        alert("meeting ended by manager");
+        window.location.href = '/teams';
+      });
     }, 1000);
   }
 });
@@ -5515,6 +5527,10 @@ __webpack_require__.r(__webpack_exports__);
       };
 
       _this.posts.push(p);
+
+      $(".Chat-Box ").animate({
+        scrollTop: 100000
+      }, 100);
     });
   },
   methods: {
@@ -5566,9 +5582,6 @@ __webpack_require__.r(__webpack_exports__);
           teamid: this.teamid,
           post: this.post
         }).then(function (res) {
-          $(".Chat-Box ").animate({
-            scrollTop: 100000
-          }, 100);
           return res;
         });
       }

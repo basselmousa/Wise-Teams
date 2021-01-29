@@ -31,6 +31,8 @@ export default {
                 })
                 .catch(function (error) {
                     console.log(error);
+                    alert('meeting ended by manager');
+                    window.location.href = '/teams';
                 })
                 .then(function () {
                     _this.connectToRoom();
@@ -69,9 +71,21 @@ export default {
         }
     },
     mounted() {
+       const _this = this;
         this.getAccessToken();
         setInterval(function (){
             $('video').css('width','250px');
+            const axios = require('axios')
+            axios.get('/teams/meeting/join/'+_this.teamid)
+                .then(function (response) {
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    alert("meeting ended by manager");
+                    window.location.href = '/teams';
+                });
+
+
         },1000)
     }
 }
