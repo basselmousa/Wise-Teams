@@ -34,6 +34,7 @@ export default {
                     console.log(_this.accessToken)
                 })
                 .catch(function (error) {
+
                     console.log(error);
                 })
                 .then(function () {
