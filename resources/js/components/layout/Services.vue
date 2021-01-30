@@ -7,21 +7,17 @@
                 <div class="col-md-4">
                     <h1 class="text-center"><i class="fas fa-users"></i></h1>
                     <h2 class="text-center mb-4">Realtime Comunication</h2>
-                    <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aperiam dolore dolorum, enim
-                        ut velit!</p>
+                    <p class="text-center"></p>
                 </div>
                 <div class="col-md-4">
                     <h1 class="text-center"><i class="fas fa-folder"></i></h1>
                     <h2 class="text-center mb-4">File Sharing</h2>
-                    <p class="text-center">Lorem ipsum A doloremque eaque, ipsa ipsam
-                        repellendus sunt voluptatibus. Laborum, officia.</p>
+                    <p class="text-center"></p>
                 </div>
                 <div class="col-md-4">
                     <h1 class="text-center"><i class="fas fa-video"></i></h1>
                     <h2 class="text-center mb-4">Video Communication</h2>
-                    <p class="text-center">Lorem ipsum dolor sit amet, elit. Ad autem distinctio eaque facere hic
-                        illo maiores nis fugiat id
-                        qui rerum!</p>
+                    <p class="text-center"></p>
                 </div>
 
             </div>
